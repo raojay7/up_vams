@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	
+
+	<!-- 设置类型别名 -->
+	<typeAliases>
+
+		<!--<typeAlias type="com.cxspace.supplier.entity.Supplier" alias="Supplier"/>-->
+
+		<!--<typeAlias type="com.data_analyze.core.entity.Page" alias="page"></typeAlias>-->
+
+		<!--&lt;!&ndash;整个包下的类名做别名&ndash;&gt;-->
+		<!--<package name="com.cxspace.supplier.entity"/>-->
+
+		<!--<package name="com.cxspace.test.entity"/>-->
+		<!--&lt;!&ndash;<package name="com.cxspace.supplier.entity"/>&ndash;&gt;-->
+
+		<!--<typeAlias type="com.data_analyze.teacher.entity.Teacher" alias="Teacher"/>-->
+
+		<!--<typeAlias type="com.data_analyze.account.entity.Account" alias="Account"/>-->
+
+		<!--<typeAlias type="com.data_analyze.test.entity.Dept" alias="Dept"/>-->
+
+		<!--<typeAlias type="com.data_analyze.paper.entity.Paper" alias="Paper"/>-->
+
+	</typeAliases>
+
+
+	<mappers>
+
+		<!--<mapper resource="com/data_analyze/account/dao/AccountMapper.xml"/>-->
+
+		<!--<mapper resource="com/data_analyze/test/dao/DeptMapper.xml"/>-->
+	</mappers>
+
+</configuration>

@@ -1,0 +1,97 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+
+
+
+
+     <!-- 采用c3p0连接池，预先把c3p0的jar包复制到工程目录下 -->
+     
+     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+          
+          <property name="driverClass" value="com.mysql.jdbc.Driver" />
+      
+          <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/data_analyze?characterEncoding=utf8"/>
+          
+          <property name="user" value="root"/>
+          
+          <property name="password" value="root"/>
+
+     </bean>
+
+
+     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+         <!-- dataSource要指定用到的连接池 -->
+         <property name="dataSource" ref="dataSource"></property>
+
+         <!-- configLocation指定mybatis核心配置文件路径 -->
+         <property name="configLocation" value="classpath:myBatisConfig.xml"></property>
+
+         <!-- 所有mapper文件 -->
+         <property name="mapperLocations">
+             <list>
+                 <!--<value>classpath:com/data_analyze/account/dao/AccountMapper.xml</value>-->
+             </list>
+         </property>
+
+     </bean>
+
+    <!-- 事务管理 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--事务配置-->
+
+    <tx:advice id="advice" transaction-manager="transactionManager">
+
+        <tx:attributes>
+            <tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+            <tx:method name="*" propagation="SUPPORTS"/>
+        </tx:attributes>
+
+    </tx:advice>
+
+    <!--切入配置 ..表示每个模块的包名 -->
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="advice" pointcut="execution(* com.data_analyze.*.service.impl.*.*(..))"/>-->
+    <!--</aop:config>-->
+
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!--<context:component-scan base-package="com.cxspace"/>-->
+
+    <!-- 自动扫描组件，要把controller去除，它是在spring-mvc.xml中配置，如果不去除会影响事务管理。 -->
+    <!--扫描com.cxspace下所有类,但是不扫Controller-->
+
+    <!--<context:component-scan base-package="com.data_analyze">-->
+        <!--<context:exclude-filter type="annotation"-->
+                                <!--expression="org.springframework.stereotype.Controller" />-->
+    <!--</context:component-scan>-->
+
+    <!-- 配置 转换器，对于在basePackage设置的包（包括子包）下的接口类，
+    如果接口类的全类名在Mapper.xml文件中和定义过命名空间一致，
+     将被转换成spring的BEAN，在调用
+        的地方通过@Autowired方式将可以注入接口实例 -->
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <property name="basePackage" value="com.data_analyze.*.dao" />
+    </bean>
+
+</beans>
