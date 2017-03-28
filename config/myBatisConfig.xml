@@ -8,9 +8,6 @@
 	<!-- 设置类型别名 -->
 	<typeAliases>
 
-		<!--<typeAlias type="com.cxspace.supplier.entity.Supplier" alias="Supplier"/>-->
-
-		<!--<typeAlias type="com.data_analyze.core.entity.Page" alias="page"></typeAlias>-->
 
 		<!--&lt;!&ndash;整个包下的类名做别名&ndash;&gt;-->
 		<!--<package name="com.cxspace.supplier.entity"/>-->
@@ -26,12 +23,21 @@
 
 		<!--<typeAlias type="com.data_analyze.paper.entity.Paper" alias="Paper"/>-->
 
+
+		<!--
+                通过package, 可以直接指定package的名字， mybatis会自动扫描你指定包下面的javabean,
+              并且默认设置一个别名，默认的名字为非限定类名来作为它的别名。'
+              最好别加通配符
+               -->
+
+		<package name="com.up_vams.user.entity"/>
 	</typeAliases>
 
 
+	<!--配置mapper扫描映射文件，在applicationcontext中已经用了mapper扫描器，这里可以不用写了-->
 	<mappers>
 
-		<!--<mapper resource="com/data_analyze/account/dao/AccountMapper.xml"/>-->
+		<!--<mapper resource="com/up_vams/user/dao/UserMapper.xml"/>-->
 
 		<!--<mapper resource="com/data_analyze/test/dao/DeptMapper.xml"/>-->
 	</mappers>

@@ -19,22 +19,35 @@
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-        <!--启动了json格式支持-->
-        <mvc:annotation-driven>
+    <!--启动了json格式支持-->
+    <mvc:annotation-driven/>
 
-        </mvc:annotation-driven>
+    <!--扫描所有controller,但是不扫描service-->
+    <context:component-scan base-package="com.up_vams">
 
-        <!--<context:component-scan base-package="com.cxspace"></context:component-scan>-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 
-        <!--扫描所有controller,但是不扫描service-->
-        <!--<context:component-scan base-package="com.data_analyze">-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 
-            <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-
-            <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
-
-        <!--</context:component-scan>-->
+    </context:component-scan>
 
 
- </beans>           
+    <!-- annotation-driven:默认创建了多个对象：RequestMappingHandlerMapping，RequestMappingHandlerAdapter
+    也就提供对json格式支持
+ -->
+    <mvc:annotation-driven/>
+
+
+    <!-- 配置sprigmvc视图解析器：解析逻辑试图 后台返回逻辑试图：index 视图解析器解析出真正物理视图：前缀+逻辑试图+后缀====/WEB-INF/jsps/index.jsp -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsps/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--&lt;!&ndash; 文件上传解析器 但是现在不能用会报错&ndash;&gt;-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">&ndash;&gt;-->
+        <!--<property name="maxUploadSize" value="10240000"/>-->
+    <!--</bean>-->
+
+</beans>
             
