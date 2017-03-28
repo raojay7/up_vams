@@ -150,5 +150,6 @@
         <jarDirectory url="file://$MODULE_DIR$/lib/springmvc4.2.4" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.76" level="application_server_libraries" />
   </component>
 </module>
