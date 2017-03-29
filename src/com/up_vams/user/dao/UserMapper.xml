@@ -27,7 +27,7 @@
   </insert>
 
 
-  <select id="login" parameterType="User" resultType="user">
+  <select id="login" parameterType="User" resultMap="userResultMap">
      SELECT user_id , user_name ,user_password, user_email, user_phone, user_image, gender, score, user_address  FROM  t_user WHERE user_email=#{userEmail} AND user_password=#{userPassword};
   </select>
 </mapper>
