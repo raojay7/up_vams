@@ -144,17 +144,17 @@
                   <div class="fh5co-spacer fh5co-spacer-xs"></div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                  <form action="#" method="post">
+                  <form action="${basePath}user/login.do" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name" class="sr-only">邮箱号</label>
-                        <input placeholder="Email@example.com" id="name" type="text" class="form-control input-lg">
+                        <input placeholder="Email@example.com" id="name"  name="userEmail" type="text" class="form-control input-lg">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="password" class="sr-only">用户密码</label>
-                        <input placeholder="输入密码" id="password" type="password" class="form-control input-lg">
+                        <input placeholder="输入密码" id="password" name="userPassword" type="password" class="form-control input-lg">
                       </div>
                     </div>
 
