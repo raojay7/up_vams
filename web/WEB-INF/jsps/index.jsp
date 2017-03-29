@@ -67,22 +67,22 @@
           <div class="navbar-header"> 
             <!-- Mobile Toggle Menu Button -->
             <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-            <a class="navbar-brand" href="index.html">主页</a>
+            <a class="navbar-brand" href="${basePath}home/index.do">主页</a>
           </div>
           <div id="fh5co-navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="user_photo.html">个人中心</a></li>
+              <li><a href="${basePath}user/photo.do">个人中心</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
               <li>
 
-                <a class="btn btn-outline" href="search_school.html">搜索我的学校</a>
+                <a class="btn btn-outline" href="${basePath}school/search.do">搜索我的学校</a>
 
               </li>
               <li>&nbsp;&nbsp;</li>
 
-              <li><a class="btn btn-outline" href="user_login.html">登录</a></li>
+              <li><a class="btn btn-outline" href="${basePath}user/login.do">登录</a></li>
 
               <!--<li><a href="#" class="btn btn-calltoaction btn-primary">快速注册</a></li>-->
             </ul>

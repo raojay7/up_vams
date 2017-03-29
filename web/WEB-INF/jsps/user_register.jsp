@@ -144,7 +144,7 @@
                   <div class="fh5co-spacer fh5co-spacer-xs"></div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                  <form action="index.html" method="post">
+                  <form action="${basePath}home/index.do" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name" class="sr-only">邮箱号</label>

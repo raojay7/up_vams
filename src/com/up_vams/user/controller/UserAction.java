@@ -10,10 +10,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserAction
 {
-    @RequestMapping("index")
-    public String toIndex()
+
+    //页面跳转逻辑
+    @RequestMapping("login")
+    public String toLoginUI()
     {
-        return "index";
+        return "user_login";
     }
 
+    @RequestMapping("photo")
+    public String toPhotoUI()
+    {
+        return "user_photo";
+    }
+
+    @RequestMapping("school")
+    public String toSchoolUI()
+    {
+        return "user_school";
+    }
+
+
+    @RequestMapping("profile")
+    public String toProfileUI()
+    {
+        return "user_profile";
+    }
+
+    @RequestMapping("friend")
+    public String toFriendUI()
+    {
+        return "user_friend";
+    }
+
+    @RequestMapping("friend/recommend")
+    public String toFriendRecommendUI()
+    {
+        return "user_friend_recommend";
+    }
+
+    @RequestMapping("register")
+    public String toRegisterUI()
+    {
+        return "user_register";
+    }
 }
