@@ -1,6 +1,9 @@
 package com.up_vams.user.service.impl;
 
+import com.up_vams.user.dao.UserMapper;
+import com.up_vams.user.entity.User;
 import com.up_vams.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,5 +12,12 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 public class UserServiceImpl implements UserService
 {
+    @Autowired
+    private UserMapper userMapper;
 
+    @Override
+    public void register(User user)
+    {
+        userMapper.register(user);
+    }
 }

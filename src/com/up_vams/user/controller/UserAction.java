@@ -1,7 +1,9 @@
 package com.up_vams.user.controller;
 
+import com.up_vams.user.entity.User;
 import com.up_vams.user.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -63,14 +65,19 @@ public class UserAction
 
     //注册
     @RequestMapping("register")
-    public String register(String password1)
+    public String register(User user,String password1)
     {
-        if (password==password1)
+        if (!StringUtils.isEmpty(user))
         {
-            userService.register();
+            if (user.getUserPassword()==password1)
+            {
+                userService.register(user);
+            }
         }
         return "redirect:/home/index";
     }
+
+
 
 
 
