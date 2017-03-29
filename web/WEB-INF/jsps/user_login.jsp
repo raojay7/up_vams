@@ -165,7 +165,7 @@
                         <br>
                         <br>
 
-                        <a href="${basePath}user/register.do" class="btn btn-outline btn-md">还没有账号？快速注册一个吧!</a>
+                        <a href="${basePath}user/registerUI.do" class="btn btn-outline btn-md">还没有账号？快速注册一个吧!</a>
                       </div>
                     </div>
 
