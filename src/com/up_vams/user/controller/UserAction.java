@@ -78,6 +78,7 @@ public class UserAction
         return "redirect:/home/index.do";
     }
 
+    @RequestMapping("login")
     public String login(User user,HttpSession httpSession)
     {
         if (!StringUtils.isEmpty(user))
@@ -88,7 +89,7 @@ public class UserAction
                 httpSession.setAttribute("user",user1);
             }
         }
-        return "forward:/home/index.do";
+        return "forward:/user/profileUI.do";
     }
 
 

@@ -64,11 +64,11 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 
-						<li class="fh5co-active"><a href="user_photo.html">我收藏的图片</a></li>
-						<li><a href="user_school.html">我收藏的学校</a></li>
-						<li><a href="user_profile.html">账户信息</a></li>
-						<li><a href="user_friend.html">我关注的神友</a></li>
-						<li><a href="user_friend_recommend.html">神友的推荐</a></li>
+					<li class="fh5co-active"><a href="${basePath}user/photoUI.do">我收藏的图片</a></li>
+					<li><a href="${basePath}user/schoolUI.do">我收藏的学校</a></li>
+					<li><a href="${basePath}user/profileUI.do">账户信息</a></li>
+					<li><a href="${basePath}user/friendUI.do">我关注的神友</a></li>
+					<li><a href="${basePath}user/friend/recommendUI.do">神友的推荐</a></li>a href="user_friend_recommend.html">神友的推荐</a></li>
 
 				</ul>
 			</nav>

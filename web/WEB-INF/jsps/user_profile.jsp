@@ -68,11 +68,11 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 
-						<li><a href="user_photo.html">我收藏的图片</a></li>
-						<li><a href="user_school.html">我收藏的学校</a></li>
-						<li class="fh5co-active"><a href="user_profile.html">账户信息</a></li>
-						<li><a href="user_friend.html">我关注的神友</a></li>
-						<li><a href="user_friend_recommend.html">神友的推荐</a></li>
+					<li class="fh5co-active"><a href="${basePath}user/photoUI.do">我收藏的图片</a></li>
+					<li><a href="${basePath}user/schoolUI.do">我收藏的学校</a></li>
+					<li><a href="${basePath}user/profileUI.do">账户信息</a></li>
+					<li><a href="${basePath}user/friendUI.do">我关注的神友</a></li>
+					<li><a href="${basePath}user/friend/recommendUI.do">神友的推荐</a></li>
 
 				</ul>
 			</nav>
@@ -99,7 +99,7 @@
 						<div class="col-md-12">
 							<div class="page-header">
 								<h1>账户信息
-									<small>- cxspace</small>
+									<small>- ${sessionScope.user.userEmail}</small>
 								</h1>
 							</div>
 						</div>
@@ -115,7 +115,7 @@
 									<div class="media-body">
 										<h4 class="media-heading"></h4>
 										<p>
-											<span class="glyphicon glyphicon-tag" style="color: rgb(159, 192, 100); font-size: 29px;"></span>&nbsp;昵称: 张三 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<span class="glyphicon glyphicon-tag" style="color: rgb(159, 192, 100); font-size: 29px;"></span>&nbsp;昵称: ${sessionScope.user.userName} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											<!--
                                             按钮触发模态框 -->
 											<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeName">修改</button>
@@ -152,7 +152,7 @@
 									<div class="media-body">
 										<h4 class="media-heading"></h4>
 										<p>
-											<span class="glyphicon glyphicon-user" style="color: rgb(159, 192, 100); font-size: 29px;"></span>&nbsp;账号: 123456567 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+											<span class="glyphicon glyphicon-user" style="color: rgb(159, 192, 100); font-size: 29px;"></span>&nbsp;账号: ${sessionScope.user.userEmail} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 									</div>
 								</li>
 								<li class="media">
