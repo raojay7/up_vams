@@ -15,7 +15,7 @@
 
 
   <insert id="register" parameterType="User">
-    <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="userId">
+    <selectKey resultType="string" order="BEFORE" keyProperty="userId">
       SELECT REPLACE(UUID(),'-','')
     </selectKey>
     insert into t_user (user_id, user_name, user_email,
@@ -28,6 +28,6 @@
 
 
   <select id="login" parameterType="User" resultType="user">
-     SELECT user_id , user_name ,user_password, user_email, user_phone, user_image, gender, score, user_address  FROM  t_user WHERE user_name=#{userName} AND user_password=#{userPassword};
+     SELECT user_id , user_name ,user_password, user_email, user_phone, user_image, gender, score, user_address  FROM  t_user WHERE user_email=#{userEmail} AND user_password=#{userPassword};
   </select>
 </mapper>
