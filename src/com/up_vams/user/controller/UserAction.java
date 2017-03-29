@@ -7,6 +7,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by 隽 on 2017/3/28.
@@ -69,13 +70,28 @@ public class UserAction
     {
         if (!StringUtils.isEmpty(user))
         {
-            if (user.getUserPassword()==password1)
+            if (user.getUserPassword().equals(password1))
             {
                 userService.register(user);
             }
         }
-        return "redirect:/home/index";
+        return "redirect:/home/index.do";
     }
+
+    public String login(User user,HttpSession httpSession)
+    {
+        if (!StringUtils.isEmpty(user))
+        {
+            User user1 = userService.login(user);
+            if (user1!=null)
+            {
+                httpSession.setAttribute("user",user1);
+            }
+        }
+        return "forward:/home/index.do";
+    }
+
+
 
 
 

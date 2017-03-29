@@ -62,11 +62,11 @@
       <div class="navbar-header">
         <!-- Mobile Toggle Menu Button -->
         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-        <a class="navbar-brand" href="index.html">主页</a>
+        <a class="navbar-brand" href="${basePath}home/indexUI.do">主页</a>
       </div>
       <div id="fh5co-navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="user_photo.html">个人中心</a></li>
+          <li><a href="${basePath}user/photoUIUI.do">个人中心</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
@@ -144,17 +144,17 @@
                   <div class="fh5co-spacer fh5co-spacer-xs"></div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                  <form action="${basePath}home/register.do" method="post">
+                  <form action="${basePath}user/register.do" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name" class="sr-only">邮箱号</label>
-                        <input placeholder="Email@example.com" name="email" id="name" type="text" class="form-control input-lg">
+                        <input placeholder="Email@example.com" name="userEmail" id="name" type="text" class="form-control input-lg">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="password" class="sr-only">用户密码</label>
-                        <input placeholder="输入密码" id="password" name="password" type="password" class="form-control input-lg">
+                        <input placeholder="输入密码" id="password" name="userPassword" type="password" class="form-control input-lg">
                       </div>
                     </div>
 
