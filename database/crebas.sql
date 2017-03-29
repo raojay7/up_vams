@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/3/27 20:27:48                           */
+/* Created on:     2017/3/29 19:55:41                           */
 /*==============================================================*/
 
 
@@ -117,6 +117,7 @@ create table t_user
    user_image           varchar(50),
    gender               int,
    score                int,
+   user_password        varchar(20),
    primary key (user_id)
 );
 

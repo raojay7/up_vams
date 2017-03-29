@@ -144,24 +144,24 @@
                   <div class="fh5co-spacer fh5co-spacer-xs"></div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                  <form action="${basePath}home/index.do" method="post">
+                  <form action="${basePath}home/register.do" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name" class="sr-only">邮箱号</label>
-                        <input placeholder="Email@example.com" id="name" type="text" class="form-control input-lg">
+                        <input placeholder="Email@example.com" name="email" id="name" type="text" class="form-control input-lg">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="password" class="sr-only">用户密码</label>
-                        <input placeholder="输入密码" id="password" type="password" class="form-control input-lg">
+                        <input placeholder="输入密码" id="password" name="password" type="password" class="form-control input-lg">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="password1" class="sr-only">用户密码</label>
-                        <input placeholder="确认密码" id="password1" type="password" class="form-control input-lg">
+                        <input placeholder="确认密码" id="password1" name="password1" type="password" class="form-control input-lg">
                       </div>
                     </div>
 
