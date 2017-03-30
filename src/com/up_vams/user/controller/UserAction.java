@@ -93,6 +93,16 @@ public class UserAction
     }
 
 
+    @RequestMapping("update")
+    public String update(User user)
+    {
+        if (!StringUtils.isEmpty(user))
+        {
+            userService.update(user);
+        }
+        return "forward:/user/profileUI.do";
+    }
+
 
 
 
