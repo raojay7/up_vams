@@ -3,23 +3,42 @@ package com.up_vams.user.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+
+    private static final long serialVersionUID = -8675287919386683759L;
+
+    //用户ID
     private String userId;
 
+    //用户名
     private String userName;
 
+    //用户密码
     private String userPassword;
 
+    //用户邮箱
     private String userEmail;
 
+    //用户手机号
     private String userPhone;
 
-    private String userImage;
-
+    //用户性别
     private Integer gender;
 
+    //用户地址
+    private String userAddress;
+
+    //用户头像
+    private String userImage;
+
+    //用户积分
     private Integer score;
 
-    private String userAddress;
+
+
+
+
+
 
 
 
