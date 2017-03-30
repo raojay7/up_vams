@@ -26,15 +26,15 @@
         <!--处理3 
           targetPackage指定模型在生成在哪个包 ,targetProject指定项目的src,-->        
 		<javaModelGenerator targetPackage="com.up_vams.user.entity"
-			targetProject="up_vams1/test">
+			targetProject="up_vams/src">
 			<!-- 去除字段前后空格 -->
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 		<!--处理4   配置SQL映射文件生成信息 -->
 		<sqlMapGenerator targetPackage="com.up_vams.user.dao"
-			targetProject="up_vams1/test" />
+			targetProject="up_vams/src" />
 		<!-- 处理5   配置dao接口生成信息-->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.up_vams.user.dao" targetProject="up_vams1/test" />
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.up_vams.user.dao" targetProject="up_vams/src" />
 <!-- 
 		<table tableName="account" domainObjectName="Account"/>			
 		<table tableName="supplier" domainObjectName="Supplier"/> 
