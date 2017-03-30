@@ -30,38 +30,38 @@ public class UserAction
     @RequestMapping("photoUI")
     public String toPhotoUI()
     {
-        return "redirect:user_photo";
+        return "user_photo";
     }
 
     @RequestMapping("schoolUI")
     public String toSchoolUI()
     {
-        return "redirect:user_school";
+        return "user_school";
     }
 
 
     @RequestMapping("profileUI")
     public String toProfileUI()
     {
-        return "redirect:user_profile";
+        return "user_profile";
     }
 
     @RequestMapping("friendUI")
     public String toFriendUI()
     {
-        return "redirect:user_friend";
+        return "user_friend";
     }
 
     @RequestMapping("friend/recommendUI")
     public String toFriendRecommendUI()
     {
-        return "redirect:user_friend_recommend";
+        return "user_friend_recommend";
     }
 
     @RequestMapping("registerUI")
     public String toRegisterUI()
     {
-        return "redirect:user_register";
+        return "user_register";
     }
 
     //注册
