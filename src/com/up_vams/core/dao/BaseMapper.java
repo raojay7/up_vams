@@ -16,6 +16,9 @@ public interface BaseMapper<T> {
     //查询对象
     T select(T t);
 
+    //通过主键查询对象
+    T selectByPK(String pk);
+
     //修改对象
     int update(T t);
 
