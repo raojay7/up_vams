@@ -75,7 +75,7 @@
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
     <aside id="fh5co-aside" role="complementary" class="border">
 
-        <h1 id="fh5co-logo"><a href="index.html"><img src="${basePath}lib_one/images/logo_back.png"
+        <h1 id="fh5co-logo"><a href="${basePath}home/index.do"><img src="${basePath}lib_one/images/logo_back.png"
                                                       alt="Free HTML5 Bootstrap Website Template"></a></h1>
         <nav id="fh5co-main-menu" role="navigation">
             <ul>
@@ -156,12 +156,14 @@
                                                             <label class="control-label" for="newName">新昵称</label>
                                                             <input class="form-control" id="newName" name="userName"
                                                                    placeholder="输入新昵称" type="text">
+                                                            <input hidden name="userId" value="${sessionScope.user.userId}">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default"
                                                                 data-dismiss="modal">关闭
                                                         </button>
+
                                                         <button type="submit" class="btn btn-primary">提交更改</button>
                                                     </div>
                                                 </div>
@@ -217,6 +219,7 @@
                                                         <div class="form-group">
                                                             <label class="control-label" for="newImg">选择新头像</label>
                                                             <input class="form-control" id="newImg" type="file">
+                                                            <input hidden name="userId" value="${sessionScope.user.userId}">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -284,7 +287,7 @@
                                                                    value="1">男
                                                         </label>
                                                     </div>
-
+                                                    <input hidden name="userId" value="${sessionScope.user.userId}">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">

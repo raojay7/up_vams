@@ -30,38 +30,38 @@ public class UserAction
     @RequestMapping("photoUI")
     public String toPhotoUI()
     {
-        return "user_photo";
+        return "redirect:user_photo";
     }
 
     @RequestMapping("schoolUI")
     public String toSchoolUI()
     {
-        return "user_school";
+        return "redirect:user_school";
     }
 
 
     @RequestMapping("profileUI")
     public String toProfileUI()
     {
-        return "user_profile";
+        return "redirect:user_profile";
     }
 
     @RequestMapping("friendUI")
     public String toFriendUI()
     {
-        return "user_friend";
+        return "redirect:user_friend";
     }
 
     @RequestMapping("friend/recommendUI")
     public String toFriendRecommendUI()
     {
-        return "user_friend_recommend";
+        return "redirect:user_friend_recommend";
     }
 
     @RequestMapping("registerUI")
     public String toRegisterUI()
     {
-        return "user_register";
+        return "redirect:user_register";
     }
 
     //注册
@@ -72,7 +72,7 @@ public class UserAction
         {
             if (user.getUserPassword().equals(password1))
             {
-                userService.register(user);
+                userService.insert(user);
             }
         }
         return "redirect:/home/index.do";
@@ -83,7 +83,7 @@ public class UserAction
     {
         if (!StringUtils.isEmpty(user))
         {
-            User user1 = userService.login(user);
+            User user1 = userService.select(user);
             if (user1!=null)
             {
                 httpSession.setAttribute("user",user1);
@@ -94,13 +94,14 @@ public class UserAction
 
 
     @RequestMapping("update")
-    public String update(User user)
+    public String update(User user,HttpSession httpSession)
     {
         if (!StringUtils.isEmpty(user))
         {
             userService.update(user);
+            httpSession.setAttribute("user",user);
         }
-        return "forward:/user/profileUI.do";
+        return "redirect:/user/profileUI.do";
     }
 
 

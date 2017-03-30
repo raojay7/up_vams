@@ -18,52 +18,38 @@ public class UserServiceImpl implements UserService
     private UserMapper userMapper;
 
     @Override
-    public void register(User user)
+    public int insert(User entity)
     {
-        userMapper.register(user);
+        return userMapper.insert(entity);
     }
 
     @Override
-    public User login(User user)
+    public int update(User entity)
     {
-        User user1 =userMapper.login(user);
-
-        return user1;
+        return userMapper.update(entity);
     }
 
     @Override
-    public void insert(User entity)
+    public int delete(User entity)
     {
-
-    }
-
-    @Override
-    public void update(User entity)
-    {
-
-    }
-
-    @Override
-    public void delete(User entity)
-    {
-
+        return userMapper.delete(entity);
     }
 
     @Override
     public User select(User entity)
     {
-        return null;
+        return userMapper.select(entity);
     }
 
     @Override
     public List<User> select(String keyword)
     {
-        return null;
+        return userMapper.selectList(keyword);
     }
 
     @Override
     public List<User> select()
     {
-        return null;
+        return userMapper.selectAll();
     }
 }

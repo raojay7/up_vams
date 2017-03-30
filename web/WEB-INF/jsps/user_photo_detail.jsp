@@ -60,7 +60,7 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border">
 
-			<h1 id="fh5co-logo"><a href="user_photo.html"><img src="${basePath}lib_two/images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
+			<h1 id="fh5co-logo"><a href="${basePath}user/photo.do"><img src="${basePath}lib_two/images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 
