@@ -52,4 +52,10 @@ public class UserServiceImpl implements UserService
     {
         return userMapper.selectAll();
     }
+
+    @Override
+    public User selectByPK(String pk)
+    {
+        return userMapper.selectByPK(pk);
+    }
 }

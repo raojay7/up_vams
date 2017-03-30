@@ -19,11 +19,14 @@ public interface BaseService<T>
     //查询单个对象
     T select(T entity);
 
-    //模糊查询多个用户
+    //模糊查询多个对象
     List<T> select(String keyword);
 
-    //查询所有用户
+    //查询所有对象
     List<T> select();
+
+    //根据id查找对象
+    T selectByPK(String pk);
 
     //分页查询
 

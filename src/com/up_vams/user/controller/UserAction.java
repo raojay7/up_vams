@@ -99,7 +99,8 @@ public class UserAction
         if (!StringUtils.isEmpty(user))
         {
             userService.update(user);
-            httpSession.setAttribute("user",user);
+            User user1 = userService.selectByPK(user.getUserId());
+            httpSession.setAttribute("user",user1);
         }
         return "redirect:/user/profileUI.do";
     }
