@@ -92,6 +92,12 @@ public class UserAction
         return "forward:/user/profileUI.do";
     }
 
+    @RequestMapping("logout")
+    public String logout(HttpSession httpSession)
+    {
+        httpSession.removeAttribute("user");
+        return "redirect:/home/index.do";
+    }
 
     @RequestMapping("update")
     public String update(User user,HttpSession httpSession)

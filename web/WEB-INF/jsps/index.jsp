@@ -86,6 +86,7 @@
                     <c:if test="${sessionScope.user!=null}">
                         <li>
                             <div class="btn btn-outline">${sessionScope.user.userName}</div>
+                            <a class="btn btn-outline" href="${basePath}user/logout.do">注销</a>
                         </li>
                     </c:if>
 
