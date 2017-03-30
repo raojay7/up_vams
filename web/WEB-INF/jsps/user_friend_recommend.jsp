@@ -67,7 +67,7 @@
 					<li><a href="${basePath}user/schoolUI.do">我收藏的学校</a></li>
 					<li><a href="${basePath}user/profileUI.do">账户信息</a></li>
 					<li><a href="${basePath}user/friendUI.do">我关注的神友</a></li>
-					<li><a href="${basePath}user/friend/recommendUI.do">神友的推荐</a>></li>
+					<li><a href="${basePath}user/friend/recommendUI.do">神友的推荐</a></li>
 				</ul>
 			</nav>
 

@@ -69,11 +69,11 @@
                 <!-- Mobile Toggle Menu Button -->
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse"
                    data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                <a class="navbar-brand" href="${basePath}home/indexUI.do">主页</a>
+                <a class="navbar-brand" href="${basePath}home/index.do">主页</a>
             </div>
             <div id="fh5co-navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="${basePath}user/photoUIUI.do">个人中心</a></li>
+                    <li><a href="${basePath}user/photoUI.do">个人中心</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
