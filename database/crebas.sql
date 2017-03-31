@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/3/29 19:55:41                           */
+/* Created on:     2017/3/31 21:02:55                           */
 /*==============================================================*/
 
 
@@ -101,6 +101,8 @@ create table t_school
    photo_count          int,
    racking              int,
    school_id            varchar(32) not null,
+   pinyin               varchar(40),
+   pinyin_header        varchar(30),
    primary key (school_id)
 );
 

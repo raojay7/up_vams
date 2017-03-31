@@ -64,11 +64,14 @@
             if(password!=password1)
             {
                 alert("两次密码不一样！");
-                return
+                password.focus();
+                return false;
             }
             if(email.trim().length<=0||email==null)
             {
                 alert("邮箱不能为空！");
+                email.focus();
+                return false;
             }
             document.forms[0].submit();
 
@@ -192,7 +195,7 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="button" class="btn btn-primary btn-lg" onclick="user_register"
+                                            <input type="button" class="btn btn-primary btn-lg" onclick="user_register()"
                                                    value="注册">
                                             <br>
                                             <br>
