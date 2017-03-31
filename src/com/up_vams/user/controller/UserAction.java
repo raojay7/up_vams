@@ -70,10 +70,7 @@ public class UserAction
     {
         if (!StringUtils.isEmpty(user))
         {
-            if (user.getUserPassword().equals(password1))
-            {
-                userService.insert(user);
-            }
+            userService.insert(user);
         }
         return "redirect:/home/index.do";
     }
