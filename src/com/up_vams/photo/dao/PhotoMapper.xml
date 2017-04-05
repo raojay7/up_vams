@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.up_vams.photo.dao.PhotoMapper" >
-  <resultMap id="PhotoResultMap" type="Photo" >
-    <id column="photo_id" property="photoId" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="latitude" property="latitude" jdbcType="DECIMAL" />
-    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
-    <result column="view_num" property="viewNum" jdbcType="INTEGER" />
-    <result column="like_num" property="likeNum" jdbcType="INTEGER" />
-    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+<mapper namespace="com.up_vams.photo.dao.PhotoMapper">
+    <resultMap id="PhotoResultMap" type="Photo">
+        <id column="photo_id" property="photoId" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="latitude" property="latitude" jdbcType="DECIMAL"/>
+        <result column="longitude" property="longitude" jdbcType="DECIMAL"/>
+        <result column="view_num" property="viewNum" jdbcType="INTEGER"/>
+        <result column="like_num" property="likeNum" jdbcType="INTEGER"/>
+        <result column="creator_id" property="creatorId" jdbcType="VARCHAR"/>
 
-  </resultMap>
-  <resultMap id="PhotoResultMapWithBLOBs" type="Photo" extends="PhotoResultMap" >
-    <result column="introduction" property="introduction" jdbcType="LONGVARCHAR" />
-  </resultMap>
+    </resultMap>
+    <resultMap id="PhotoResultMapWithBLOBs" type="Photo" extends="PhotoResultMap">
+        <result column="introduction" property="introduction" jdbcType="LONGVARCHAR"/>
+    </resultMap>
 
 
+    <insert id="insert" parameterType="Photo">
+      INSERT INTO t_photo (photo_id, name, title,
+      latitude, longitude, creator_id, introduction
+      )
+    VALUES (#{photoId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL}, #{creatorId,jdbcType=VARCHAR}, #{introduction,jdbcType=LONGVARCHAR}
+      )
+    </insert>
 </mapper>

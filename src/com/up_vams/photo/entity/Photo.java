@@ -8,6 +8,8 @@ public class Photo implements Serializable{
 
     private String photoId;
 
+
+
     private String name;
 
     private String title;
