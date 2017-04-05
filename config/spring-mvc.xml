@@ -44,10 +44,10 @@
         <property name="prefix" value="/WEB-INF/jsps/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    <!--&lt;!&ndash; 文件上传解析器 但是现在不能用会报错&ndash;&gt;-->
-    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">&ndash;&gt;-->
-        <!--<property name="maxUploadSize" value="10240000"/>-->
-    <!--</bean>-->
+    <!-- 文件上传解析器 但是现在不能用会报错-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"/>
+    </bean>
 
 </beans>
             

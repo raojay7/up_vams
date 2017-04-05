@@ -164,5 +164,15 @@
         <jarDirectory url="file://$MODULE_DIR$/lib/oss" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/springfileupload" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib/springfileupload" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

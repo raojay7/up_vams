@@ -135,7 +135,7 @@
                     <div class="row">
                         <div class="col-md-8">
 
-                            <form class="form-horizontal" id="schoolForm" role="form" method="post">
+                            <form class="form-horizontal" id="schoolForm" role="form" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label class="control-label">学校名</label>
@@ -203,6 +203,9 @@
 
 <!-- MAIN JS -->
 <script src="${basePath}lib_two/js/main.js"></script>
+
+<script src="${basePath}js/jquery.form.js"></script>
+
 
 </body>
 </html>

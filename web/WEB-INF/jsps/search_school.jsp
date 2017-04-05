@@ -63,11 +63,11 @@
       <div class="navbar-header">
         <!-- Mobile Toggle Menu Button -->
         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-        <a class="navbar-brand" href="index.html">返回主页</a>
+        <a class="navbar-brand" href="${basePath}home/index.do">返回主页</a>
       </div>
       <div id="fh5co-navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="user_photo.html">个人中心</a></li>
+          <li><a href="${basePath}user/photoUI.do">个人中心</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                   <div>
-                    <a href="school_index.html" class="btn btn-outline">访问主页</a>
+                    <a href="${basePath}school/index.do" class="btn btn-outline">访问主页</a>
                   </div>
                 </div>
           </div>
@@ -222,7 +222,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <a class="btn btn-lg btn-outline" href="create_school.html">没有查到？赶快去创建一个吧</a>
+            <a class="btn btn-lg btn-outline" href="${basePath}school/createSchoolUI.do">没有查到？赶快去创建一个吧</a>
           </div>
         </div>
       </div>
