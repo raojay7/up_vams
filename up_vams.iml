@@ -151,5 +151,18 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.9" level="application_server_libraries" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/oss" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/lib/oss" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib/oss" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/oss" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
