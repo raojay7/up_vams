@@ -1,5 +1,7 @@
 package com.up_vams.school.controller;
 
+import com.up_vams.photo.entity.Photo;
+import com.up_vams.school.entity.School;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -62,6 +64,22 @@ public class SchoolAction
     public String photoUploadUI()
     {
         return "school_photo_upload";
+    }
+
+    /**
+     * 新增学校，同时要添加学校和上传人的关系，还要添加学校主页图片和学校的关系
+     * @param school
+     * @param photo
+     * @return
+     */
+    @RequestMapping("create")
+    public String create(School school,Photo photo)
+    {
+        //1先新增图片
+
+        //2再新增学校
+
+        return "redirect:/home/index.do";
     }
 
 }
