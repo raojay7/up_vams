@@ -27,31 +27,31 @@
   <meta name="twitter:card" content="" />
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="shortcut icon" href="../lib_one/favicon.ico">
+  <link rel="shortcut icon" href="${basePath}lib_one/favicon.ico">
 
   <!-- Google Webfont -->
   <!--<link href='http://fonts.useso.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>-->
   <!-- Themify Icons -->
-  <link rel="stylesheet" href="../lib_one/css/themify-icons.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/themify-icons.css">
   <!-- Icomoon Icons -->
-  <link rel="stylesheet" href="../lib_one/css/icomoon-icons.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/icomoon-icons.css">
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="../lib_one/css/bootstrap.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/bootstrap.css">
   <!-- Owl Carousel -->
-  <link rel="stylesheet" href="../lib_one/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../lib_one/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/owl.theme.default.min.css">
   <!-- Magnific Popup -->
-  <link rel="stylesheet" href="../lib_one/css/magnific-popup.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/magnific-popup.css">
   <!-- Easy Responsive Tabs -->
-  <link rel="stylesheet" href="../lib_one/css/easy-responsive-tabs.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/easy-responsive-tabs.css">
   <!-- Theme Style -->
-  <link rel="stylesheet" href="../lib_one/css/style.css">
+  <link rel="stylesheet" href="${basePath}lib_one/css/style.css">
 
 
   <!-- FOR IE9 below -->
   <!--[if lte IE 9]>
-    <script src="../lib_one/js/modernizr-2.6.2.min.js"></script>
-    <script src="../lib_one/js/respond.min.js"></script>
+    <script src="${basePath}lib_one/js/modernizr-2.6.2.min.js"></script>
+    <script src="${basePath}lib_one/js/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -332,26 +332,26 @@
 
 
 <!-- jQuery -->
-<script src="../lib_one/js/jquery-1.10.2.min.js"></script>
+<script src="${basePath}lib_one/js/jquery-1.10.2.min.js"></script>
 <!-- jQuery Easing -->
-<script src="../lib_one/js/jquery.easing.1.3.js"></script>
+<script src="${basePath}lib_one/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="../lib_one/js/bootstrap.js"></script>
+<script src="${basePath}lib_one/js/bootstrap.js"></script>
 <!-- Owl carousel -->
-<script src="../lib_one/js/owl.carousel.min.js"></script>
+<script src="${basePath}lib_one/js/owl.carousel.min.js"></script>
 <!-- Magnific Popup -->
-<script src="../lib_one/js/jquery.magnific-popup.min.js"></script>
+<script src="${basePath}lib_one/js/jquery.magnific-popup.min.js"></script>
 <!-- Easy Responsive Tabs -->
-<script src="../lib_one/js/easyResponsiveTabs.js"></script>
+<script src="${basePath}lib_one/js/easyResponsiveTabs.js"></script>
 <!-- FastClick for Mobile/Tablets -->
-<script src="../lib_one/js/fastclick.js"></script>
+<script src="${basePath}lib_one/js/fastclick.js"></script>
 
 
 
 
 
 <!-- Main JS -->
-<script src="../lib_one/js/main.js"></script>
+<script src="${basePath}lib_one/js/main.js"></script>
 
 
 </body>
