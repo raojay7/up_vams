@@ -6,24 +6,31 @@ public class Photo implements Serializable{
 
     private static final long serialVersionUID = 5782293761762720735L;
 
+    //片id
     private String photoId;
 
-
-
+    //照片名
     private String photoName;
 
+    //照片标题
     private String photoTitle;
 
+    //照片纬度
     private Integer photoLatitude;
 
+    //照片经度
     private Integer photoLongitude;
 
+    //照片访问量
     private Integer photoViewNum;
 
+    //照片点赞次数
     private Integer photoLikeNum;
 
+    //照片创造者id
     private String photoCreatorId;
 
+    //照片简介
     private String photoIntroduction;
 
 

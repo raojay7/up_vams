@@ -25,4 +25,8 @@
       #{photoLatitude,jdbcType=DECIMAL}, #{photoLongitude,jdbcType=DECIMAL}, #{photoCreatorId,jdbcType=VARCHAR}, #{photoIntroduction,jdbcType=LONGVARCHAR}
       )
     </insert>
+
+    <select id="selectSchoolMore" parameterType="string" resultMap="PhotoResultMap">
+        SELECT photo_id,NAME FROM t_photo WHERE photo_id=#{photoId};
+    </select>
 </mapper>

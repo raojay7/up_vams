@@ -7,7 +7,7 @@
     <result column="page_view" property="schoolPageView" jdbcType="INTEGER"/>
     <result column="active_index" property="schoolActiveIndex" jdbcType="INTEGER"/>
     <result column="photo_count" property="schoolPhotoCount" jdbcType="INTEGER"/>
-    <result column="racking" property="schoolRacking" jdbcType="INTEGER"/>
+    <result column="Ranking" property="schoolRanking" jdbcType="INTEGER"/>
     <result column="pinyin" property="schoolPinyin" jdbcType="VARCHAR"/>
     <result column="pinyin_header" property="schoolPinyinHeader" jdbcType="VARCHAR"/>
   </resultMap>
@@ -16,12 +16,17 @@
   </resultMap>
 
   <insert id="insert" parameterType="School">
-    <!--<selectKey resultType="string" order="BEFORE" keyProperty="schoolId">
-      SELECT REPLACE(UUID(),'-','')
-    </selectKey>-->
+
     INSERT INTO t_school (school_id, name, pinyin, pinyin_header, introduction
       )
     VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR}
       )
   </insert>
+  <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
+    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school limit 0,2;
+  </select>
+
+  <select id="selectByPK" parameterType="string" resultMap="SchoolResultMapWithBLOBs">
+    SELECT schoolId,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
+  </select>
 </mapper>

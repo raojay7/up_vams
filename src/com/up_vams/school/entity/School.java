@@ -10,26 +10,37 @@ public class School implements Serializable {
 
     private static final long serialVersionUID = 5540996357045469723L;
 
+    //学校id
     private String schoolId;
 
+    //学校名
     private String schoolName;
 
+    //学校访问量
     private Integer schoolPageView;
 
+    //学校活跃指数
     private Integer schoolActiveIndex;
 
+    //学校照片总数
     private Integer schoolPhotoCount;
 
-    private Integer schoolRacking;
+    //学校学校排名
+    private Integer schoolRanking;
 
+    //学校全拼
     private String schoolPinyin;
 
+    //拼音首字母
     private String schoolPinyinHeader;
 
+    //学校简介
     private String schoolIntroduction;
 
+    //照片
     private Photo photo;
 
+    //照片集
     private Set<Photo> photos = new HashSet<>();
 
     public Photo getPhoto() {
@@ -88,12 +99,12 @@ public class School implements Serializable {
         this.schoolPhotoCount = schoolPhotoCount;
     }
 
-    public Integer getSchoolRacking() {
-        return schoolRacking;
+    public Integer getSchoolRanking() {
+        return schoolRanking;
     }
 
-    public void setSchoolRacking(Integer schoolRacking) {
-        this.schoolRacking = schoolRacking;
+    public void setSchoolRanking(Integer schoolRanking) {
+        this.schoolRanking = schoolRanking;
     }
 
     public String getSchoolPinyin() {

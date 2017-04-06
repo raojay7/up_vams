@@ -29,6 +29,7 @@ public interface BaseMapper<T> {
     //查询所有对象
     List<T> selectAll();
 
+    //分页查询
 
 
 
