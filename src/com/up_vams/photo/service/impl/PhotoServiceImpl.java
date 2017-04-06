@@ -20,7 +20,7 @@ public class PhotoServiceImpl implements PhotoService
     @Override
     public int insert(Photo entity)
     {
-        return 0;
+        return photoMapper.insert(entity);
     }
 
     @Override

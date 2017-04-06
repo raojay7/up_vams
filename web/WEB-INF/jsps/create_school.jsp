@@ -156,7 +156,7 @@
                                         <input type='hidden' id='imgSize1' name='photoId' value=''/>
                                         <!--这里name=name可能会冲突-->
                                         <input type='hidden' id='imgSize2' name='photoName' value=''/>
-                                        <input hidden name="schoolCreatorId" value="${sessionScope.user.userId}"/>
+                                        <input hidden name="photoCreatorId" value="${sessionScope.user.userId}"/>
                                     </div>
                                 </div>
 
