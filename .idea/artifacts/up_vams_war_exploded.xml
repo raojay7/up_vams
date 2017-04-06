@@ -55,6 +55,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/lib/oss/aliyun-sdk-oss-2.4.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/springfileupload/commons-io-1.3.2.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/springfileupload/com.springsource.org.apache.commons.fileupload-1.2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/pinyin4j-2.5.0.jar" />
         </element>
       </element>
     </root>
