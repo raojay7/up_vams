@@ -76,13 +76,13 @@
 
 				};
 
-				$("#schoolForm").ajaxSubmit(option);
+				$("#pictureForm").ajaxSubmit(option);
 			}
 
 
 
 			function submitPicture() {
-				document.forms[0].action ="${basePath}school/.do";
+				document.forms[0].action ="${basePath}school/photo/upload.do";
 				document.forms[0].submit();
 			}
 		</script>
@@ -103,12 +103,12 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="${basePath}school/index.do">学校简介</a></li>
-					<li><a href="${basePath}school/photo/library.do">学校图片库</a></li>
-					<li><a href="${basePath}school/corridor_3dvisit.do">3D走廊游览</a></li>
-					<li><a href="${basePath}school/fly_3dvisit.do">3D模拟飞行游览</a></li>
-					<li><a href="${basePath}school/bigban_visit.do">BigBan</a></li>
-					<li class="fh5co-active"><a href="${basePath}school/photo/upload.do">我要上传到照片</a></li>
-					<li><a href="${basePath}school/more_prj.do">正在开发中的项目</a></li>
+					<li><a href="${basePath}school/photo/libraryUI.do">学校图片库</a></li>
+					<li><a href="${basePath}school/corridor_3dvisitUI.do">3D走廊游览</a></li>
+					<li><a href="${basePath}school/fly_3dvisitUI.do">3D模拟飞行游览</a></li>
+					<li><a href="${basePath}school/bigban_visitUI.do">BigBan</a></li>
+					<li class="fh5co-active"><a href="${basePath}school/photo/uploadUI.do">我要上传到照片</a></li>
+					<li><a href="${basePath}school/more_prjUI.do">正在开发中的项目</a></li>
 
 				</ul>
 			</nav>
@@ -136,7 +136,7 @@
 
 						<div class="row">
 							<div class="col-md-8">
-								<form class="form-horizontal" role="form" method="post">
+								<form id="pictureForm" class="form-horizontal" role="form" method="post">
 									<div class="form-group">
 										<div class="col-sm-2">
 											<label class="control-label">图片标题</label>
@@ -232,7 +232,7 @@
 	
 	<!-- MAIN JS -->
 	<script src="${basePath}lib_two/js/main.js"></script>
-
+	<script src="${basePath}js/jquery.form.js"></script>
 	</body>
 </html>
 

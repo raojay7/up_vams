@@ -102,8 +102,11 @@ public class SchoolAction
     @RequestMapping("photo/upload")
     public String photo_upload(String schoolId,Photo photo)
     {
-
-        return "redirect:/home/index.do";
+        //1保存图片
+        photoService.insert(photo);
+        //2保存关系
+        schoolService.saveSchoolAndPhoto(new SchoolPhoto(schoolId,photo.getPhotoId()));
+        return "redirect:/school/index.do";
     }
 
 
