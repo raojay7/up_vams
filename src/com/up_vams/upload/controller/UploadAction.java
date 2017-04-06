@@ -53,7 +53,7 @@ public class UploadAction
             String fullPath = OssConstant.ACCESS_URI + newFileName + suffix;
 
             //图片表中只存图片的id（同样就是图片的资源名字，此时没有后缀，后最可以从数据库中name中拿到）
-            //tring fileKey = newFileName;
+            //String fileKey = newFileName;
             //{"":"","":""}
             String result = "{\"fullPath\":\"" + fullPath + "\",\"fileKey\":\"" + newFileName +"\",\"originalFilename\":\"" + originalFilename + "\"}";
 

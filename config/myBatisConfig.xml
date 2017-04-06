@@ -18,7 +18,7 @@
 		<package name="com.up_vams.user.entity"/>
 		<package name="com.up_vams.photo.entity"/>
 		<package name="com.up_vams.school.entity"/>
-		<package name="com.up_vams.photoSchool.entity"/>
+		<package name="com.up_vams.schoolPhoto.entity"/>
 	</typeAliases>
 
 

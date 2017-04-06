@@ -16,9 +16,9 @@
   </resultMap>
 
   <insert id="insert" parameterType="School">
-    <selectKey resultType="string" order="BEFORE" keyProperty="schoolId">
+    <!--<selectKey resultType="string" order="BEFORE" keyProperty="schoolId">
       SELECT REPLACE(UUID(),'-','')
-    </selectKey>
+    </selectKey>-->
     INSERT INTO t_school (school_id, name, pinyin, pinyin_header, introduction
       )
     VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR}

@@ -43,7 +43,7 @@
 		<table tableName="buy_order" domainObjectName="BuyOrder"/> 
 		<table tableName="buy_order_detail" domainObjectName="BuyOrderDetail"/>
 		-->
-		<table tableName="t_user" domainObjectName="User"/>
+		<table tableName="t_r_school_photo" domainObjectName="PhotoSchool"/>
 		
 
 		

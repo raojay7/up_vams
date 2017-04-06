@@ -1,11 +1,11 @@
-package com.up_vams.photoSchool.entity;
+package com.up_vams.schoolPhoto.entity;
 
 import java.io.Serializable;
 
 /**
  * Created by wzw on 2017/4/6.
  */
-public class PhotoSchool implements Serializable{
+public class SchoolPhoto implements Serializable{
 
     private static final long serialVersionUID = -3045151462309840732L;
 
