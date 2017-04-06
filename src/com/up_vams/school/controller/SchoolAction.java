@@ -1,9 +1,13 @@
 package com.up_vams.school.controller;
 
 import com.up_vams.photo.entity.Photo;
+import com.up_vams.photo.service.PhotoService;
 import com.up_vams.school.entity.School;
+import com.up_vams.school.service.SchoolService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
 
 /**
  * Created by 隽 on 2017/4/5.
@@ -12,6 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/school")
 public class SchoolAction
 {
+
+    //注入service
+    @Resource
+    private SchoolService schoolService;
+    @Resource
+    private PhotoService photoService;
+
     //跳转uri
     @RequestMapping("searchUI")
     public String searchUI()
@@ -76,9 +87,12 @@ public class SchoolAction
     public String create(School school,Photo photo)
     {
         //1先新增图片
-
-        //2再新增学校
-
+        //此时图片里面有图片id，图片名字，图片的创建人
+        photoService.insert(photo);
+        //2再新增学校,此时有的学校信息只有id名字和简介，在service中在根据名字来设置拼音
+        schoolService.insert(school);
+        //3在保存关联关系
+        schoolService.saveSchoolAndPhoto(school.getSchoolId(),photo.getPhotoId());
         return "redirect:/home/index.do";
     }
 

@@ -141,7 +141,7 @@
                                         <label class="control-label">学校名</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="schoolName" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -156,6 +156,7 @@
                                         <input type='hidden' id='imgSize1' name='photoId' value=''/>
                                         <!--这里name=name可能会冲突-->
                                         <input type='hidden' id='imgSize2' name='photoName' value=''/>
+                                        <input hidden name="schoolCreatorId" value="${sessionScope.user.userId}"/>
                                     </div>
                                 </div>
 
@@ -165,7 +166,7 @@
                                         <label class="control-label">学校简介</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control"></textarea>
+                                        <textarea name="schoolIntroduction" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">

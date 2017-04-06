@@ -8,4 +8,5 @@ import com.up_vams.school.entity.School;
  */
 public interface SchoolService extends BaseService<School>
 {
+    int saveSchoolAndPhoto(String schoolId, String photoId);
 }
