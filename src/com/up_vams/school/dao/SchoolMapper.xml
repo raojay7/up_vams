@@ -3,16 +3,16 @@
 <mapper namespace="com.up_vams.school.dao.SchoolMapper">
   <resultMap id="SchoolResultMap" type="School">
     <id column="school_id" property="schoolId" jdbcType="VARCHAR"/>
-    <result column="name" property="name" jdbcType="VARCHAR"/>
-    <result column="page_view" property="pageView" jdbcType="INTEGER"/>
-    <result column="active_index" property="activeIndex" jdbcType="INTEGER"/>
-    <result column="photo_count" property="photoCount" jdbcType="INTEGER"/>
-    <result column="racking" property="racking" jdbcType="INTEGER"/>
-    <result column="pinyin" property="pinyin" jdbcType="VARCHAR"/>
-    <result column="pinyin_header" property="pinyinHeader" jdbcType="VARCHAR"/>
+    <result column="name" property="schoolName" jdbcType="VARCHAR"/>
+    <result column="page_view" property="schoolPageView" jdbcType="INTEGER"/>
+    <result column="active_index" property="schoolActiveIndex" jdbcType="INTEGER"/>
+    <result column="photo_count" property="schoolPhotoCount" jdbcType="INTEGER"/>
+    <result column="racking" property="schoolRacking" jdbcType="INTEGER"/>
+    <result column="pinyin" property="schoolPinyin" jdbcType="VARCHAR"/>
+    <result column="pinyin_header" property="schoolPinyinHeader" jdbcType="VARCHAR"/>
   </resultMap>
   <resultMap id="SchoolResultMapWithBLOBs" type="School" extends="SchoolResultMap">
-    <result column="introduction" property="introduction" jdbcType="LONGVARCHAR"/>
+    <result column="introduction" property="schoolIntroduction" jdbcType="LONGVARCHAR"/>
   </resultMap>
 
   <insert id="insert" parameterType="School">
@@ -21,7 +21,7 @@
     </selectKey>
     INSERT INTO t_school (school_id, name, pinyin, pinyin_header, introduction
       )
-    VALUES (#{schoolId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, #{pinyinHeader,jdbcType=VARCHAR}, #{introduction,jdbcType=LONGVARCHAR}
+    VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR}
       )
   </insert>
 </mapper>

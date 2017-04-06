@@ -8,21 +8,22 @@ public class School implements Serializable{
 
     private String schoolId;
 
-    private String name;
+    private String schoolName;
 
-    private Integer pageView;
+    private Integer schoolPageView;
 
-    private Integer activeIndex;
+    private Integer schoolActiveIndex;
 
-    private Integer photoCount;
+    private Integer schoolPhotoCount;
 
-    private Integer racking;
+    private Integer schoolRacking;
 
-    private String pinyin;
+    private String schoolPinyin;
 
-    private String pinyinHeader;
+    private String schoolPinyinHeader;
 
-    private String introduction;
+    private String schoolIntroduction;
+
 
     public String getSchoolId() {
         return schoolId;
@@ -32,67 +33,67 @@ public class School implements Serializable{
         this.schoolId = schoolId;
     }
 
-    public String getName() {
-        return name;
+    public String getSchoolName() {
+        return schoolName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
-    public Integer getPageView() {
-        return pageView;
+    public Integer getSchoolPageView() {
+        return schoolPageView;
     }
 
-    public void setPageView(Integer pageView) {
-        this.pageView = pageView;
+    public void setSchoolPageView(Integer schoolPageView) {
+        this.schoolPageView = schoolPageView;
     }
 
-    public Integer getActiveIndex() {
-        return activeIndex;
+    public Integer getSchoolActiveIndex() {
+        return schoolActiveIndex;
     }
 
-    public void setActiveIndex(Integer activeIndex) {
-        this.activeIndex = activeIndex;
+    public void setSchoolActiveIndex(Integer schoolActiveIndex) {
+        this.schoolActiveIndex = schoolActiveIndex;
     }
 
-    public Integer getPhotoCount() {
-        return photoCount;
+    public Integer getSchoolPhotoCount() {
+        return schoolPhotoCount;
     }
 
-    public void setPhotoCount(Integer photoCount) {
-        this.photoCount = photoCount;
+    public void setSchoolPhotoCount(Integer schoolPhotoCount) {
+        this.schoolPhotoCount = schoolPhotoCount;
     }
 
-    public Integer getRacking() {
-        return racking;
+    public Integer getSchoolRacking() {
+        return schoolRacking;
     }
 
-    public void setRacking(Integer racking) {
-        this.racking = racking;
+    public void setSchoolRacking(Integer schoolRacking) {
+        this.schoolRacking = schoolRacking;
     }
 
-    public String getPinyin() {
-        return pinyin;
+    public String getSchoolPinyin() {
+        return schoolPinyin;
     }
 
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin;
+    public void setSchoolPinyin(String schoolPinyin) {
+        this.schoolPinyin = schoolPinyin;
     }
 
-    public String getPinyinHeader() {
-        return pinyinHeader;
+    public String getSchoolPinyinHeader() {
+        return schoolPinyinHeader;
     }
 
-    public void setPinyinHeader(String pinyinHeader) {
-        this.pinyinHeader = pinyinHeader;
+    public void setSchoolPinyinHeader(String schoolPinyinHeader) {
+        this.schoolPinyinHeader = schoolPinyinHeader;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getSchoolIntroduction() {
+        return schoolIntroduction;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setSchoolIntroduction(String schoolIntroduction) {
+        this.schoolIntroduction = schoolIntroduction;
     }
 }

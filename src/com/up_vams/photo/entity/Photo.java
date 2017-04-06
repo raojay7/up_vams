@@ -10,21 +10,21 @@ public class Photo implements Serializable{
 
 
 
-    private String name;
+    private String photoName;
 
-    private String title;
+    private String photoTitle;
 
-    private Integer latitude;
+    private Integer photoLatitude;
 
-    private Integer longitude;
+    private Integer photoLongitude;
 
-    private Integer viewNum;
+    private Integer photoViewNum;
 
-    private Integer likeNum;
+    private Integer photoLikeNum;
 
-    private String creatorId;
+    private String photoCreatorId;
 
-    private String introduction;
+    private String photoIntroduction;
 
     public String getPhotoId() {
         return photoId;
@@ -34,67 +34,68 @@ public class Photo implements Serializable{
         this.photoId = photoId;
     }
 
-    public String getName() {
-        return name;
+    public String getPhotoName() {
+        return photoName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPhotoTitle() {
+        return photoTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPhotoTitle(String photoTitle) {
+        this.photoTitle = photoTitle;
     }
 
-    public Integer getLatitude() {
-        return latitude;
+    public Integer getPhotoLatitude() {
+        return photoLatitude;
     }
 
-    public void setLatitude(Integer latitude) {
-        this.latitude = latitude;
+    public void setPhotoLatitude(Integer photoLatitude) {
+        this.photoLatitude = photoLatitude;
     }
 
-    public Integer getLongitude() {
-        return longitude;
+    public Integer getPhotoLongitude() {
+        return photoLongitude;
     }
 
-    public void setLongitude(Integer longitude) {
-        this.longitude = longitude;
+    public void setPhotoLongitude(Integer photoLongitude) {
+        this.photoLongitude = photoLongitude;
     }
 
-    public Integer getViewNum() {
-        return viewNum;
+    public Integer getPhotoViewNum() {
+        return photoViewNum;
     }
 
-    public void setViewNum(Integer viewNum) {
-        this.viewNum = viewNum;
+    public void setPhotoViewNum(Integer photoViewNum) {
+        this.photoViewNum = photoViewNum;
     }
 
-    public Integer getLikeNum() {
-        return likeNum;
+
+    public Integer getPhotoLikeNum() {
+        return photoLikeNum;
     }
 
-    public void setLikeNum(Integer likeNum) {
-        this.likeNum = likeNum;
+    public void setPhotoLikeNum(Integer photoLikeNum) {
+        this.photoLikeNum = photoLikeNum;
     }
 
-    public String getCreatorId() {
-        return creatorId;
+    public String getPhotoCreatorId() {
+        return photoCreatorId;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setPhotoCreatorId(String photoCreatorId) {
+        this.photoCreatorId = photoCreatorId;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getPhotoIntroduction() {
+        return photoIntroduction;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setPhotoIntroduction(String photoIntroduction) {
+        this.photoIntroduction = photoIntroduction;
     }
 }

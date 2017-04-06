@@ -3,17 +3,17 @@
 <mapper namespace="com.up_vams.photo.dao.PhotoMapper">
     <resultMap id="PhotoResultMap" type="Photo">
         <id column="photo_id" property="photoId" jdbcType="VARCHAR"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="title" property="title" jdbcType="VARCHAR"/>
-        <result column="latitude" property="latitude" jdbcType="DECIMAL"/>
-        <result column="longitude" property="longitude" jdbcType="DECIMAL"/>
-        <result column="view_num" property="viewNum" jdbcType="INTEGER"/>
-        <result column="like_num" property="likeNum" jdbcType="INTEGER"/>
-        <result column="creator_id" property="creatorId" jdbcType="VARCHAR"/>
+        <result column="name" property="photoName" jdbcType="VARCHAR"/>
+        <result column="title" property="photoTitle" jdbcType="VARCHAR"/>
+        <result column="latitude" property="photoLatitude" jdbcType="DECIMAL"/>
+        <result column="longitude" property="photoLongitude" jdbcType="DECIMAL"/>
+        <result column="view_num" property="photoViewNum" jdbcType="INTEGER"/>
+        <result column="like_num" property="photoLikeNum" jdbcType="INTEGER"/>
+        <result column="creator_id" property="photoCreatorId" jdbcType="VARCHAR"/>
 
     </resultMap>
     <resultMap id="PhotoResultMapWithBLOBs" type="Photo" extends="PhotoResultMap">
-        <result column="introduction" property="introduction" jdbcType="LONGVARCHAR"/>
+        <result column="introduction" property="photoIntroduction" jdbcType="LONGVARCHAR"/>
     </resultMap>
 
 
@@ -21,8 +21,8 @@
       INSERT INTO t_photo (photo_id, name, title,
       latitude, longitude, creator_id, introduction
       )
-    VALUES (#{photoId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
-      #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL}, #{creatorId,jdbcType=VARCHAR}, #{introduction,jdbcType=LONGVARCHAR}
+    VALUES (#{photoId,jdbcType=VARCHAR}, #{photoName,jdbcType=VARCHAR}, #{photoTitle,jdbcType=VARCHAR},
+      #{photoLatitude,jdbcType=DECIMAL}, #{photoLongitude,jdbcType=DECIMAL}, #{photoCreatorId,jdbcType=VARCHAR}, #{photoIntroduction,jdbcType=LONGVARCHAR}
       )
     </insert>
 </mapper>
