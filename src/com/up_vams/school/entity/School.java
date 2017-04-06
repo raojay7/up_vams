@@ -1,8 +1,12 @@
 package com.up_vams.school.entity;
 
-import java.io.Serializable;
+import com.up_vams.photo.entity.Photo;
 
-public class School implements Serializable{
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+public class School implements Serializable {
 
     private static final long serialVersionUID = 5540996357045469723L;
 
@@ -24,6 +28,25 @@ public class School implements Serializable{
 
     private String schoolIntroduction;
 
+    private Photo photo;
+
+    private Set<Photo> photos = new HashSet<>();
+
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Photo photo) {
+        this.photo = photo;
+    }
+
+    public Set<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Set<Photo> photos) {
+        this.photos = photos;
+    }
 
     public String getSchoolId() {
         return schoolId;
