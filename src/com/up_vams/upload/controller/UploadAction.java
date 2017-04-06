@@ -50,7 +50,7 @@ public class UploadAction
             //图片需要回显：需要图片完整路径
             //数据库保存图片的相对路径.
             //文件的原始名字
-            String fullPath = OssConstant.ACCESS_URI + newFileName + suffix;
+            String fullPath = OssConstant.ACCESS_URI +"/"+ newFileName + suffix;
 
             //图片表中只存图片的id（同样就是图片的资源名字，此时没有后缀，后最可以从数据库中name中拿到）
             //String fileKey = newFileName;

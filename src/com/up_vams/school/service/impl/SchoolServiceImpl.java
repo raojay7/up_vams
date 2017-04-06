@@ -3,6 +3,8 @@ package com.up_vams.school.service.impl;
 import com.up_vams.school.dao.SchoolMapper;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
+import com.up_vams.schoolPhoto.dao.SchoolPhotoMapper;
+import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import com.up_vams.utils.ChineseToEnglish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ public class SchoolServiceImpl implements SchoolService
 {
     @Autowired
     private SchoolMapper schoolMapper;
+    @Autowired
+    private SchoolPhotoMapper schoolPhotoMapper;
 
     @Override
     public int insert(School entity)
@@ -69,9 +73,8 @@ public class SchoolServiceImpl implements SchoolService
     }
 
     @Override
-    public int saveSchoolAndPhoto(String schoolId, String photoId)
+    public int saveSchoolAndPhoto(SchoolPhoto schoolPhoto)
     {
-
-        return 0;
+        return schoolPhotoMapper.insert(schoolPhoto);
     }
 }

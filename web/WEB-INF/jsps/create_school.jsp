@@ -150,7 +150,7 @@
                                     </div>
                                     <div class="col-sm-10">
                                         <!--从数据库中拿到图片的key，要考虑到回显,picpath为图片的路径-->
-                                        <img id='imgSize1ImgSrc' src='${picPath }${school.picture.keyname }'  height="100" width="100" />
+                                        <img id='imgSize1ImgSrc' src=''  height="100" width="100" />
                                         <input type='file' id='imgSize1File' name='picture' class="file"
                                                onchange='submitImgSize1Upload()'/>
                                         <input type='hidden' id='imgSize1' name='photoId' value=''/>

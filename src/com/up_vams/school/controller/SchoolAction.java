@@ -4,6 +4,8 @@ import com.up_vams.photo.entity.Photo;
 import com.up_vams.photo.service.PhotoService;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
+import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.utils.OssUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -90,9 +92,10 @@ public class SchoolAction
         //此时图片里面有图片id，图片名字，图片的创建人
         photoService.insert(photo);
         //2再新增学校,此时有的学校信息只有id名字和简介，在service中在根据名字来设置拼音
+        school.setSchoolId(OssUtils.generateKey());
         schoolService.insert(school);
         //3在保存关联关系
-        schoolService.saveSchoolAndPhoto(school.getSchoolId(),photo.getPhotoId());
+        schoolService.saveSchoolAndPhoto(new SchoolPhoto(school.getSchoolId(),photo.getPhotoId()));
         return "redirect:/home/index.do";
     }
 
