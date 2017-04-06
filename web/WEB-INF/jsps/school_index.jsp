@@ -64,12 +64,12 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="${basePath}school/index.do">学校简介</a></li>
-					<li><a href="${basePath}school/photo/library.do">学校图片库</a></li>
-					<li><a href="${basePath}school/corridor_3dvisit.do">3D走廊游览</a></li>
-					<li><a href="${basePath}school/fly_3dvisit.do">3D模拟飞行游览</a></li>
-					<li><a href="${basePath}school/bigban_visit.do">BigBan</a></li>
-					<li><a href="${basePath}school/photo/upload.do">我要上传到照片</a></li>
-					<li><a href="${basePath}school/more_prj.do">正在开发中的项目</a></li>
+					<li><a href="${basePath}school/photo/libraryUI.do">学校图片库</a></li>
+					<li><a href="${basePath}school/corridor_3dvisitUI.do">3D走廊游览</a></li>
+					<li><a href="${basePath}school/fly_3dvisitUI.do">3D模拟飞行游览</a></li>
+					<li><a href="${basePath}school/bigban_visitUI.do">BigBan</a></li>
+					<li><a href="${basePath}school/photo/uploadUI.do">我要上传到照片</a></li>
+					<li><a href="${basePath}school/more_prjUI.do">正在开发中的项目</a></li>
 
 				</ul>
 			</nav>

@@ -49,6 +49,45 @@
 		<script src="${basePath}lib_two/js/respond.min.js"></script>
 		<![endif]-->
 
+		<script type="text/javascript">
+			function submitImgSize1Upload() {
+
+
+				var option = {
+					type: 'POST',
+					url: '${pageContext.request.contextPath }/upload/uploadPicture.do',
+					dataType: 'text',
+					data: {
+						fileName: 'picture'
+					},
+					success: function (data) {
+
+						//把json格式的字符串转换成json对象
+						var jsonObj = $.parseJSON(data);
+
+						//返回服务器图片路径，把图片路径设置给img标签
+						$("#imgSize1ImgSrc").attr("src", jsonObj.fullPath);
+						//数据库保存文件的id
+						$("#imgSize1").val(jsonObj.fileKey);
+						//数据库保存文件的原始名字
+						$("#imgSize2").val(jsonObj.originalFilename);
+
+					}
+
+				};
+
+				$("#pictureForm").ajaxSubmit(option);
+			}
+
+
+
+			function submitPicture() {
+				document.forms[0].action ="${basePath}school/photo/upload.do";
+				document.forms[0].submit();
+			}
+		</script>
+
+
 	</head>
 	<body>
 
@@ -64,12 +103,12 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="${basePath}school/index.do">学校简介</a></li>
-					<li><a href="${basePath}school/photo/library.do">学校图片库</a></li>
-					<li><a href="${basePath}school/corridor_3dvisit.do">3D走廊游览</a></li>
-					<li><a href="${basePath}school/fly_3dvisit.do">3D模拟飞行游览</a></li>
-					<li><a href="${basePath}school/bigban_visit.do">BigBan</a></li>
-					<li class="fh5co-active"><a href="${basePath}school/photo/upload.do">我要上传到照片</a></li>
-					<li><a href="${basePath}school/more_prj.do">正在开发中的项目</a></li>
+					<li><a href="${basePath}school/photo/libraryUI.do">学校图片库</a></li>
+					<li><a href="${basePath}school/corridor_3dvisitUI.do">3D走廊游览</a></li>
+					<li><a href="${basePath}school/fly_3dvisitUI.do">3D模拟飞行游览</a></li>
+					<li><a href="${basePath}school/bigban_visitUI.do">BigBan</a></li>
+					<li class="fh5co-active"><a href="${basePath}school/photo/uploadUI.do">我要上传到照片</a></li>
+					<li><a href="${basePath}school/more_prjUI.do">正在开发中的项目</a></li>
 
 				</ul>
 			</nav>
@@ -97,13 +136,13 @@
 
 						<div class="row">
 							<div class="col-md-8">
-								<form class="form-horizontal" role="form">
+								<form id="pictureForm" class="form-horizontal" role="form" method="post">
 									<div class="form-group">
 										<div class="col-sm-2">
 											<label class="control-label">图片标题</label>
 										</div>
 										<div class="col-sm-10">
-											<input type="text" class="form-control">
+											<input name="photoTitle" type="text" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
@@ -111,7 +150,13 @@
 											<label class="control-label">选择图片</label>
 										</div>
 										<div class="col-sm-10">
-											<input type="file">
+											<img id='imgSize1ImgSrc' src=''  height="100" width="100" />
+											<input type='file' id='imgSize1File' name='picture' class="file"
+												   onchange='submitImgSize1Upload()'/>
+											<input type='hidden' id='imgSize1' name='photoId' value=''/>
+											<!--这里name=name可能会冲突-->
+											<input type='hidden' id='imgSize2' name='photoName' value=''/>
+											<input hidden name="photoCreatorId" value="${sessionScope.user.userId}"/>
 										</div>
 									</div>
 
@@ -121,7 +166,7 @@
 											<label class="control-label">经度</label>
 										</div>
 										<div class="col-sm-5">
-											<input type="text" class="form-control" readonly>
+											<input name="photoLongitude" type="text" class="form-control" readonly>
 										</div>
 										<div class="col-sm-5">
 											<a class="btn btn-lg btn-outline" href="get_xyResult.html">在地图中标记</a>
@@ -132,7 +177,7 @@
 											<label class="control-label">纬度</label>
 										</div>
 										<div class="col-sm-5">
-											<input type="text" class="form-control" readonly>
+											<input name="photoLatitude" type="text" class="form-control" readonly>
 										</div>
 
 									</div>
@@ -143,12 +188,13 @@
 											<label class="control-label">图片简单描述</label>
 										</div>
 										<div class="col-sm-10">
-											<textarea class="form-control"></textarea>
+											<textarea name="photoIntroduction" class="form-control"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
-											<button type="submit" class="btn btn-default">上传</button>
+											<!--用js上传-->
+											<button type="submit" onclick="submitPicture()"  class="btn btn-default">上传</button>
 										</div>
 									</div>
 								</form>
@@ -186,7 +232,7 @@
 	
 	<!-- MAIN JS -->
 	<script src="${basePath}lib_two/js/main.js"></script>
-
+	<script src="${basePath}js/jquery.form.js"></script>
 	</body>
 </html>
 

@@ -44,36 +44,36 @@ public class SchoolAction
         return "create_school";
     }
 
-    @RequestMapping("photo/library")
+    @RequestMapping("photo/libraryUI")
     public String photo_libraryUI()
     {
         return "school_photo_library";
     }
-    @RequestMapping("corridor_3dvisit")
+    @RequestMapping("corridor_3dvisitUI")
     public String corridor_3dvisitUI()
     {
         return "school_corridor_3dvisit";
     }
-    @RequestMapping("more_prj")
+    @RequestMapping("more_prjUI")
     public String more_prjUI()
     {
         return "more_prj";
     }
 
 
-    @RequestMapping("fly_3dvisit")
+    @RequestMapping("fly_3dvisitUI")
     public String fly_3dvisitUI()
     {
         return "school_fly_3dvisit";
     }
 
 
-    @RequestMapping("bigban_visit")
+    @RequestMapping("bigban_visitUI")
     public String bigbanVisitUI()
     {
         return "school_bigban_visit";
     }
-    @RequestMapping("photo/upload")
+    @RequestMapping("photo/uploadUI")
     public String photoUploadUI()
     {
         return "school_photo_upload";
@@ -98,5 +98,16 @@ public class SchoolAction
         schoolService.saveSchoolAndPhoto(new SchoolPhoto(school.getSchoolId(),photo.getPhotoId()));
         return "redirect:/home/index.do";
     }
+
+    @RequestMapping("photo/upload")
+    public String photo_upload(String schoolId,Photo photo)
+    {
+        //1保存图片
+        photoService.insert(photo);
+        //2保存关系
+        schoolService.saveSchoolAndPhoto(new SchoolPhoto(schoolId,photo.getPhotoId()));
+        return "redirect:/school/index.do";
+    }
+
 
 }
