@@ -13,6 +13,14 @@ public class SchoolPhoto implements Serializable{
 
     private String schoolId;
 
+    public SchoolPhoto(String schoolId, String photoId) {
+        this.photoId = photoId;
+        this.schoolId = schoolId;
+    }
+
+    public SchoolPhoto() {
+    }
+
     public String getPhotoId() {
         return photoId;
     }
