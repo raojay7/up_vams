@@ -135,7 +135,7 @@
                     <div class="row">
                         <div class="col-md-8">
 
-                            <form class="form-horizontal" id="schoolForm" role="form" method="post" enctype="multipart/form-data">
+                            <form action="${basePath}school/create.do" class="form-horizontal" id="schoolForm" role="form" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label class="control-label">学校名</label>
@@ -155,7 +155,7 @@
                                                onchange='submitImgSize1Upload()'/>
                                         <input type='hidden' id='imgSize1' name='photoId' value=''/>
                                         <!--这里name=name可能会冲突-->
-                                        <input type='hidden' id='imgSize2' name='name' value=''/>
+                                        <input type='hidden' id='imgSize2' name='photoName' value=''/>
                                     </div>
                                 </div>
 

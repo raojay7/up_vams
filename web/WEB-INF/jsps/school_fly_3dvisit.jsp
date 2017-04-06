@@ -60,16 +60,17 @@
 
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="${basePath}lib_one/images/logo_back.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
+			<h1 id="fh5co-logo"><a href="${basePath}home/index.do"><img src="${basePath}lib_one/images/logo_back.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="school_index.html">学校简介</a></li>
-					<li><a href="school_photo_library.html">学校图片库</a></li>
-					<li><a href="school_corridor_3dvisit.html">3D走廊游览</a></li>
-					<li class="fh5co-active"><a href="school_fly_3dvisit.html">3D模拟飞行游览</a></li>
-					<li><a href="school_bigban_visit.html">BigBan</a></li>
-					<li><a href="school_photo_upload.html">我要上传到照片</a></li>
-					<li><a href="more_prj.html">正在开发中的项目</a></li>
+					<li><a href="${basePath}school/index.do">学校简介</a></li>
+					<li><a href="${basePath}school/photo/library.do">学校图片库</a></li>
+					<li><a href="${basePath}school/corridor_3dvisit.do">3D走廊游览</a></li>
+					<li  class="fh5co-active"><a href="${basePath}school/fly_3dvisit.do">3D模拟飞行游览</a></li>
+					<li ><a href="${basePath}school/bigban_visit.do">BigBan</a></li>
+					<li><a href="${basePath}school/photo/upload.do">我要上传到照片</a></li>
+					<li><a href="${basePath}school/more_prj.do">正在开发中的项目</a></li>
+
 
 				</ul>
 			</nav>

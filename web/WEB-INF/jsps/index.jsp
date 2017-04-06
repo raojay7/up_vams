@@ -308,7 +308,7 @@
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <div><a href="school_index.html" class="btn btn-primary">浏览更多</a></div>
+                    <div><a href="${basePath}school/index.do" class="btn btn-primary">浏览更多</a></div>
                 </div>
             </div>
 

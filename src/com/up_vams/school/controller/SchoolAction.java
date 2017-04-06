@@ -1,5 +1,7 @@
 package com.up_vams.school.controller;
 
+import com.up_vams.photo.entity.Photo;
+import com.up_vams.school.entity.School;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/school")
 public class SchoolAction
 {
+    //跳转uri
     @RequestMapping("searchUI")
     public String searchUI()
     {
@@ -22,10 +25,61 @@ public class SchoolAction
         return "school_index";
     }
 
-
     @RequestMapping("createSchoolUI")
     public String createSchoolUI()
     {
         return "create_school";
     }
+
+    @RequestMapping("photo/library")
+    public String photo_libraryUI()
+    {
+        return "school_photo_library";
+    }
+    @RequestMapping("corridor_3dvisit")
+    public String corridor_3dvisitUI()
+    {
+        return "school_corridor_3dvisit";
+    }
+    @RequestMapping("more_prj")
+    public String more_prjUI()
+    {
+        return "more_prj";
+    }
+
+
+    @RequestMapping("fly_3dvisit")
+    public String fly_3dvisitUI()
+    {
+        return "school_fly_3dvisit";
+    }
+
+
+    @RequestMapping("bigban_visit")
+    public String bigbanVisitUI()
+    {
+        return "school_bigban_visit";
+    }
+    @RequestMapping("photo/upload")
+    public String photoUploadUI()
+    {
+        return "school_photo_upload";
+    }
+
+    /**
+     * 新增学校，同时要添加学校和上传人的关系，还要添加学校主页图片和学校的关系
+     * @param school
+     * @param photo
+     * @return
+     */
+    @RequestMapping("create")
+    public String create(School school,Photo photo)
+    {
+        //1先新增图片
+
+        //2再新增学校
+
+        return "redirect:/home/index.do";
+    }
+
 }

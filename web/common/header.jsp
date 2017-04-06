@@ -8,4 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     pageContext.setAttribute("basePath", request.getContextPath()+"/") ;
+    pageContext.setAttribute("picPath", "http://cxoss.oss-cn-shanghai.aliyuncs.com"+"/") ;
 %>
