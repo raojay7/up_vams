@@ -56,6 +56,12 @@ public class PhotoServiceImpl implements PhotoService
     @Override
     public Photo selectByPK(String pk)
     {
-        return null;
+        return photoMapper.selectByPK(pk);
+    }
+
+    @Override
+    public Photo selectSchoolMore(String photoId)
+    {
+        return photoMapper.selectSchoolMore(photoId);
     }
 }

@@ -189,6 +189,7 @@
 										</div>
 										<div class="col-sm-10">
 											<textarea name="photoIntroduction" class="form-control"></textarea>
+											<input hidden name="schoolId" value="${school.schoolId}">
 										</div>
 									</div>
 									<div class="form-group">
