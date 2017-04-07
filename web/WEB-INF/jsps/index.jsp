@@ -55,6 +55,13 @@
     <script src="${basePath}lib_one/js/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript" language="JavaScript">
+    function gotoSchoolHome() {
+
+        document.forms[0].submit();
+
+    }
+</script>
 </head>
 
 <body class="fh5co-outer">
@@ -209,34 +216,27 @@
 
             <!--no1-->
 
-
             <div class="row">
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">南昌大学</a>
+                    <a class="btn btn-outline">${page.list[0].schoolName}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">图片总数1203</a>
+                    <a class="btn btn-outline">图片总数:${page.list[0].schoolPhotoCount}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">访问量22201</a>
+                    <a class="btn btn-outline">访问量:${page.list[0].schoolPageView}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">活跃指数70</a>
+                    <a class="btn btn-outline">活跃指数:${page.list[0].schoolActiveIndex}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">排名 NO1</a>
+                    <a class="btn btn-outline">排名 NO ${page.list[0].schoolRanking}</a>
                 </div>
-
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">访问主页</a>
-                </div>
-
 
             </div>
 
@@ -308,7 +308,12 @@
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <div><a href="${basePath}school/index.do" class="btn btn-primary">浏览更多</a></div>
+                    <div>
+                        <form action="${basePath}school/find.do" method="post">
+                            <input class="btn btn-primary" type="button" value="浏览更多" onclick="gotoSchoolHome()">
+                            <input hidden name="schoolId" value="${page.list[0].schoolId}"/>
+                        </form>
+                    </div>
                 </div>
             </div>
 

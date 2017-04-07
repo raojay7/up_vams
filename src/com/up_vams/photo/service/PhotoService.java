@@ -8,4 +8,5 @@ import com.up_vams.photo.entity.Photo;
  */
 public interface PhotoService extends BaseService<Photo>
 {
+    Photo selectSchoolMore(String photoId);
 }

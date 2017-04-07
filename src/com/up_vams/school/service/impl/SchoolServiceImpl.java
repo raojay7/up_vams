@@ -69,7 +69,7 @@ public class SchoolServiceImpl implements SchoolService
     @Override
     public School selectByPK(String pk)
     {
-        return null;
+        return schoolMapper.selectByPK(pk);
     }
 
     @Override
@@ -77,4 +77,17 @@ public class SchoolServiceImpl implements SchoolService
     {
         return schoolPhotoMapper.insert(schoolPhoto);
     }
+
+    @Override
+    public List<SchoolPhoto> findSchoolPhotoBySchoolId(String schoolId)
+    {
+        return schoolPhotoMapper.selectPhotos(schoolId);
+    }
+
+    @Override
+    public List<School> findHomeSchool()
+    {
+        return schoolMapper.selectSchools();
+    }
+
 }
