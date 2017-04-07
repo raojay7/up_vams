@@ -22,10 +22,13 @@
     VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR}
       )
   </insert>
+
+  <!--首页查询学校-->
   <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
     SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school limit 0,2;
   </select>
 
+  <!--通过学校ID查学校-->
   <select id="selectByPK" parameterType="string" resultMap="SchoolResultMapWithBLOBs">
     SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
   </select>
