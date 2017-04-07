@@ -44,6 +44,15 @@
         </foreach>
         LIMIT 0,8;
     </select>
+    <select id="selectPhotos" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
+        SELECT photo_id, name, title,
+        latitude, longitude, creator_id, introduction
+        FROM t_photo WHERE photo_id IN
+        <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item.photoId}
+        </foreach>
+        LIMIT 0,8;
+    </select>
 
 
     <!--  查询总记录数
