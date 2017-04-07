@@ -1,5 +1,7 @@
 package com.up_vams.core.dao;
 
+import com.up_vams.core.entity.Page;
+
 import java.util.List;
 
 /**
@@ -29,8 +31,11 @@ public interface BaseMapper<T> {
     //查询所有对象
     List<T> selectAll();
 
-    //分页查询
+    //分页动态查询数据列表可通过关键字
+    List<T> selectPageList(Page<T> page);
 
+    //动态查询总记录数
+    Integer selectTotalRecord(Page<T> page);
 
 
 }
