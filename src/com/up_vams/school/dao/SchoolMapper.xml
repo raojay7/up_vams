@@ -27,6 +27,8 @@
   </select>
 
   <select id="selectByPK" parameterType="string" resultMap="SchoolResultMapWithBLOBs">
-    SELECT schoolId,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
+    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
   </select>
+
+
 </mapper>
