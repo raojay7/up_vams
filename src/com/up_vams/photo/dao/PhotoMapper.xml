@@ -29,4 +29,30 @@
     <select id="selectSchoolMore" parameterType="string" resultMap="PhotoResultMap">
         SELECT photo_id,NAME FROM t_photo WHERE photo_id=#{photoId};
     </select>
+
+    <!--/**
+    * 分页查询照片
+    * @param page Page<SchoolPhoto>
+    * @return  照片Page
+    */-->
+    <select id="selectPageList" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
+        SELECT photo_id, name, title,
+        latitude, longitude, creator_id, introduction
+        FROM t_photo WHERE photo_id IN
+        <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item.photoId}
+        </foreach>
+        LIMIT 0,8;
+    </select>
+
+
+    <!--  查询总记录数
+    <select id="selectTotalRecord" parameterType="page" resultType="integer">
+
+         SELECT COUNT(photo_id) WHERE photo_id IN
+         <foreach collection="list" open="(" close=")" separator="," item="item">
+         #{item.photoId}
+         </foreach>;
+
+     </select>-->
 </mapper>
