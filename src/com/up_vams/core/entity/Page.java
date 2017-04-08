@@ -62,7 +62,7 @@ public class Page<T> implements Serializable {
         if (totalRecord != 0) {
 
             int tmp = (int) totalRecord / pageSize;
-            totalPage = totalRecord % pageSize == 0 ? tmp :tmp++;
+            totalPage = ( totalRecord % pageSize == 0 )? tmp :tmp++;
             this.pageNum = pageNum;
         } else {
             this.pageNum = 0;
