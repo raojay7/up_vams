@@ -30,4 +30,5 @@ public interface BaseService<T>
 
     //分页查询
 
+
 }

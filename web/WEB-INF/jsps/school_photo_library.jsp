@@ -99,7 +99,7 @@
     <div id="fh5co-main">
         <div class="fh5co-gallery">
 
-            <c:forEach items="${photoList}" var="photo">
+            <c:forEach items="${pageResult.list}" var="photo">
                 <a class="gallery-item" href="${basePath}school/photo/detail.do">
                     <img src="${picPath}${photo.photoName}" alt="school_door">
                     <span class="overlay">
@@ -111,24 +111,8 @@
 
         </div>
 
-        <center>
+        <jsp:include page="/common/pageNavigator.jsp"/>
 
-            <p><a href="#" class="btn btn-primary btn-outline">上一页</a></p>
-
-        </center>
-
-        <center>
-
-            <p><a class="btn btn-primary btn-outline">第1页</a></p>
-
-        </center>
-
-
-        <center>
-
-            <p><a href="#" class="btn btn-primary btn-outline">下一页</a></p>
-
-        </center>
 
 
         <br>

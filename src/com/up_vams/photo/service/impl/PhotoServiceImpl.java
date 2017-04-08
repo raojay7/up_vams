@@ -1,10 +1,13 @@
 package com.up_vams.photo.service.impl;
 
+import com.up_vams.core.entity.Page;
 import com.up_vams.photo.dao.PhotoMapper;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.photo.service.PhotoService;
+import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -20,6 +23,11 @@ public class PhotoServiceImpl implements PhotoService
     @Override
     public int insert(Photo entity)
     {
+        //如果为空不让他加
+        if (StringUtils.isEmpty(entity.getPhotoId())|StringUtils.isEmpty(entity.getPhotoName()))
+        {
+            return -1;
+        }
         return photoMapper.insert(entity);
     }
 
@@ -59,9 +67,18 @@ public class PhotoServiceImpl implements PhotoService
         return photoMapper.selectByPK(pk);
     }
 
+
     @Override
     public Photo selectSchoolMore(String photoId)
     {
         return photoMapper.selectSchoolMore(photoId);
+    }
+
+    @Override
+    public List<Photo> selectPageList(Page<SchoolPhoto> page)
+    {
+        //设置page的每面显示多少
+        //page.setPageSize(8);
+        return photoMapper.selectPhotos(page);
     }
 }

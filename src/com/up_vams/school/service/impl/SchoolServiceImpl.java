@@ -1,5 +1,6 @@
 package com.up_vams.school.service.impl;
 
+import com.up_vams.core.entity.Page;
 import com.up_vams.school.dao.SchoolMapper;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
@@ -26,7 +27,8 @@ public class SchoolServiceImpl implements SchoolService
     @Override
     public int insert(School entity)
     {
-        if (StringUtils.isEmpty(entity.getSchoolName()))
+
+        if (!StringUtils.isEmpty(entity.getSchoolName()))
         {
             String pinyin = ChineseToEnglish.getPingYin(entity.getSchoolName());
             String pinyinHeader = ChineseToEnglish.getPinYinHeadChar(entity.getSchoolName());
@@ -39,7 +41,7 @@ public class SchoolServiceImpl implements SchoolService
     @Override
     public int update(School entity)
     {
-        return 0;
+        return schoolMapper.update(entity);
     }
 
     @Override
@@ -88,6 +90,18 @@ public class SchoolServiceImpl implements SchoolService
     public List<School> findHomeSchool()
     {
         return schoolMapper.selectSchools();
+    }
+
+    @Override
+    public List<SchoolPhoto> findSchoolPhotoByPage(Page<SchoolPhoto> page)
+    {
+        return schoolPhotoMapper.selectPageList(page);
+    }
+
+    @Override
+    public Long getPhotoTotalRecord(String schoolId)
+    {
+        return schoolPhotoMapper.selectTotalRecord(schoolId);
     }
 
 }

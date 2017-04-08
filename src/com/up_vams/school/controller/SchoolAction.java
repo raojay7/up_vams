@@ -52,19 +52,51 @@ public class SchoolAction
      * 根据学校id查询关联的图片
      * 在根据图片的id查图片
      * 在封装学校图片表到page里面传入就可以
+     * 可以将一些基本属性放在session中暂存
      * @return
      */
     @RequestMapping("photo/libraryUI")
-    public String photo_libraryUI(HttpSession session)
+    public String photo_libraryUI(HttpSession session,Integer pageNum)
     {
-        School school = (School)session.getAttribute("school");
-        List<SchoolPhoto> list = schoolService.findSchoolPhotoBySchoolId(school.getSchoolId());
-        Page<SchoolPhoto> page=new Page<>();
-        page.setList(list);
-        photoService.
 
+        //通过pageresult传入了当前页数
+        School school = (School)session.getAttribute("school");
+        //List<SchoolPhoto> list = schoolService.findSchoolPhotoBySchoolId(school.getSchoolId());
+        if(pageNum==null)
+        {
+            pageNum=1;
+        }
+        Long totalRecord=schoolService.getPhotoTotalRecord(school.getSchoolId());
+        Page<SchoolPhoto> page=new Page<SchoolPhoto>(pageNum,8,totalRecord,null);
+        page.setId(school.getSchoolId());
+        //通过已有的参数查了8条schoolphoto数据放在list中
+        List<SchoolPhoto> list = schoolService.findSchoolPhotoByPage(page);
+        //再将用户学校表的8条数据放在page中，以便能够通过图片id查8张图片
+        page.setList(list);
+        List<Photo> photos = photoService.selectPageList(page);
+
+        //设置一些基本的属性
+        Page<Photo> pageResult=new Page<>();
+        pageResult.setPageNum(pageNum);
+        pageResult.setTotalRecord(totalRecord);
+        pageResult.setTotalPage(page.getTotalPage());
+        //为了得到图片的的key（oss用）
+        for (Photo photo:
+             photos)
+        {
+            //将key设置到name中///////
+            String originalFilename=photo.getPhotoName();
+            String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+            photo.setPhotoName(photo.getPhotoId()+suffix);
+            /////////////////////////
+        }
+        //此时就已经分页了
+        pageResult.setList(photos);
+        session.setAttribute("pageResult",pageResult);
         return "school_photo_library";
     }
+
+
     @RequestMapping("corridor_3dvisitUI")
     public String corridor_3dvisitUI()
     {
@@ -114,22 +146,38 @@ public class SchoolAction
     {
         //1先新增图片
         //此时图片里面有图片id，图片名字，图片的创建人
-        photoService.insert(photo);
+        int insertOK = photoService.insert(photo);
+
+        if (insertOK<0)
+        {
+            return "redirect:/error/insertError.do";
+        }
         //2再新增学校,此时有的学校信息只有id名字和简介，在service中在根据名字来设置拼音
         school.setSchoolId(OssUtils.generateKey());
+        //有了图片，就将计数置为1
+        school.setSchoolPhotoCount(1);
         schoolService.insert(school);
+
         //3在保存关联关系
         schoolService.saveSchoolAndPhoto(new SchoolPhoto(school.getSchoolId(),photo.getPhotoId()));
         return "redirect:/home/index.do";
     }
 
     @RequestMapping("photo/upload")
-    public String photo_upload(String schoolId,Photo photo)
+    public String photo_upload(HttpSession session,Photo photo)
     {
         //1保存图片
-        photoService.insert(photo);
+        int insertOK=photoService.insert(photo);
+        if (insertOK<0)
+        {
+            return "redirect:/error/insertError.do";
+        }
+
+        School school= (School)session.getAttribute("school");
         //2保存关系
-        schoolService.saveSchoolAndPhoto(new SchoolPhoto(schoolId,photo.getPhotoId()));
+        schoolService.saveSchoolAndPhoto(new SchoolPhoto(school.getSchoolId(),photo.getPhotoId()));
+        school.setSchoolPhotoCount(school.getSchoolPhotoCount()+1);
+        schoolService.update(school);
         return "forward:/school/index.do";
     }
 
@@ -150,6 +198,7 @@ public class SchoolAction
             Photo photo = photoService.selectSchoolMore(s.getPhotoId());
             //将key设置到name中///////
             String originalFilename=photo.getPhotoName();
+            //如果文件上传不成功可能会出错
             String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
             photo.setPhotoName(photo.getPhotoId()+suffix);
             /////////////////////////
@@ -167,6 +216,7 @@ public class SchoolAction
     {
         return "school_photo_detail";
     }
+
 
 
 }
