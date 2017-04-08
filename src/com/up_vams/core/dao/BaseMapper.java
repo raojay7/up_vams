@@ -35,7 +35,7 @@ public interface BaseMapper<T> {
     List<T> selectPageList(Page<T> page);
 
     //动态查询总记录数
-    Integer selectTotalRecord(Page<T> page);
+    Long selectTotalRecord(String id);
 
 
 }

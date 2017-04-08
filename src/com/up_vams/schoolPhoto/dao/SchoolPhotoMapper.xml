@@ -24,7 +24,7 @@
   </select>
 
   <!--相应schoolId对应的照片数-->
-  <select id="selectTotalRecord" parameterType="Page" resultMap="schoolPhotoResultMap">
+  <select id="selectTotalRecord" parameterType="string" resultMap="schoolPhotoResultMap">
      SELECT COUNT(school_id) FROM t_r_school_photo WHERE school_id = #{schoolId};
   </select>
 
