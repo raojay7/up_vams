@@ -14,4 +14,7 @@ public interface SchoolPhotoMapper extends BaseMapper<SchoolPhoto>{
      */
     List<SchoolPhoto> selectPhotos(String schoolId);
 
+
+
+
 }

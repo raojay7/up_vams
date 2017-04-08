@@ -99,7 +99,7 @@ create table t_school
    active_index         int,
    introduction         text,
    photo_count          int,
-   racking              int,
+   Ranking              int,
    school_id            varchar(32) not null,
    pinyin               varchar(40),
    pinyin_header        varchar(30),

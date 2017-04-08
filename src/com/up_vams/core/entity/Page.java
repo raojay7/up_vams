@@ -27,7 +27,12 @@ public class Page<T> implements Serializable {
     /**
      * 总记录数
      */
-    private Integer totalRecord;
+    private long totalRecord;
+
+    /**
+     * 总页数
+     */
+    private Integer totalPage;
 
     /**
      * 查询关键字
@@ -35,10 +40,53 @@ public class Page<T> implements Serializable {
     private String keyWord;
 
     /**
+     * 查询ID
+     */
+    private String id;
+
+    /**
      * 查询得到数据列表
      */
     private List<T> list;
 
+    public Page(){
+
+    }
+
+    public Page(Integer page, Integer pageSize, long totalRecord, List<T> list) {
+
+        this.list = list;
+        this.totalRecord = totalRecord;
+        this.pageSize = pageSize;
+
+        if (totalRecord != 0) {
+
+            int tmp = (int) totalRecord / pageSize;
+            totalPage = totalRecord % pageSize == 0 ? tmp :tmp++;
+            this.page = page;
+        } else {
+            this.page = 0;
+        }
+
+
+
+    }
+
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Integer getPage() {
         return page;
@@ -67,11 +115,11 @@ public class Page<T> implements Serializable {
         this.start = start;
     }
 
-    public Integer getTotalRecord() {
+    public long getTotalRecord() {
         return totalRecord;
     }
 
-    public void setTotalRecord(Integer totalRecord) {
+    public void setTotalRecord(long totalRecord) {
         this.totalRecord = totalRecord;
     }
 

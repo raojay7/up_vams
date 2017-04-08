@@ -23,6 +23,37 @@
       )
   </insert>
 
+
+  <update id="update" parameterType="School" >
+    UPDATE t_school
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test=" pageView != null" >
+        page_view = #{pageView,jdbcType=INTEGER},
+      </if>
+      <if test=" activeIndex != null" >
+        active_index = #{activeIndex,jdbcType=INTEGER},
+      </if>
+      <if test="photoCount != null" >
+        photo_count = #{photoCount,jdbcType=INTEGER},
+      </if>
+      <if test="racking != null" >
+        racking = #{racking,jdbcType=INTEGER},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyinHeader != null" >
+        pinyin_header = #{pinyinHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    WHERE school_id=#{schoolId}
+  </update>
   <!--首页查询学校-->
   <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
     SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school limit 0,2;
@@ -32,6 +63,7 @@
   <select id="selectByPK" parameterType="string" resultMap="SchoolResultMapWithBLOBs">
     SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
   </select>
+
 
 
 </mapper>

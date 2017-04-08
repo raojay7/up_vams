@@ -12,11 +12,20 @@
     values (#{schoolId,jdbcType=VARCHAR}, #{photoId,jdbcType=VARCHAR})
   </insert>
 
+  <!--有问题-->
   <select id="selectPhotos" parameterType="string" resultMap="schoolPhotoResultMap">
 
     SELECT school_id,photo_id FROM t_r_school_photo WHERE school_id=#{schoolId}
   </select>
 
+  <!--分页查询-->
+  <select id="selectPageList" parameterType="page" resultMap="schoolPhotoResultMap">
+   SELECT sp.school_id,sp.photo_id  FROM t_r_school_photo sp INNER JOIN t_photo p WHERE sp.school_id=#{id} AND sp.photo_id=p.photo_id ORDER BY (p.like_num+p.view_num) DESC LIMIT #{start},#{pageSize}
+  </select>
 
+  <!--相应schoolId对应的照片数-->
+  <select id="selectTotalRecord" parameterType="Page" resultMap="schoolPhotoResultMap">
+     SELECT COUNT(school_id) FROM t_r_school_photo WHERE school_id = #{schoolId};
+  </select>
 
 </mapper>
