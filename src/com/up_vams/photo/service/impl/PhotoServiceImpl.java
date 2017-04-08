@@ -1,6 +1,5 @@
 package com.up_vams.photo.service.impl;
 
-import com.up_vams.core.entity.Page;
 import com.up_vams.photo.dao.PhotoMapper;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.photo.service.PhotoService;
@@ -75,10 +74,9 @@ public class PhotoServiceImpl implements PhotoService
     }
 
     @Override
-    public List<Photo> selectPageList(Page<SchoolPhoto> page)
+    public List<Photo> selectPageList(List<SchoolPhoto> list)
     {
-        //设置page的每面显示多少
-        //page.setPageSize(8);
-        return photoMapper.selectPhotos(page);
+        return photoMapper.selectPhotos(list);
     }
+
 }

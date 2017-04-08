@@ -35,10 +35,19 @@ public class HomeAction
             Page<SchoolPhoto> p=new Page<>(1,5,5,null);
             p.setId(s.getSchoolId());
             List<SchoolPhoto> list = schoolService.findSchoolPhotoByPage(p);
-            Page<SchoolPhoto> p1=new Page<>();
-            p1.setList(list);
-            List<Photo> photos = photoService.selectPageList(p1);
+            List<Photo> photos = photoService.selectPageList(list);
+            //修改图片的key
+            for (Photo photo1:
+                photos)
+            {
+                //将key设置到name中///////
+                String originalFilename=photo1.getPhotoName();
+                String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+                photo1.setPhotoName(photo1.getPhotoId()+suffix);
+                /////////////////////////
+            }
             s.setPhotos(photos);
+            s.setPhoto(photos.get(0));
         }
         Page<School> p=new Page<School>();
         p.setList(homeSchool);

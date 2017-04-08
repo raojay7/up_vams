@@ -214,7 +214,7 @@
             </div>
 
 
-            <c:forEach items="page.list" var="homeSchool">
+            <c:forEach items="${page.list}" var="homeSchool">
             <!--no1-->
 
             <div class="row">
@@ -252,9 +252,9 @@
                         <div class="text">
                             <h2>${homeSchool.schoolName}</h2>
                             <br>
-                            <h5>${homeSchool.school.photo.photoIntroduction}</h5>
+                            <h5>${homeSchool.photo.photoIntroduction}</h5>
                         </div>
-                        <img src="${picPath}${homeSchool.school.photo.photoName}" alt="Image" class="img-responsive">
+                        <img src="${picPath}${homeSchool.photo.photoName}" alt="Image" class="img-responsive">
                     </a>
                 </div>
 
@@ -264,9 +264,9 @@
                             <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>主教学楼</h2>
+                                    <h2>${homeSchool.photos[1].photoIntroduction}</h2>
                                 </div>
-                                <img src="${basePath}lib_one/images/main-learning-building.jpg" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[1].photoName}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
@@ -274,9 +274,9 @@
                             <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>图书馆</h2>
+                                    <h2>${homeSchool.photos[2].photoIntroduction}</h2>
                                 </div>
-                                <img src="${basePath}lib_one/images/ncu-library.jpg" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[2].photoName}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>
@@ -285,9 +285,9 @@
                             <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>运动场</h2>
+                                    <h2>${homeSchool.photos[3].photoIntroduction}</h2>
                                 </div>
-                                <img src="${basePath}lib_one/images/ncu-main-playground.jpg" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[3].photoName}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
@@ -295,9 +295,9 @@
                             <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>金龙</h2>
+                                    <h2>${homeSchool.photos[4].photoIntroduction}</h2>
                                 </div>
-                                <img src="${basePath}lib_one/images/ncu-dragon.jpg" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[4].photoName}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>
@@ -312,7 +312,7 @@
                     <div>
                         <form action="${basePath}school/find.do" method="post">
                             <input class="btn btn-primary" type="button" value="浏览更多" onclick="gotoSchoolHome()">
-                            <input hidden name="schoolId" value="${page.list[0].schoolId}"/>
+                            <input hidden name="schoolId" value="${homeSchool.schoolId}"/>
                         </form>
                     </div>
                 </div>
