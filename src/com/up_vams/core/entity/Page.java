@@ -12,7 +12,7 @@ public class Page<T> implements Serializable {
     /**
      * 当前页号
      */
-    private Integer page;
+    private Integer pageNum;
 
     /**
      * 每页大小
@@ -53,7 +53,7 @@ public class Page<T> implements Serializable {
 
     }
 
-    public Page(Integer page, Integer pageSize, long totalRecord, List<T> list) {
+    public Page(Integer pageNum, Integer pageSize, long totalRecord, List<T> list) {
 
         this.list = list;
         this.totalRecord = totalRecord;
@@ -63,9 +63,9 @@ public class Page<T> implements Serializable {
 
             int tmp = (int) totalRecord / pageSize;
             totalPage = totalRecord % pageSize == 0 ? tmp :tmp++;
-            this.page = page;
+            this.pageNum = pageNum;
         } else {
-            this.page = 0;
+            this.pageNum = 0;
         }
 
 
@@ -88,12 +88,12 @@ public class Page<T> implements Serializable {
         this.id = id;
     }
 
-    public Integer getPage() {
-        return page;
+    public Integer getPageNum() {
+        return pageNum;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
+    public void setPageNum(Integer pageNum) {
+        this.pageNum = pageNum;
     }
 
     public Integer getPageSize() {
@@ -106,7 +106,7 @@ public class Page<T> implements Serializable {
 
     public Integer getStart() {
 
-        this.start = (page - 1) * pageSize;
+        this.start = (pageNum - 1) * pageSize;
 
         return start;
     }
