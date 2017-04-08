@@ -35,7 +35,7 @@
     * @param page Page<SchoolPhoto>
     * @return  照片Page
     */-->
-    <select id="selectPageList" parameterType="age" resultMap="PhotoResultMapWithBLOBs">
+    <select id="selectPageList" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction
         FROM t_photo WHERE photo_id IN
