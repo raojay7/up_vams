@@ -32,8 +32,8 @@ public class SchoolServiceImpl implements SchoolService
         {
             String pinyin = ChineseToEnglish.getPingYin(entity.getSchoolName());
             String pinyinHeader = ChineseToEnglish.getPinYinHeadChar(entity.getSchoolName());
-            entity.setSchoolPinyin(entity.getSchoolPinyin());
-            entity.setSchoolPinyinHeader(entity.getSchoolPinyinHeader());
+            entity.setSchoolPinyin(pinyin);
+            entity.setSchoolPinyinHeader(pinyinHeader);
         }
         return schoolMapper.insert(entity);
     }

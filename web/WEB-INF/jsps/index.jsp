@@ -214,28 +214,29 @@
             </div>
 
 
+            <c:forEach items="page.list" var="homeSchool">
             <!--no1-->
 
             <div class="row">
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">${page.list[0].schoolName}</a>
+                    <a class="btn btn-outline">${homeSchool.schoolName}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">图片总数:${page.list[0].schoolPhotoCount}</a>
+                    <a class="btn btn-outline">图片总数:${homeSchool.schoolPhotoCount}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">访问量:${page.list[0].schoolPageView}</a>
+                    <a class="btn btn-outline">访问量:${homeSchool.schoolPageView}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">活跃指数:${page.list[0].schoolActiveIndex}</a>
+                    <a class="btn btn-outline">活跃指数:${homeSchool.schoolActiveIndex}</a>
                 </div>
 
                 <div class="col-md-2">
-                    <a class="btn btn-outline">排名 NO ${page.list[0].schoolRanking}</a>
+                    <a class="btn btn-outline">排名 NO ${homeSchool.schoolRanking}</a>
                 </div>
 
             </div>
@@ -246,21 +247,21 @@
             <div class="row gallery-row">
 
                 <div class="col-md-6 col-sm-6">
-                    <a href="${basePath}lib_one/images/ncu-door.jpg" class="img image-popup">
+                    <a href="${basePath}school/photo/detail.do" class="img image-popup">
                         <div class="overlay"></div>
                         <div class="text">
-                            <h2>南昌大学</h2>
+                            <h2>${homeSchool.schoolName}</h2>
                             <br>
-                            <h5>南昌大学大门</h5>
+                            <h5>${homeSchool.school.photo.photoIntroduction}</h5>
                         </div>
-                        <img src="${basePath}lib_one/images/ncu-door.jpg" alt="Image" class="img-responsive">
+                        <img src="${picPath}${homeSchool.school.photo.photoName}" alt="Image" class="img-responsive">
                     </a>
                 </div>
 
                 <div class="col-md-6 col-sm-6">
                     <div class="row first-row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/main-learning-building.jpg" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>主教学楼</h2>
@@ -270,7 +271,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/ncu-library.jpg" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>图书馆</h2>
@@ -281,7 +282,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/ncu-main-playground.jpg" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>运动场</h2>
@@ -291,7 +292,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/ncu-dragon.jpg" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>金龙</h2>
@@ -316,102 +317,10 @@
                     </div>
                 </div>
             </div>
-
+            </c:forEach>
 
             <br>
 
-            <!-- no 1 end -->
-
-
-            <!--no 2 start-->
-
-
-            <div class="row">
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">哈佛大学</a>
-                </div>
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">图片总数120</a>
-                </div>
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">访问量220</a>
-                </div>
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">活跃指数700</a>
-                </div>
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">排名 NO3</a>
-                </div>
-
-
-                <div class="col-md-2">
-                    <a class="btn btn-outline">访问主页</a>
-                </div>
-
-
-            </div>
-
-            <hr>
-            <br>
-
-            <div class="row gallery-row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="row first-row">
-                        <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/haf0-01.jpeg" class="img image-popup">
-                                <div class="overlay"></div>
-                                <div class="text">
-                                    <h2>photo1</h2>
-                                </div>
-                                <img src="${basePath}lib_one/images/haf0-01.jpeg" alt="Image" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/hafo-02.jpeg" class="img image-popup">
-                                <div class="overlay"></div>
-                                <div class="text">
-                                    <h2>photo2</h2>
-                                </div>
-                                <img src="${basePath}lib_one/images/hafo-02.jpeg" alt="Image" class="img-responsive">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/hafo-03.jpeg" class="img image-popup">
-                                <div class="overlay"></div>
-                                <div class="text">
-                                    <h2>photo3</h2>
-                                </div>
-                                <img src="${basePath}lib_one/images/hafo-03.jpeg" alt="Image" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}lib_one/images/hafo-04.jpeg" class="img image-popup">
-                                <div class="overlay"></div>
-                                <div class="text">
-                                    <h2>photo4</h2>
-                                </div>
-                                <img src="${basePath}lib_one/images/hafo-04.jpeg" alt="Image" class="img-responsive">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <a href="${basePath}lib_one/images/hafo-06.jpeg" class="img image-popup">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h2>哈佛大学</h2>
-                        </div>
-                        <img src="${basePath}lib_one/images/hafo-06.jpeg" alt="Image" class="img-responsive">
-                    </a>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12 text-center">
