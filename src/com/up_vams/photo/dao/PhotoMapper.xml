@@ -35,7 +35,7 @@
     * @param page Page<SchoolPhoto>
     * @return  照片Page
     */-->
-    <select id="selectPageList" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
+    <select id="selectPageList" parameterType="age" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction
         FROM t_photo WHERE photo_id IN
@@ -44,7 +44,8 @@
         </foreach>
         LIMIT 0,8;
     </select>
-    <select id="selectPhotos" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
+
+    <select id="selectPhotos" parameterType="list" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction
         FROM t_photo WHERE photo_id IN

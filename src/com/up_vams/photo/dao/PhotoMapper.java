@@ -2,7 +2,6 @@ package com.up_vams.photo.dao;
 
 
 import com.up_vams.core.dao.BaseMapper;
-import com.up_vams.core.entity.Page;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 
@@ -18,7 +17,7 @@ public interface PhotoMapper extends BaseMapper<Photo>{
      */
     Photo selectSchoolMore(String photoId);
 
-    List<Photo> selectPhotos(Page<SchoolPhoto> page);
+    List<Photo> selectPhotos(List<SchoolPhoto> list);
 
 
 

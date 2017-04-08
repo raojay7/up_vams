@@ -3,8 +3,8 @@ package com.up_vams.school.entity;
 import com.up_vams.photo.entity.Photo;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class School implements Serializable {
 
@@ -41,7 +41,7 @@ public class School implements Serializable {
     private Photo photo;
 
     //照片集
-    private Set<Photo> photos = new HashSet<>();
+    private List<Photo> photos = new ArrayList<>();
 
     public Photo getPhoto() {
         return photo;
@@ -51,11 +51,11 @@ public class School implements Serializable {
         this.photo = photo;
     }
 
-    public Set<Photo> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(Set<Photo> photos) {
+    public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
 
