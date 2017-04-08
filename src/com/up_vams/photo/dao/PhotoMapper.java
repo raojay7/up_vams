@@ -22,7 +22,4 @@ public interface PhotoMapper extends BaseMapper<Photo>{
 
 
 
-
-
-
 }

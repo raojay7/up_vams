@@ -56,7 +56,7 @@
   </update>
   <!--首页查询学校-->
   <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
-    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school limit 0,2;
+    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school ORDER BY ranking LIMIT 0,2;
   </select>
 
   <!--通过学校ID查学校-->
