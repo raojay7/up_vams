@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/11 19:00:06                           */
+/* Created on:     2017/4/11 19:09:57                           */
 /*==============================================================*/
 
 
@@ -48,6 +48,7 @@ create table t_photo
    view_num             int,
    like_num             int,
    creator_id           varchar(32),
+   photo_ossname        varchar(40),
    primary key (photo_id)
 );
 
