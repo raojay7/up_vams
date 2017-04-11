@@ -27,6 +27,11 @@ public class PhotoServiceImpl implements PhotoService
         {
             return -1;
         }
+        //将key设置到name中///////
+        String originalFilename=entity.getPhotoName();
+        //如果文件上传不成功可能会出错
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+        entity.setPhotoOssname(entity.getPhotoId()+suffix);
         return photoMapper.insert(entity);
     }
 

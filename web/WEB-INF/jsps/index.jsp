@@ -254,7 +254,7 @@
                             <br>
                             <h5>${homeSchool.photo.photoIntroduction}</h5>
                         </div>
-                        <img src="${picPath}${homeSchool.photo.photoName}" alt="Image" class="img-responsive">
+                        <img src="${picPath}${homeSchool.photo.photoOssname}" alt="Image" class="img-responsive">
                     </a>
                 </div>
 
@@ -266,7 +266,7 @@
                                 <div class="text">
                                     <h2>${homeSchool.photos[1].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[1].photoName}" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[1].photoOssname}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
@@ -276,7 +276,7 @@
                                 <div class="text">
                                     <h2>${homeSchool.photos[2].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[2].photoName}" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[2].photoOssname}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>
@@ -287,7 +287,7 @@
                                 <div class="text">
                                     <h2>${homeSchool.photos[3].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[3].photoName}" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[3].photoOssname}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
@@ -297,7 +297,7 @@
                                 <div class="text">
                                     <h2>${homeSchool.photos[4].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[4].photoName}" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[4].photoOssname}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>

@@ -104,7 +104,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <figure><img src="${picPath}${homePhoto.photoName}" class="img-responsive"></figure>
+                    <figure><img src="${picPath}${homePhoto.photoOssname}" class="img-responsive"></figure>
                 </div>
 
                 <div class="row">

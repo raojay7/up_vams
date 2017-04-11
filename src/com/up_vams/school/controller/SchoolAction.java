@@ -78,16 +78,6 @@ public class SchoolAction
         pageResult.setPageNum(pageNum);
         pageResult.setTotalRecord(totalRecord);
         pageResult.setTotalPage(page.getTotalPage());
-        //为了得到图片的的key（oss用）
-        for (Photo photo:
-             photos)
-        {
-            //将key设置到name中///////
-            String originalFilename=photo.getPhotoName();
-            String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
-            photo.setPhotoName(photo.getPhotoId()+suffix);
-            /////////////////////////
-        }
         //此时就已经分页了
         pageResult.setList(photos);
         session.setAttribute("pageResult",pageResult);
@@ -143,7 +133,7 @@ public class SchoolAction
     public String create(School school,Photo photo)
     {
         //1先新增图片
-        //此时图片里面有图片id，图片名字，图片的创建人
+        //此时图片里面有图片id，图片名字，图片的创建人，在service中设置图片的ossname
         int insertOK = photoService.insert(photo);
 
         if (insertOK<0)
@@ -194,12 +184,6 @@ public class SchoolAction
         {
             SchoolPhoto s=list.get(0);//得到一个学校图片实体
             Photo photo = photoService.selectSchoolMore(s.getPhotoId());
-            //将key设置到name中///////
-            String originalFilename=photo.getPhotoName();
-            //如果文件上传不成功可能会出错
-            String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
-            photo.setPhotoName(photo.getPhotoId()+suffix);
-            /////////////////////////
             session.setAttribute("homePhoto",photo);
         }
 

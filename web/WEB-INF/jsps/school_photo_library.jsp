@@ -101,7 +101,7 @@
 
             <c:forEach items="${pageResult.list}" var="photo">
                 <a class="gallery-item" href="${basePath}school/photo/detail.do">
-                    <img src="${picPath}${photo.photoName}" alt="school_door">
+                    <img src="${picPath}${photo.photoOssname}" alt="school_door">
                     <span class="overlay">
 						<h2>Photo</h2>
 						<span>school door</span>
