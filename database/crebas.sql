@@ -4,10 +4,6 @@
 /*==============================================================*/
 
 
-drop table if exists t_discussion;
-
-drop table if exists t_photo;
-
 drop table if exists t_r_photo_discussion;
 
 drop table if exists t_r_school_photo;
@@ -17,6 +13,10 @@ drop table if exists t_r_user_discussion;
 drop table if exists t_r_user_school;
 
 drop table if exists t_r_vote_log;
+
+drop table if exists t_discussion;
+
+drop table if exists t_photo;
 
 drop table if exists t_school;
 
