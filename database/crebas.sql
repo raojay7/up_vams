@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/3/31 21:02:55                           */
+/* Created on:     2017/4/11 18:18:58                           */
 /*==============================================================*/
 
 
@@ -46,6 +46,7 @@ create table t_photo
    view_num             int,
    like_num             int,
    creator_id           varchar(32),
+   photo_ossname        char(10),
    primary key (photo_id)
 );
 
@@ -99,7 +100,7 @@ create table t_school
    active_index         int,
    introduction         text,
    photo_count          int,
-   Ranking              int,
+   ranking              int,
    school_id            varchar(32) not null,
    pinyin               varchar(40),
    pinyin_header        varchar(30),
