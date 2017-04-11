@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/11 18:18:58                           */
+/* Created on:     2017/4/11 19:00:06                           */
 /*==============================================================*/
 
 
@@ -15,6 +15,8 @@ drop table if exists t_r_school_photo;
 drop table if exists t_r_user_discussion;
 
 drop table if exists t_r_user_school;
+
+drop table if exists t_r_vote_log;
 
 drop table if exists t_school;
 
@@ -46,7 +48,6 @@ create table t_photo
    view_num             int,
    like_num             int,
    creator_id           varchar(32),
-   photo_ossname        char(10),
    primary key (photo_id)
 );
 
@@ -91,6 +92,18 @@ create table t_r_user_school
 );
 
 /*==============================================================*/
+/* Table: t_r_vote_log                                          */
+/*==============================================================*/
+create table t_r_vote_log
+(
+   photo_id             varchar(32) not null,
+   user_id              varchar(32) not null,
+   vote_time            date,
+   state                int,
+   primary key (photo_id, user_id)
+);
+
+/*==============================================================*/
 /* Table: t_school                                              */
 /*==============================================================*/
 create table t_school
@@ -100,7 +113,7 @@ create table t_school
    active_index         int,
    introduction         text,
    photo_count          int,
-   ranking              int,
+   racking              int,
    school_id            varchar(32) not null,
    pinyin               varchar(40),
    pinyin_header        varchar(30),
@@ -147,4 +160,10 @@ alter table t_r_user_school add constraint FK_t_r_user_school foreign key (user_
 
 alter table t_r_user_school add constraint FK_t_r_user_school2 foreign key (school_id)
       references t_school (school_id) on delete restrict on update restrict;
+
+alter table t_r_vote_log add constraint FK_t_r_vote_log foreign key (photo_id)
+      references t_photo (photo_id) on delete restrict on update restrict;
+
+alter table t_r_vote_log add constraint FK_t_r_vote_log2 foreign key (user_id)
+      references t_user (user_id) on delete restrict on update restrict;
 
