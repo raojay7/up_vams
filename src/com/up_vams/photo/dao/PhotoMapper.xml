@@ -11,6 +11,8 @@
         <result column="like_num" property="photoLikeNum" jdbcType="INTEGER"/>
         <result column="creator_id" property="photoCreatorId" jdbcType="VARCHAR"/>
 
+        <result column="photo_ossname" property="photoOssname" jdbcType="VARCHAR"/>
+
     </resultMap>
     <resultMap id="PhotoResultMapWithBLOBs" type="Photo" extends="PhotoResultMap">
         <result column="introduction" property="photoIntroduction" jdbcType="LONGVARCHAR"/>
@@ -19,10 +21,10 @@
 
     <insert id="insert" parameterType="Photo">
       INSERT INTO t_photo (photo_id, name, title,
-      latitude, longitude, creator_id, introduction
+      latitude, longitude, creator_id, introduction,photo_ossname
       )
     VALUES (#{photoId,jdbcType=VARCHAR}, #{photoName,jdbcType=VARCHAR}, #{photoTitle,jdbcType=VARCHAR},
-      #{photoLatitude,jdbcType=DECIMAL}, #{photoLongitude,jdbcType=DECIMAL}, #{photoCreatorId,jdbcType=VARCHAR}, #{photoIntroduction,jdbcType=LONGVARCHAR}
+      #{photoLatitude,jdbcType=DECIMAL}, #{photoLongitude,jdbcType=DECIMAL}, #{photoCreatorId,jdbcType=VARCHAR}, #{photoIntroduction,jdbcType=LONGVARCHAR}, #{photoOssname,jdbcType=VARCHAR}
       )
     </insert>
 
@@ -37,7 +39,7 @@
     */-->
     <select id="selectPageList" parameterType="page" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
-        latitude, longitude, creator_id, introduction
+        latitude, longitude, creator_id, introduction,photo_ossname
         FROM t_photo WHERE photo_id IN
         <foreach collection="list" open="(" close=")" separator="," item="item">
             #{item.photoId}
@@ -47,7 +49,7 @@
 
     <select id="selectPhotos" parameterType="list" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
-        latitude, longitude, creator_id, introduction
+        latitude, longitude, creator_id, introduction,photo_ossname
         FROM t_photo WHERE photo_id IN
         <foreach collection="list" open="(" close=")" separator="," item="item">
             #{item.photoId}
