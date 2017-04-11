@@ -33,7 +33,17 @@ public class Photo implements Serializable{
     //照片简介
     private String photoIntroduction;
 
+    //照片的oss上的key
+    private String photoOssname;
 
+
+    public String getPhotoOssname() {
+        return photoOssname;
+    }
+
+    public void setPhotoOssname(String photoOssname) {
+        this.photoOssname = photoOssname;
+    }
 
     public String getPhotoId() {
         return photoId;
