@@ -19,7 +19,7 @@ drop table if exists t_discussion;
 drop table if exists t_photo;
 
 drop table if exists t_school;
-
+ 
 drop table if exists t_user;
 
 /*==============================================================*/
