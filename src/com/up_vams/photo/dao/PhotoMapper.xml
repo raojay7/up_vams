@@ -29,7 +29,7 @@
     </insert>
 
     <select id="selectSchoolMore" parameterType="string" resultMap="PhotoResultMap">
-        SELECT photo_id,NAME FROM t_photo WHERE photo_id=#{photoId};
+        SELECT photo_id,photo_ossname FROM t_photo WHERE photo_id=#{photoId};
     </select>
 
     <!--/**
