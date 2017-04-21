@@ -57,6 +57,12 @@
         </foreach>
     </select>
 
+    <select id="selectByPK" parameterType="string" resultMap="PhotoResultMapWithBLOBs">
+        SELECT photo_id, name, title,
+        latitude, longitude, creator_id, introduction,photo_ossname
+        FROM t_photo WHERE photo_id=#{pk}
+    </select>
+
     <update id="update" parameterType="Photo">
         UPDATE t_photo
         <set>

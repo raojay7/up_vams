@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.up_vams.discussion.dao.DiscussionMapper" >
+  <resultMap id="discussionMap" type="Discussion" >
+    <id column="discussion_id" property="discussionId" jdbcType="VARCHAR" />
+    <result column="floor_num" property="disFloorNum" jdbcType="INTEGER" />
+    <result column="create_time" property="disCreateTime" jdbcType="DATE" />
+    <result column="disContent" property="disContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+
+  <insert id="insert" parameterType="com.up_vams.discussion.entity.Discussion" >
+    insert into t_discussion (discussion_id, floor_num, create_time, 
+      disContent)
+    values (#{discussionId,jdbcType=VARCHAR}, #{disFloorNum,jdbcType=INTEGER}, #{disCreateTime,jdbcType=DATE}, 
+      #{disContent,jdbcType=LONGVARCHAR})
+  </insert>
+
+
+
+  <update id="update" parameterType="Discussion" >
+    update t_discussion
+    <set >
+      <if test="disCreateTime != null" >
+        create_time = #{disCreateTime,jdbcType=DATE},
+      </if>
+      <if test="disContent != null" >
+        disContent = #{disContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where discussion_id = #{discussionId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
