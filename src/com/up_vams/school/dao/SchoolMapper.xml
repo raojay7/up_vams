@@ -27,36 +27,36 @@
   <update id="update" parameterType="School" >
     UPDATE t_school
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="schoolName != null" >
+        name = #{schoolName,jdbcType=VARCHAR},
       </if>
-      <if test=" pageView != null" >
-        page_view = #{pageView,jdbcType=INTEGER},
+      <if test=" schoolPageView != null" >
+        page_view = #{schoolPageView,jdbcType=INTEGER},
       </if>
-      <if test=" activeIndex != null" >
-        active_index = #{activeIndex,jdbcType=INTEGER},
+      <if test=" schoolActiveIndex != null" >
+        active_index = #{schoolActiveIndex,jdbcType=INTEGER},
       </if>
-      <if test="photoCount != null" >
-        photo_count = #{photoCount,jdbcType=INTEGER},
+      <if test="schoolPhotoCount != null" >
+        photo_count = #{schoolPhotoCount,jdbcType=INTEGER},
       </if>
-      <if test="racking != null" >
-        racking = #{racking,jdbcType=INTEGER},
+      <if test="schoolRanking != null" >
+        racking = #{schoolRanking,jdbcType=INTEGER},
       </if>
-      <if test="pinyin != null" >
-        pinyin = #{pinyin,jdbcType=VARCHAR},
+      <if test="schoolPinyin != null" >
+        pinyin = #{schoolPinyin,jdbcType=VARCHAR},
       </if>
-      <if test="pinyinHeader != null" >
-        pinyin_header = #{pinyinHeader,jdbcType=VARCHAR},
+      <if test="schoolPinyinHeader != null" >
+        pinyin_header = #{schoolPinyinHeader,jdbcType=VARCHAR},
       </if>
-      <if test="introduction != null" >
-        introduction = #{introduction,jdbcType=LONGVARCHAR},
+      <if test="schoolIntroduction != null" >
+        introduction = #{schoolIntroduction,jdbcType=LONGVARCHAR},
       </if>
     </set>
     WHERE school_id=#{schoolId}
   </update>
   <!--首页查询学校-->
   <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
-    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school ORDER BY ranking LIMIT 0,2;
+    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school ORDER BY ranking LIMIT 0,3;
   </select>
 
   <!--通过学校ID查学校-->

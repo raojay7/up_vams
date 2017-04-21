@@ -6,7 +6,7 @@
         <id column="photo_id" property="photoId"/>
         <id column="user_id" property="userId"/>
         <result column="vote_time" property="voteTime"/>
-        <result column="state" property="state"/>
+        <result column="state" property="upState"/>
     </resultMap>
 
     <!--用户点赞后插入一条数据-->
@@ -21,8 +21,10 @@
 
    </delete>
 
-    <!--分页获取用户收藏/点赞照片-->
+    <!--分页获取用户收藏学校ID-->
     <select id="selectPageList" parameterType="page" resultMap="userPhotoMap">
+        SELECT photo_id FROM t_r_vote_log WHERE user_id=#{id} LIMIT #{start},#{pageSize}
     </select>
+
 
 </mapper>

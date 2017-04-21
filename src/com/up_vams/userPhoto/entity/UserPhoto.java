@@ -20,9 +20,15 @@ public class UserPhoto implements Serializable{
     private Date voteTime;
 
     //点赞状态
-    private Integer state;
+    private Integer upState;
 
+    public UserPhoto(String userId, String photoId) {
+        this.userId = userId;
+        this.photoId = photoId;
+    }
 
+    public UserPhoto() {
+    }
 
     public String getUserId() {
         return userId;
@@ -48,11 +54,11 @@ public class UserPhoto implements Serializable{
         this.voteTime = voteTime;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getUpState() {
+        return upState;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setUpState(Integer upState) {
+        this.upState = upState;
     }
 }

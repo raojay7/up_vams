@@ -1,6 +1,7 @@
 package com.up_vams.userSchool.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by wzw on 2017/4/21 0021.
@@ -12,6 +13,18 @@ public class UserSchool implements Serializable {
     private String userId;
 
     private String schoolId;
+
+    private Date collTime;
+
+    private Integer usState;
+
+    public UserSchool(String userId, String schoolId) {
+        this.userId = userId;
+        this.schoolId = schoolId;
+    }
+
+    public UserSchool() {
+    }
 
     public String getUserId() {
         return userId;
@@ -27,5 +40,21 @@ public class UserSchool implements Serializable {
 
     public void setSchoolId(String schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public Date getCollTime() {
+        return collTime;
+    }
+
+    public void setCollTime(Date collTime) {
+        this.collTime = collTime;
+    }
+
+    public Integer getUsState() {
+        return usState;
+    }
+
+    public void setUsState(Integer usState) {
+        this.usState = usState;
     }
 }
