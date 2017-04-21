@@ -17,6 +17,7 @@ public class PhotoAction
     private PhotoService photoService;
 
 
+
     //3d暂时完成不了
     @RequestMapping("to3dfloor")
     public String to3dfloor()

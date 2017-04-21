@@ -100,7 +100,7 @@
         <div class="fh5co-gallery">
 
             <c:forEach items="${pageResult.list}" var="photo">
-                <a class="gallery-item" href="${basePath}school/photo/detail.do">
+                <a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${photo.photoId}">
                     <img src="${picPath}${photo.photoOssname}" alt="school_door">
                     <span class="overlay">
 						<h2>Photo</h2>

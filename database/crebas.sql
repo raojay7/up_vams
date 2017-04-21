@@ -1,8 +1,12 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/11 19:09:57                           */
+/* Created on:     2017/4/21 20:43:37                           */
 /*==============================================================*/
 
+
+drop table if exists t_discussion;
+
+drop table if exists t_photo;
 
 drop table if exists t_r_photo_discussion;
 
@@ -14,12 +18,8 @@ drop table if exists t_r_user_school;
 
 drop table if exists t_r_vote_log;
 
-drop table if exists t_discussion;
-
-drop table if exists t_photo;
-
 drop table if exists t_school;
- 
+
 drop table if exists t_user;
 
 /*==============================================================*/
@@ -89,6 +89,8 @@ create table t_r_user_school
 (
    user_id              varchar(32) not null,
    school_id            varchar(32) not null,
+   state                int,
+   collect_time         date,
    primary key (user_id, school_id)
 );
 
