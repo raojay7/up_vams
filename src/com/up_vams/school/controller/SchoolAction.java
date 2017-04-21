@@ -116,8 +116,10 @@ public class SchoolAction
     }
 
     @RequestMapping("photo/detail")
-    public String photoDetailUI()
+    public String photoDetailUI(String photoId,HttpSession httpSession)
     {
+        Photo photo = photoService.selectByPK(photoId);
+        httpSession.setAttribute("detail_photo",photo);
         return "school_photo_detail";
     }
 
