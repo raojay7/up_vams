@@ -111,7 +111,7 @@
 
                 <div class="col-md-12">
                     <p class="text-center">
-                        <c:if test="${user_photo.state==0}">
+                        <c:if test="${userPhoto.state==0}">
                             <a href="${basePath}user/photo/vote/cancel.do?photoId=${detail_photo.photoId}" class="btn btn-primary btn-outline">取消点赞</a>
                         </c:if>
                         <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}" class="btn btn-primary btn-outline">赞一个</a>

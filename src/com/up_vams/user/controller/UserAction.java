@@ -28,7 +28,7 @@ public class UserAction
     @Resource
     private PhotoService photoService;
 
-    
+
     //页面跳转逻辑
     @RequestMapping("loginUI")
     public String toLoginUI()
@@ -139,17 +139,30 @@ public class UserAction
         }
         photo.setPhotoLikeNum(photo.getPhotoLikeNum()+1);
         photoService.update(photo);
-            
-            
+
+
         return "school_photo_detail";
     }
 
     @RequestMapping("/photo/vote/cancel")
     public String photo_vote_cancel(String photoId,HttpSession httpSession)
     {
+        //1更新点赞状态
         User user = (User)httpSession.getAttribute("user");
-        userPhotoService.delete(new UserPhoto(user.getUserId(),photoId));
-        httpSession.removeAttribute("userPhoto");
+        UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
+        userPhoto.setUpState(0);
+
+        int update = userPhotoService.update(userPhoto);
+
+        if (update>=0)
+        {
+            httpSession.setAttribute("userPhoto", userPhoto);
+        }
+
+        //2更新photo的likenum数目
+        Photo photo = photoService.selectByPK(photoId);
+        photo.setPhotoLikeNum(photo.getPhotoLikeNum()-1);
+        photoService.update(photo);
         return "school_photo_detail";
     }
 
