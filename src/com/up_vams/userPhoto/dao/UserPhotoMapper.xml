@@ -11,15 +11,15 @@
 
     <!--用户点赞后插入一条数据-->
     <insert id="insert" parameterType="UserPhoto">
-        INSERT INTO t_r_vote_log(photo_id,user_id,vote_time,state) VALUES (#{photoId},#{userId},NOW(),1)
+        INSERT INTO t_r_vote_log(photo_id,user_id,vote_time,state) VALUES (#{photoId},#{userId},NOW(),#{upState})
 
     </insert>
 
-   <!-- 取消赞后，删除记录-->
-   <delete id="delete" parameterType="UserPhoto">
-       DELETE FROM t_r_vote_log WHERE photo_id=#{photoId} AND user_id=#{userId}
+   <!-- 取消赞-->
+   <update id="update" parameterType="UserPhoto">
+       UPDATE  t_r_vote_log SET state=#{upState},vote_time=NOW() WHERE photo_id=#{photoId} AND user_id=#{userId}
 
-   </delete>
+   </update>
 
     <!--分页获取用户收藏学校ID-->
     <select id="selectPageList" parameterType="page" resultMap="userPhotoMap">
