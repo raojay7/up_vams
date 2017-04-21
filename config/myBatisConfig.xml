@@ -20,6 +20,8 @@
 		<package name="com.up_vams.school.entity"/>
 		<package name="com.up_vams.schoolPhoto.entity"/>
 		<package name="com.up_vams.core.entity"/>
+		<package name="com.up_vams.userPhoto.entity"/>
+		<package name="com.up_vams.userSchool.entity"/>
 	</typeAliases>
 
 

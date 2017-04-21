@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.up_vams.userPhoto.dao.UserPhotoMapper">
+    <resultMap id="userPhotoMap" type="UserPhoto">
+        <id column="photo_id" property="photoId"/>
+        <id column="user_id" property="userId"/>
+        <result column="vote_time" property="voteTime"/>
+        <result column="state" property="state"/>
+    </resultMap>
+
+    <!--用户点赞后插入一条数据-->
+    <insert id="insert" parameterType="UserPhoto">
+        INSERT INTO t_r_vote_log(photo_id,user_id,vote_time,state) VALUES (#{photoId},#{userId},NOW(),1)
+
+    </insert>
+
+   <!-- 取消赞后，删除记录-->
+   <delete id="delete" parameterType="UserPhoto">
+       DELETE FROM t_r_vote_log WHERE photo_id=#{photoId} AND user_id=#{userId}
+
+   </delete>
+
+    <!--分页获取用户收藏/点赞照片-->
+    <select id="selectPageList" parameterType="page" resultMap="userPhotoMap">
+    </select>
+
+</mapper>
