@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>three.js misc - sound</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            background-color: rgba(238,211,188,0.12);
+            margin: 0px;
+            overflow: hidden;
+            font-family: Monospace;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        a {
+            color: #0078ff;
+        }
+
+        #info {
+            color: #fff;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            padding: 5px;
+            z-index: 100;
+        }
+    </style>
+
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" />
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="../lib_one/favicon.ico">
+
+    <!-- Google Webfont -->
+    <link href='http://fonts.useso.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="../lib_one/css/themify-icons.css">
+    <!-- Icomoon Icons -->
+    <link rel="stylesheet" href="../lib_one/css/icomoon-icons.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../lib_one/css/bootstrap.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="../lib_one/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../lib_one/css/owl.theme.default.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../lib_one/css/magnific-popup.css">
+    <!-- Easy Responsive Tabs -->
+    <link rel="stylesheet" href="../lib_one/css/easy-responsive-tabs.css">
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="../lib_one/css/style.css">
+
+
+    <!-- FOR IE9 below -->
+    <!--[if lte IE 9]>
+    <script src="../lib_one/js/modernizr-2.6.2.min.js"></script>
+    <script src="../lib_one/js/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+
+<header id="fh5co-header" role="banner">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Mobile Toggle Menu Button -->
+                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                <a class="navbar-brand" href="../front/index.html">主页</a>
+            </div>
+            <div id="fh5co-navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="../front/user_photo.html">个人中心</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+
+                        <!--<form action="#" class="form-subscribe">-->
+                        <!--<div class="field">-->
+                        <!--<input type="email" class="form-control" placeholder="输入学校名...">-->
+                        <!--&nbsp;&nbsp;-->
+                        <!--<button class="btn btn-primary">搜索</button>-->
+                        <!--</div>-->
+                        <!--</form>-->
+
+                    </li>
+                    <li><h5>鼠标右键点击，靠近场景；左键点击，远离场景；移动光标可转动视角。</h5></li>
+                    <li>&nbsp;&nbsp;</li>
+
+                    <!--<li><a href="#" class="btn btn-calltoaction btn-primary">快速注册</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div id="container"></div>
+
+<script src="../lib_one/threejs/three.js"></script>
+<script src="../lib_one/FirstPersonControls.js"></script>
+
+<script>
+
+    var container;
+    var camera, controls, scene, renderer;
+    var light, pointLight;
+
+    var mesh;
+    var material_sphere1, material_sphere2;
+
+    var clock = new THREE.Clock();
+
+    init();
+    animate();
+
+    function init() {
+
+        container = document.getElementById('container');
+
+        camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.set(-200, 25, 0);
+
+        var listener1 = new THREE.AudioListener();
+        camera.add(listener1);
+        var listener2 = new THREE.AudioListener();
+        camera.add(listener2);
+        var listener3 = new THREE.AudioListener();
+        camera.add(listener3);
+
+        controls = new THREE.FirstPersonControls(camera);
+
+        controls.movementSpeed = 70;
+        controls.lookSpeed = 0.15;
+        controls.noFly = true;
+        controls.lookVertical = false;
+
+        scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0xffffff, 0.0035);
+
+        light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(0, 0.5, 1).normalize();
+        scene.add(light);
+
+        var cube = new THREE.BoxGeometry(40, 40, 40);
+
+
+
+
+        var material_1 = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: THREE.ImageUtils.loadTexture("ncu-night-street.jpg")
+        });
+
+        var material_2 = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: THREE.ImageUtils.loadTexture("ncu-night-tianjian.jpg")
+        });
+
+        var material_3 = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: THREE.ImageUtils.loadTexture("ncu-night-two.jpg")
+        });
+
+
+
+        // sound spheres
+
+        var mesh1 = new THREE.Mesh(cube, material_1);
+        mesh1.position.set(0, 20, 100);
+        var mesh2 = new THREE.Mesh(cube, material_2);
+        mesh2.position.set(0, 20, 0);
+        var mesh3 = new THREE.Mesh(cube, material_3);
+        mesh3.position.set(0, 20, -100);
+
+
+        var mesh4 = new THREE.Mesh(cube, material_1);
+        mesh4.position.set(300, 20, 100);
+        var mesh5 = new THREE.Mesh(cube, material_2);
+        mesh5.position.set(300, 20, 0);
+        var mesh6 = new THREE.Mesh(cube, material_3);
+        mesh6.position.set(300, 20, -100);
+
+        var mesh7 = new THREE.Mesh(cube, material_1);
+        mesh7.position.set(-300, 20, 100);
+        var mesh8 = new THREE.Mesh(cube, material_2);
+        mesh8.position.set(-300, 20, 0);
+        var mesh9 = new THREE.Mesh(cube, material_3);
+        mesh9.position.set(-300, 20, -100);
+
+
+
+
+
+
+
+        scene.add(mesh1);
+        scene.add(mesh2);
+        scene.add(mesh3);
+
+
+        scene.add(mesh4);
+        scene.add(mesh5);
+        scene.add(mesh6);
+
+
+        scene.add(mesh7);
+        scene.add(mesh8);
+        scene.add(mesh9);
+
+
+
+
+
+
+        var sound1 = new THREE.Audio(listener1);
+        sound1.load('../assets/audio/cow.ogg');
+        sound1.setRefDistance(20);
+        sound1.setLoop(true);
+        sound1.setRolloffFactor(2);
+        mesh1.add(sound1);
+
+        var sound2 = new THREE.Audio(listener2);
+        sound2.load('../assets/audio/dog.ogg');
+        sound2.setRefDistance(20);
+        sound2.setLoop(true);
+        sound2.setRolloffFactor(2);
+        mesh2.add(sound2);
+
+        var sound3 = new THREE.Audio(listener3);
+        sound3.load('../assets/audio/cat.ogg');
+        sound3.setRefDistance(20);
+        sound3.setLoop(true);
+        sound3.setRolloffFactor(2);
+        mesh3.add(sound3);
+
+        // ground
+
+        var helper = new THREE.GridHelper(500, 10);
+        helper.color1.setHex(0x444444);
+        helper.color2.setHex(0x444444);
+        helper.position.y = 0.1;
+        scene.add(helper);
+
+        //
+
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        container.innerHTML = "";
+        container.appendChild(renderer.domElement);
+
+        //
+
+        window.addEventListener('resize', onWindowResize, false);
+
+    }
+
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        controls.handleResize();
+
+    }
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+        render();
+
+    }
+
+
+    function render() {
+
+        var delta = clock.getDelta(),
+                time = clock.getElapsedTime() * 1.0;
+
+        controls.update(delta);
+
+//        material_sphere1.color.setHSL( 0.0, 0.3 + 0.7 * ( 1 + Math.cos( time ) ) / 2, 0.5 );
+//        material_sphere2.color.setHSL( 0.1, 0.3 + 0.7 * ( 1 + Math.sin( time ) ) / 2, 0.5 );
+
+        renderer.render(scene, camera);
+
+    }
+
+</script>
+
+</body>
+</html>
