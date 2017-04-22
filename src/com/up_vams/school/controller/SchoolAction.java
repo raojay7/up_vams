@@ -127,10 +127,10 @@ public class SchoolAction
         httpSession.setAttribute("detail_photo",photo);
         User user = (User)httpSession.getAttribute("user");
         UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
-        UserPhoto userphoto = userPhotoService.select(userPhoto);
-        if (userPhoto!=null)
+        UserPhoto result = userPhotoService.select(userPhoto);
+        if (result!=null)
         {
-            httpSession.setAttribute("userphoto",userphoto);
+            httpSession.setAttribute("userPhoto",result);
         }
         return "school_photo_detail";
     }
@@ -206,19 +206,21 @@ public class SchoolAction
     }
 
 
-
-
-    @RequestMapping("showPhotoDetail")
-    public String showPhotoDetail(String photoId,HttpSession httpSession)
-    {
-        Photo photo = photoService.selectByPK(photoId);
-        //把photo和关系设置到session
-        httpSession.setAttribute("detail_photo",photo);
-        //根据用户和图片id查询userphoto并设置到session
-
-        //httpSession.setAttribute("userPhoto",userPhoto);
-        return "school_photo_detail";
-    }
+//
+//
+//    @RequestMapping("showPhotoDetail")
+//    public String showPhotoDetail(String photoId,HttpSession httpSession)
+//    {
+//        Photo photo = photoService.selectByPK(photoId);
+//        //把photo和关系设置到session
+//        httpSession.setAttribute("detail_photo",photo);
+//        //根据用户和图片id查询userphoto并设置到session
+//        User user = (User)httpSession.getAttribute("user");
+//        UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
+//        UserPhoto select = userPhotoService.select(userPhoto);
+//        httpSession.setAttribute("userPhoto",select);
+//        return "school_photo_detail";
+//    }
 
     @RequestMapping("photo/getXY")
     public String photo_getXY()
