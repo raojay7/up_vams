@@ -321,13 +321,7 @@
             <br>
 
 
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div><a href="#" class="btn btn-primary">浏览更多</a></div>
-                </div>
-            </div>
 
-            <!--no2 end-->
 
 
         </div>
