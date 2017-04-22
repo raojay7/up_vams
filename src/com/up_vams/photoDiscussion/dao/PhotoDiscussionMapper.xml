@@ -23,7 +23,7 @@ WHERE pd.discussion_id=d.discussion_id AND pd.photo_id=#{id} order by d.floor_nu
   </select>
 
  <!-- 通过照片ID查询该照片评论总数-->
-  <select id="selectTotalRecord" parameterType="PhotoDiscussion" resultType="long">
+  <select id="selectTotalRecord" parameterType="string" resultType="long">
     SELECT count(photo_id) FROM t_r_photo_discussion WHERE photo_id=#{photoId}
   </select>
 
