@@ -3,6 +3,10 @@
 /* Created on:     2017/4/21 20:43:37                           */
 /*==============================================================*/
 
+DROP database if EXISTS up_vams;
+
+CREATE database up_vams;
+
 
 drop table if exists t_discussion;
 

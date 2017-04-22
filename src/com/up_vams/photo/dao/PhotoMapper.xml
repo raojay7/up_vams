@@ -57,6 +57,7 @@
         </foreach>
     </select>
 
+    <!--通过照片主键查询-->
     <select id="selectByPK" parameterType="string" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction,photo_ossname
