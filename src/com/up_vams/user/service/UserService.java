@@ -2,9 +2,9 @@ package com.up_vams.user.service;
 
 import com.up_vams.core.entity.Page;
 import com.up_vams.core.service.BaseService;
-import com.up_vams.photo.entity.Photo;
 import com.up_vams.user.entity.User;
 import com.up_vams.userPhoto.entity.UserPhoto;
+import com.up_vams.userSchool.entity.UserSchool;
 
 import java.util.List;
 
@@ -20,12 +20,16 @@ public interface UserService extends BaseService<User>
      * @param page
      * @return 8条userphoto数据
      */
-    List<UserPhoto> findUserPhotoByPage(Page<UserPhoto> page);
+    List<UserPhoto> findUserPhotoByUserPhotoPage(Page<UserPhoto> page);
 
     /**
-     * 根据8条userphoto数据，来查询对应的photo
-     * @param list 前面分页查询到的list
-     * @return 得到9条照片数据
+     * 根据已经封装好的page查询userschool
+     * 真正有用的数据：
+     * pageNum, 8, totalRecord，userid
+     * @param page
+     * @return 8条userschool数据
      */
-    List<Photo> selectPhotosByUser(List<UserPhoto> list);
+    List<UserSchool> findUserPhotoByUserSchoolPage(Page<UserSchool> page);
+    //还差个查询总记录数
+
 }

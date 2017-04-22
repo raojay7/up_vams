@@ -109,10 +109,15 @@
 
                 <div class="row">
 
-                    <c:if test="${userSchool.usState==0||userSchool.usState==null}">
+                    <c:if test="${userSchool.usState==null}">
                     <div class="col-md-2">
                         <a href="${basePath}user/school/collection.do" class="btn btn-outline">收藏</a>
                     </div>
+                    </c:if>
+                    <c:if test="${userSchool.usState==0}">
+                        <div class="col-md-2">
+                            <a href="${basePath}user/school/recollection.do" class="btn btn-outline">收藏</a>
+                        </div>
                     </c:if>
                     <c:if test="${userSchool.usState==1}">
                         <div class="col-md-2">

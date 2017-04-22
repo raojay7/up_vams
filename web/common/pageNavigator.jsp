@@ -1,14 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script type="text/javascript">
-    //翻页
-    function doGoPage(pageNum) {
-        document.getElementById("pageNum").value = pageNum;
-        document.forms[0].action = "${request.getContextPath}/school/photo/libraryUI.do";
-        document.forms[0].submit();
-    }
-</script>
+
 
 <form method="post" action="">
     <center>

@@ -36,16 +36,6 @@ public class HomeAction
             p.setId(s.getSchoolId());
             List<SchoolPhoto> list = schoolService.findSchoolPhotoByPage(p);
             List<Photo> photos = photoService.selectPhotos(list);
-            //修改图片的key
-            for (Photo photo1:
-                photos)
-            {
-                //将key设置到name中///////
-                String originalFilename=photo1.getPhotoName();
-                String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
-                photo1.setPhotoName(photo1.getPhotoId()+suffix);
-                /////////////////////////
-            }
             s.setPhotos(photos);
             s.setPhoto(photos.get(0));
         }

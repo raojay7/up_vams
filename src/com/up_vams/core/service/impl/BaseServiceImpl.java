@@ -1,6 +1,7 @@
 package com.up_vams.core.service.impl;
 
 import com.up_vams.core.dao.BaseMapper;
+import com.up_vams.core.entity.Page;
 import com.up_vams.core.service.BaseService;
 import com.up_vams.photo.dao.PhotoMapper;
 import com.up_vams.school.dao.SchoolMapper;
@@ -84,6 +85,30 @@ public class BaseServiceImpl<T> implements BaseService<T>
     }
 
     @Override
+    public List<T> selectList(String keyword)
+    {
+        return baseMapper.selectList(keyword);
+    }
+
+    @Override
+    public List<T> selectAll()
+    {
+        return baseMapper.selectAll();
+    }
+
+    @Override
+    public List<T> selectPageList(Page<T> page)
+    {
+        return baseMapper.selectPageList(page);
+    }
+
+    @Override
+    public Long selectTotalRecord(String id)
+    {
+        return baseMapper.selectTotalRecord(id);
+    }
+
+    @Override
     public int delete(T entity)
     {
         return baseMapper.delete(entity);
@@ -95,17 +120,6 @@ public class BaseServiceImpl<T> implements BaseService<T>
         return baseMapper.select(entity);
     }
 
-    @Override
-    public List<T> select(String keyword)
-    {
-        return baseMapper.selectList(keyword);
-    }
-
-    @Override
-    public List<T> select()
-    {
-        return baseMapper.selectAll();
-    }
 
     @Override
     public T selectByPK(String pk)
