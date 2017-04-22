@@ -4,6 +4,7 @@ import com.up_vams.core.entity.Page;
 import com.up_vams.core.service.BaseService;
 import com.up_vams.school.entity.School;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.userSchool.entity.UserSchool;
 
 import java.util.List;
 
@@ -52,4 +53,6 @@ public interface SchoolService extends BaseService<School>
      * @return 学校图片的数目
      */
     Long getPhotoTotalRecord(String schoolId);
+
+    List<School> selectSchoolsByUser(List<UserSchool> list);
 }
