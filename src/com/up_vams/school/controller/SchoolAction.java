@@ -127,10 +127,10 @@ public class SchoolAction
         httpSession.setAttribute("detail_photo",photo);
         User user = (User)httpSession.getAttribute("user");
         UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
-        UserPhoto userphoto = userPhotoService.select(userPhoto);
-        if (userPhoto!=null)
+        UserPhoto result = userPhotoService.select(userPhoto);
+        if (result!=null)
         {
-            httpSession.setAttribute("userphoto",userphoto);
+            httpSession.setAttribute("userphoto",result);
         }
         return "school_photo_detail";
     }
