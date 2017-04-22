@@ -206,6 +206,19 @@ public class SchoolAction
         return "school_photo_detail";
     }
 
+    @RequestMapping("photo/getXY")
+    public String photo_getXY()
+    {
+        return "get_xyResult";
+    }
+    @RequestMapping("photo/get_xyResult")
+    public String photo_xyResult(Double latitude,Double longitude,HttpSession session)
+    {
+        //经纬度数据类型有问题
+        session.setAttribute("latitude",latitude);
+        session.setAttribute("longitude",longitude);
+        return "school_photo_upload";
+    }
 
 
 }

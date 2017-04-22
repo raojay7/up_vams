@@ -91,7 +91,7 @@ function getResult() {
 
     <br>
     <br>
-	<form name = "" method="post" action="school_photo_upload.html">
+	<form name = "" method="post" action="${bathPath}/school/photo/get_xyResult.do">
 	
 	<span>经度</span>
 	<input id = "lng" name="latitude"/>

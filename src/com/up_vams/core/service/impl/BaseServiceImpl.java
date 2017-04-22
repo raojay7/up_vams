@@ -7,6 +7,7 @@ import com.up_vams.school.dao.SchoolMapper;
 import com.up_vams.schoolPhoto.dao.SchoolPhotoMapper;
 import com.up_vams.user.dao.UserMapper;
 import com.up_vams.userPhoto.dao.UserPhotoMapper;
+import com.up_vams.userSchool.dao.UserSchoolMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -34,8 +35,14 @@ public class BaseServiceImpl<T> implements BaseService<T>
     @Autowired
     protected UserMapper userMapper;
 
+    //用与用户和图片的点赞关系
     @Autowired
     protected UserPhotoMapper userPhotoMapper;
+    //用于用户和学校的点赞关系
+    protected UserSchoolMapper userSchoolMapper;
+
+
+
     @PostConstruct//在构造方法后，初化前执行
     private void initBaseMapper() throws Exception{
         //完成以下逻辑，需要对研发本身进行命名与使用规范

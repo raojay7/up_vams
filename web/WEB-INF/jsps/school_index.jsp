@@ -109,6 +109,17 @@
 
                 <div class="row">
 
+                    <c:if test="${userSchool.usState==0||userSchool.usState==null}">
+                    <div class="col-md-2">
+                        <a href="${basePath}user/school/collection.do" class="btn btn-outline">收藏</a>
+                    </div>
+                    </c:if>
+                    <c:if test="${userSchool.usState==1}">
+                        <div class="col-md-2">
+                            <a href="${basePath}user/school/collection/cancel.do" class="btn btn-outline">取消收藏</a>
+                        </div>
+                    </c:if>
+
                     <div class="col-md-2">
                         <a class="btn btn-outline">图片总数 ${school.schoolPhotoCount}</a>
                     </div>

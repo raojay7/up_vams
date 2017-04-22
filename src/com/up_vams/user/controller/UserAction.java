@@ -6,6 +6,8 @@ import com.up_vams.user.entity.User;
 import com.up_vams.user.service.UserService;
 import com.up_vams.userPhoto.entity.UserPhoto;
 import com.up_vams.userPhoto.service.UserPhotoService;
+import com.up_vams.userSchool.entity.UserSchool;
+import com.up_vams.userSchool.service.UserSchoolService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,8 @@ public class UserAction
     @Resource
     private PhotoService photoService;
 
+    @Resource
+    private UserSchoolService userSchoolService;
 
     //页面跳转逻辑
     @RequestMapping("loginUI")
@@ -164,6 +168,41 @@ public class UserAction
         photo.setPhotoLikeNum(photo.getPhotoLikeNum()-1);
         photoService.update(photo);
         return "school_photo_detail";
+    }
+
+    @RequestMapping("/school/collection")
+    public String school_collection(String schoolId,HttpSession httpSession)
+    {
+        //收藏的实现
+        User user = (User)httpSession.getAttribute("user");
+        //1更改userschool的状态和新增关系
+        UserSchool userSchool = new UserSchool(user.getUserId(), schoolId);
+        userSchool.setUsState(1);
+        int insert = userSchoolService.insert(userSchool);
+        //2判断是否插入成功，成就设置到session中
+        if (insert>=0)
+        {
+            httpSession.setAttribute("userSchool",userSchool);
+        }
+
+        return "school_index";
+    }
+
+    @RequestMapping("/school/collection/cancel")
+    public String school_collection_cancel(String schoolId,HttpSession httpSession)
+    {
+        //1更新点赞状态
+        User user = (User)httpSession.getAttribute("user");
+        UserSchool userSchool = new UserSchool(user.getUserId(), schoolId);
+        userSchool.setUsState(0);
+
+        int update = userSchoolService.update(userSchool);
+
+        if (update>=0)
+        {
+            httpSession.setAttribute("userSchool", userSchool);
+        }
+        return "school_index";
     }
 
 

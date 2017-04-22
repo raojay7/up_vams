@@ -139,12 +139,35 @@
 								<form id="pictureForm" class="form-horizontal" role="form" method="post">
 									<div class="form-group">
 										<div class="col-sm-2">
+											<label class="control-label">经度</label>
+										</div>
+										<div class="col-sm-5">
+											<input name="photoLongitude" value="${longitude}" class="form-control">
+										</div>
+										<div class="col-sm-5">
+											<a class="btn btn-lg btn-outline" href="${basePath}school/photo/getXY.do">在地图中标记</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-2">
+											<label class="control-label">纬度</label>
+										</div>
+										<div class="col-sm-5">
+											<input name="photoLatitude" value="${latitude}" class="form-control" >
+										</div>
+
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-2">
 											<label class="control-label">图片标题</label>
 										</div>
 										<div class="col-sm-10">
 											<input name="photoTitle" type="text" class="form-control">
 										</div>
 									</div>
+
+
 									<div class="form-group">
 										<div class="col-sm-2">
 											<label class="control-label">选择图片</label>
@@ -161,26 +184,7 @@
 									</div>
 
 
-									<div class="form-group">
-										<div class="col-sm-2">
-											<label class="control-label">经度</label>
-										</div>
-										<div class="col-sm-5">
-											<input name="photoLongitude" type="text" class="form-control" readonly>
-										</div>
-										<div class="col-sm-5">
-											<a class="btn btn-lg btn-outline" href="get_xyResult.html">在地图中标记</a>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-2">
-											<label class="control-label">纬度</label>
-										</div>
-										<div class="col-sm-5">
-											<input name="photoLatitude" type="text" class="form-control" readonly>
-										</div>
 
-									</div>
 
 
 									<div class="form-group">

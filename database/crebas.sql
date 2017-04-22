@@ -3,11 +3,6 @@
 /* Created on:     2017/4/21 20:43:37                           */
 /*==============================================================*/
 
-DROP database if EXISTS up_vams;
-
-CREATE database up_vams;
-
-use up_vams;
 
 drop table if exists t_discussion;
 
@@ -47,8 +42,8 @@ create table t_photo
    photo_id             varchar(32) not null,
    name                 varchar(80),
    title                varchar(40),
-   latitude             numeric(8,0),
-   longitude            numeric(8,0),
+   latitude             numeric(11,8),
+   longitude            numeric(11,8),
    introduction         text,
    view_num             int,
    like_num             int,
