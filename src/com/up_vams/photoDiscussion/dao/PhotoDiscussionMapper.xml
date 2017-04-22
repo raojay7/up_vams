@@ -27,4 +27,4 @@ WHERE pd.discussion_id=d.discussion_id AND pd.photo_id=#{id} order by d.floor_nu
     SELECT count(photo_id) FROM t_r_photo_discussion WHERE photo_id=#{photoId}
   </select>
 
-</mapper> 
+</mapper>
