@@ -7,7 +7,7 @@
     <result column="page_view" property="schoolPageView" jdbcType="INTEGER"/>
     <result column="active_index" property="schoolActiveIndex" jdbcType="INTEGER"/>
     <result column="photo_count" property="schoolPhotoCount" jdbcType="INTEGER"/>
-    <result column="Ranking" property="schoolRanking" jdbcType="INTEGER"/>
+    <result column="ranking" property="schoolRanking" jdbcType="INTEGER"/>
     <result column="pinyin" property="schoolPinyin" jdbcType="VARCHAR"/>
     <result column="pinyin_header" property="schoolPinyinHeader" jdbcType="VARCHAR"/>
   </resultMap>
@@ -40,7 +40,7 @@
         photo_count = #{schoolPhotoCount,jdbcType=INTEGER},
       </if>
       <if test="schoolRanking != null" >
-        racking = #{schoolRanking,jdbcType=INTEGER},
+        ranking = #{schoolRanking,jdbcType=INTEGER},
       </if>
       <if test="schoolPinyin != null" >
         pinyin = #{schoolPinyin,jdbcType=VARCHAR},

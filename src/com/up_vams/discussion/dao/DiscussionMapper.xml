@@ -31,7 +31,7 @@
   </update>
 
 
-  <select id="selectDisList" parameterType="Discussion"  resultMap="discussionMap">
+  <select id="selectDisList" resultMap="discussionMap">
     SELECT discussion_id, floor_num, create_time,
       content FROM t_discussion WHERE discussion_id IN
       <foreach collection="list" open="(" close=")" separator="," item="item">

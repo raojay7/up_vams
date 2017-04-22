@@ -48,7 +48,7 @@
     </select>
 
     <!-- 通过照片id集合查询照片列表-->
-    <select id="selectPhotos" parameterType="list" resultMap="PhotoResultMapWithBLOBs">
+    <select id="selectPhotos" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction,photo_ossname
         FROM t_photo WHERE photo_id IN
@@ -57,12 +57,24 @@
         </foreach>
     </select>
 
+
+    <select id="selectPhotosByUP" resultMap="PhotoResultMap" >
+        SELECT photo_id, name, title,
+        latitude, longitude, creator_id, introduction,photo_ossname
+        FROM t_photo WHERE photo_id IN
+        <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item.photoId}
+        </foreach>
+    </select>
+
+
     <!--通过照片主键查询-->
     <select id="selectByPK" parameterType="string" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction,photo_ossname
         FROM t_photo WHERE photo_id=#{pk}
     </select>
+
 
     <update id="update" parameterType="Photo">
         UPDATE t_photo
