@@ -2,6 +2,7 @@ package com.up_vams.school.dao;
 
 import com.up_vams.core.dao.BaseMapper;
 import com.up_vams.school.entity.School;
+import com.up_vams.userSchool.entity.UserSchool;
 
 import java.util.List;
 
@@ -14,9 +15,11 @@ public interface SchoolMapper extends BaseMapper<School> {
     List<School> selectSchools();
 
     /**
-     *
+     * 通过userschool集合查询学校列表
+     * @param list
+     * @return 学校列表
      */
-
+    List<School> selectSchoolsByUser(List<UserSchool> list);
 
 
 }

@@ -53,7 +53,7 @@
       </if>
     </set>
     WHERE school_id=#{schoolId}
-  </update> 
+  </update>
 
   <!--首页查询学校-->
   <select id="selectSchools" resultMap="SchoolResultMapWithBLOBs">
@@ -65,6 +65,13 @@
     SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school WHERE school_id=#{schoolId};
   </select>
 
+  <select id="selectSchoolsByUser" resultMap="SchoolResultMapWithBLOBs">
+    SELECT school_id,name,page_view,active_index,introduction,photo_count,ranking,pinyin,pinyin_header FROM t_school
+    WHERE school_id IN
+    <foreach collection="list" open="(" close=")" separator="," item="item">
+        #{item.schoolId}
+    </foreach>
+  </select>
 
 
 </mapper>
