@@ -56,7 +56,7 @@ public interface SchoolService extends BaseService<School>
 
     /**
      * 和根据用户查图片一样
-     * @param list
+     * @param list 什么鬼
      * @return
      */
     List<School> selectSchoolsByUser(List<UserSchool> list);
