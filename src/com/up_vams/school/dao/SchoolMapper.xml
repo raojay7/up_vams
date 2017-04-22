@@ -19,7 +19,7 @@
 
     INSERT INTO t_school (school_id, name, pinyin, pinyin_header, introduction,page_count
       )
-    VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR},#{pageCount,jdbcType=INTEGER}
+    VALUES (#{schoolId,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolPinyin,jdbcType=VARCHAR}, #{schoolPinyinHeader,jdbcType=VARCHAR}, #{schoolIntroduction,jdbcType=LONGVARCHAR},#{schoolPageCount,jdbcType=INTEGER}
       )
   </insert>
 
