@@ -54,5 +54,10 @@ public interface SchoolService extends BaseService<School>
      */
     Long getPhotoTotalRecord(String schoolId);
 
+    /**
+     * 和根据用户查图片一样
+     * @param list
+     * @return
+     */
     List<School> selectSchoolsByUser(List<UserSchool> list);
 }
