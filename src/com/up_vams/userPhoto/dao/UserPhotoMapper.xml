@@ -31,4 +31,9 @@
       SELECT photo_id,user_id,vote_time,state FROM t_r_vote_log WHERE photo_id=#{photoId} AND user_id=#{userId}
 
     </select>
+
+    <!--通过id查询总记录数-->
+    <select id="selectTotalRecord" parameterType="UserPhoto" resultType="long">
+        SELECT count(user_id) FROM t_r_vote_log WHERE user_id=#{userId}
+    </select>
 </mapper>
