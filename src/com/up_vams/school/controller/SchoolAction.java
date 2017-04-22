@@ -178,6 +178,7 @@ public class SchoolAction
         //2得到学校信息
         School school = schoolService.selectByPK(schoolId);
         //3设置到域中
+        //先清除原来的school
         session.setAttribute("school",school);
         //4得到学校照片信息
         List<SchoolPhoto> list = schoolService.findSchoolPhotoBySchoolId(schoolId);

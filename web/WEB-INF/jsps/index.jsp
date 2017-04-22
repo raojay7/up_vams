@@ -55,13 +55,7 @@
     <script src="${basePath}lib_one/js/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" language="JavaScript">
-    function gotoSchoolHome() {
 
-        document.forms[0].submit();
-
-    }
-</script>
 </head>
 
 <body class="fh5co-outer">
@@ -309,10 +303,9 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div>
-                        <form action="${basePath}school/find.do" method="post">
-                            <input class="btn btn-primary" type="button" value="浏览更多" onclick="gotoSchoolHome()">
-                            <input hidden name="schoolId" value="${homeSchool.schoolId}"/>
-                        </form>
+                        <a href="${basePath}school/find.do?schoolId=${homeSchool.schoolId}" class="btn btn-primary" >
+                            浏览更多
+                        </a>
                     </div>
                 </div>
             </div>
