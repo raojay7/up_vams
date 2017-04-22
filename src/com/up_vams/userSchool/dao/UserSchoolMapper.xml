@@ -25,6 +25,10 @@
     <select id="selectPageList" parameterType="page" resultMap="userSchoolMap">
         SELECT schoolId FROM t_r_user_school WHERE user_id=#{id} LIMIT #{start},#{pageSize}
     </select>
-    
+
+    <select id="select" parameterType="UserSchool" resultMap="userSchoolMap">
+        SELECT school_id,user_id,coll_time,state FROM t_r_user_school WHERE photo_id=#{schoolId} AND user_id=#{userId}
+
+    </select>
 
 </mapper>

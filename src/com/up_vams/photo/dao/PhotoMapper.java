@@ -17,6 +17,11 @@ public interface PhotoMapper extends BaseMapper<Photo>{
      */
     Photo selectSchoolMore(String photoId);
 
+    /**
+     * 通过SchoolPhoto查询照片
+     * @param list
+     * @return
+     */
     List<Photo> selectPhotos(List<SchoolPhoto> list);
 
 

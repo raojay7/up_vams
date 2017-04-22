@@ -14,7 +14,10 @@
 
   <select id="selectPageList" parameterType="Page" resultMap="photoDiscussionMap">
 
-    SELECT discussion_id, photo_id FROM t_r_photo_discussion WHERE photo_id=#{id}  limit #{start},#{pageSize}
+    SELECT pd.discussion_id, pd.photo_id
+FROM t_r_photo_discussion pd  inner JOIN t_discussion d
+WHERE pd.discussion_id=d.discussion_id AND pd.photo_id=#{id} order by d.floor_num  limit #{start},#{pageSize}
+
 
   </select>
 </mapper>

@@ -16,10 +16,10 @@ public class Photo implements Serializable{
     private String photoTitle;
 
     //照片纬度
-    private Integer photoLatitude;
+    private Double photoLatitude;
 
     //照片经度
-    private Integer photoLongitude;
+    private Double photoLongitude;
 
     //照片访问量
     private Integer photoViewNum;
@@ -69,19 +69,19 @@ public class Photo implements Serializable{
         this.photoTitle = photoTitle;
     }
 
-    public Integer getPhotoLatitude() {
+    public Double getPhotoLatitude() {
         return photoLatitude;
     }
 
-    public void setPhotoLatitude(Integer photoLatitude) {
+    public void setPhotoLatitude(Double photoLatitude) {
         this.photoLatitude = photoLatitude;
     }
 
-    public Integer getPhotoLongitude() {
+    public Double getPhotoLongitude() {
         return photoLongitude;
     }
 
-    public void setPhotoLongitude(Integer photoLongitude) {
+    public void setPhotoLongitude(Double photoLongitude) {
         this.photoLongitude = photoLongitude;
     }
 
