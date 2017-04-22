@@ -1,0 +1,181 @@
+/*
+SQLyog 企业版 - MySQL GUI v8.14 
+MySQL - 5.5.40 : Database - up_vams
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`up_vams` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `up_vams`;
+
+/*Table structure for table `t_discussion` */
+
+DROP TABLE IF EXISTS `t_discussion`;
+
+CREATE TABLE `t_discussion` (
+  `content` text,
+  `floor_num` int(11) DEFAULT NULL,
+  `create_time` date DEFAULT NULL,
+  `discussion_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`discussion_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_discussion` */
+
+/*Table structure for table `t_photo` */
+
+DROP TABLE IF EXISTS `t_photo`;
+
+CREATE TABLE `t_photo` (
+  `photo_id` varchar(32) NOT NULL,
+  `name` varchar(80) DEFAULT NULL,
+  `title` varchar(40) DEFAULT NULL,
+  `latitude` decimal(8,0) DEFAULT NULL,
+  `longitude` decimal(8,0) DEFAULT NULL,
+  `introduction` text,
+  `view_num` int(11) DEFAULT NULL,
+  `like_num` int(11) DEFAULT NULL,
+  `creator_id` varchar(32) DEFAULT NULL,
+  `photo_ossname` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_photo` */
+
+insert  into `t_photo`(`photo_id`,`name`,`title`,`latitude`,`longitude`,`introduction`,`view_num`,`like_num`,`creator_id`,`photo_ossname`) values ('01266916cbbe48fe852c2ae1bb30fd69','T$6SJQD0$[8)1%2Y@KI2%Z7.jpg','哈哈哈',NULL,NULL,'没想到',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','01266916cbbe48fe852c2ae1bb30fd69.jpg'),('3f062b97b9014b9fab98a7c14fe203cf','`@@S4[YFRH7Y2MHR2AT_QLQ.jpg','1',NULL,NULL,'f',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','3f062b97b9014b9fab98a7c14fe203cf.jpg'),('4462cc2371774fd897258c93f37da691','DFHG[]4960}%GV]8PTX3649.jpg','hhhh',NULL,NULL,'mmmm',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','4462cc2371774fd897258c93f37da691.jpg'),('45fca3b1f37c4635b55fd1a704b8eda6','FZMP)57(Q`XSHHIF01[E4QL.gif','444',NULL,NULL,'1',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','45fca3b1f37c4635b55fd1a704b8eda6.gif'),('5b5a84461dd3415d81667fdde02650d0','1IWL0XDZABCY)2L[C1$])YP.png',NULL,NULL,NULL,NULL,NULL,NULL,'1d540829154e11e7bed5f8a963ba0e0a','5b5a84461dd3415d81667fdde02650d0.png'),('5c4b0f82f85c4dbe96fa0c01b88ad14a','S$WK8%JS7I]S]T}0%N9}TRH.jpg','fff',NULL,NULL,'fff',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','5c4b0f82f85c4dbe96fa0c01b88ad14a.jpg'),('67aa38ed5f904e42a63e18b98710d720','26N30{M1IY${}_DI)~MISC9.jpg','1',NULL,NULL,'666',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','67aa38ed5f904e42a63e18b98710d720.jpg'),('69a4fba065674113a58c34605d48256d','10C[)H$HNL7MSM[(M6J33_J.jpg','ffff',NULL,NULL,'fffff',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','69a4fba065674113a58c34605d48256d.jpg'),('71d25f4e82f7406d96c21947224ac8be','4~G[)2$MM6AHS]6R3EU~%GL.jpg','没想到吧',NULL,NULL,'555',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','71d25f4e82f7406d96c21947224ac8be.jpg'),('7d86656ff90b4c24a3eeb13fd44b3cf8','C[ZXR)1_0R)})8E_@TSU%13.jpg','666',NULL,NULL,'6666',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','7d86656ff90b4c24a3eeb13fd44b3cf8.jpg'),('8e5ba03e0e204beb8471eb57fef8c7bb','VY~DH@G~6(YG1FTPF(XO{{U.gif','na',NULL,NULL,'na',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','8e5ba03e0e204beb8471eb57fef8c7bb.gif'),('8e74b7e1104345a8b51158fcaa065348','PRZ1W)SQ5ZKA)FH(K5P%0TP.gif','震惊！！！！',NULL,NULL,'111',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','8e74b7e1104345a8b51158fcaa065348.gif'),('aa64a6474959495b91bc86bbde9fe0c5','6%N22NC{UQ3C~EU8]65HW]6.png','南昌大学学生柳杰草母猪图片被发出',NULL,NULL,'真是丧尽天良！',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','aa64a6474959495b91bc86bbde9fe0c5.png'),('b8cb4254ead04abd982a8633a0b9d5f3','N2A`MUO1TFC(ZTJ[LSW@A{3.png','111',NULL,NULL,'bbbb',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','b8cb4254ead04abd982a8633a0b9d5f3.png'),('c37281ef6ede419fad501873fdcc1454','~KG}3PP1M1TG@LM0[]8(38Y.jpg',NULL,NULL,NULL,NULL,NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','c37281ef6ede419fad501873fdcc1454.jpg'),('d81e47c2bce44abc80bc741f393aef4b',')4F4RE6`V%KQ({5[H(0YXB5.jpg','1',NULL,NULL,'666',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','d81e47c2bce44abc80bc741f393aef4b.jpg'),('e0ed00b3cc704f418bbfea0df28c037e','MD88RVPXJ~AZJ5LB%IW~I1P.jpg','fggg',NULL,NULL,'bbb',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','e0ed00b3cc704f418bbfea0df28c037e.jgp'),('e8216cab5aef4b5b8aed708985e0536b','MH)SQ44]DLBW5~FR]NT$QMR.png',NULL,NULL,NULL,NULL,NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','e8216cab5aef4b5b8aed708985e0536b.png'),('f3789ec3015c4201addc64c3e57e6613','T$6SJQD0$[8)1%2Y@KI2%Z7.jpg','啊啊啊',NULL,NULL,'哈哈哈',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','f3789ec3015c4201addc64c3e57e6613.jpg'),('f45e821d5bdf4a269412832faaf56518','{W$RVXVD1FX8XXW4[F{4Z6U.gif','黄图',NULL,NULL,'666',NULL,NULL,'a1c2e61a148111e7bed5f8a963ba0e0a','f45e821d5bdf4a269412832faaf56518.gif');
+
+/*Table structure for table `t_r_photo_discussion` */
+
+DROP TABLE IF EXISTS `t_r_photo_discussion`;
+
+CREATE TABLE `t_r_photo_discussion` (
+  `discussion_id` varchar(32) NOT NULL,
+  `photo_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`discussion_id`,`photo_id`),
+  KEY `FK_t_r_photo_discussion2` (`photo_id`),
+  CONSTRAINT `FK_t_r_photo_discussion` FOREIGN KEY (`discussion_id`) REFERENCES `t_discussion` (`discussion_id`),
+  CONSTRAINT `FK_t_r_photo_discussion2` FOREIGN KEY (`photo_id`) REFERENCES `t_photo` (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_r_photo_discussion` */
+
+/*Table structure for table `t_r_school_photo` */
+
+DROP TABLE IF EXISTS `t_r_school_photo`;
+
+CREATE TABLE `t_r_school_photo` (
+  `school_id` varchar(32) NOT NULL,
+  `photo_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`school_id`,`photo_id`),
+  KEY `FK_t_r_school_photo2` (`photo_id`),
+  CONSTRAINT `FK_t_r_school_photo` FOREIGN KEY (`school_id`) REFERENCES `t_school` (`school_id`),
+  CONSTRAINT `FK_t_r_school_photo2` FOREIGN KEY (`photo_id`) REFERENCES `t_photo` (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_r_school_photo` */
+
+insert  into `t_r_school_photo`(`school_id`,`photo_id`) values ('03d3619b138f46c49acf131099008cc4','3f062b97b9014b9fab98a7c14fe203cf'),('03d3619b138f46c49acf131099008cc4','4462cc2371774fd897258c93f37da691'),('03d3619b138f46c49acf131099008cc4','45fca3b1f37c4635b55fd1a704b8eda6'),('6f5f337f120140cda4197f9ad55b0c66','5b5a84461dd3415d81667fdde02650d0'),('03d3619b138f46c49acf131099008cc4','5c4b0f82f85c4dbe96fa0c01b88ad14a'),('03d3619b138f46c49acf131099008cc4','67aa38ed5f904e42a63e18b98710d720'),('03d3619b138f46c49acf131099008cc4','69a4fba065674113a58c34605d48256d'),('03d3619b138f46c49acf131099008cc4','71d25f4e82f7406d96c21947224ac8be'),('03d3619b138f46c49acf131099008cc4','7d86656ff90b4c24a3eeb13fd44b3cf8'),('03d3619b138f46c49acf131099008cc4','8e5ba03e0e204beb8471eb57fef8c7bb'),('03d3619b138f46c49acf131099008cc4','8e74b7e1104345a8b51158fcaa065348'),('03d3619b138f46c49acf131099008cc4','aa64a6474959495b91bc86bbde9fe0c5'),('03d3619b138f46c49acf131099008cc4','b8cb4254ead04abd982a8633a0b9d5f3'),('acb231f4e8ba4f35bcc3d7568100105d','c37281ef6ede419fad501873fdcc1454'),('03d3619b138f46c49acf131099008cc4','d81e47c2bce44abc80bc741f393aef4b'),('03d3619b138f46c49acf131099008cc4','e0ed00b3cc704f418bbfea0df28c037e'),('03d3619b138f46c49acf131099008cc4','e8216cab5aef4b5b8aed708985e0536b'),('03d3619b138f46c49acf131099008cc4','f3789ec3015c4201addc64c3e57e6613'),('03d3619b138f46c49acf131099008cc4','f45e821d5bdf4a269412832faaf56518');
+
+/*Table structure for table `t_r_user_discussion` */
+
+DROP TABLE IF EXISTS `t_r_user_discussion`;
+
+CREATE TABLE `t_r_user_discussion` (
+  `user_id` varchar(32) NOT NULL,
+  `discussion_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`user_id`,`discussion_id`),
+  KEY `FK_t_r_user_discussion2` (`discussion_id`),
+  CONSTRAINT `FK_t_r_user_discussion` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`),
+  CONSTRAINT `FK_t_r_user_discussion2` FOREIGN KEY (`discussion_id`) REFERENCES `t_discussion` (`discussion_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_r_user_discussion` */
+
+/*Table structure for table `t_r_user_school` */
+
+DROP TABLE IF EXISTS `t_r_user_school`;
+
+CREATE TABLE `t_r_user_school` (
+  `user_id` varchar(32) NOT NULL,
+  `school_id` varchar(32) NOT NULL,
+  `collect_time` date DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`school_id`),
+  KEY `FK_t_r_user_school2` (`school_id`),
+  CONSTRAINT `FK_t_r_user_school` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`),
+  CONSTRAINT `FK_t_r_user_school2` FOREIGN KEY (`school_id`) REFERENCES `t_school` (`school_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_r_user_school` */
+
+/*Table structure for table `t_r_vote_log` */
+
+DROP TABLE IF EXISTS `t_r_vote_log`;
+
+CREATE TABLE `t_r_vote_log` (
+  `photo_id` varchar(32) NOT NULL,
+  `user_id` varchar(32) NOT NULL,
+  `vote_time` date DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  PRIMARY KEY (`photo_id`,`user_id`),
+  KEY `FK_t_r_vote_log2` (`user_id`),
+  CONSTRAINT `FK_t_r_vote_log2` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`),
+  CONSTRAINT `FK_t_r_vote_log` FOREIGN KEY (`photo_id`) REFERENCES `t_photo` (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_r_vote_log` */
+
+/*Table structure for table `t_school` */
+
+DROP TABLE IF EXISTS `t_school`;
+
+CREATE TABLE `t_school` (
+  `name` varchar(80) DEFAULT NULL,
+  `page_view` int(11) DEFAULT NULL,
+  `active_index` int(11) DEFAULT NULL,
+  `introduction` text,
+  `photo_count` int(11) DEFAULT NULL,
+  `ranking` int(11) DEFAULT NULL,
+  `school_id` varchar(32) NOT NULL,
+  `pinyin` varchar(40) DEFAULT NULL,
+  `pinyin_header` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`school_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_school` */
+
+insert  into `t_school`(`name`,`page_view`,`active_index`,`introduction`,`photo_count`,`ranking`,`school_id`,`pinyin`,`pinyin_header`) values ('南昌大学',111,222,'sb大学',12,1,'03d3619b138f46c49acf131099008cc4','nanchangdaxue','ncdx'),('江西财经大学',NULL,NULL,'嘎嘎嘎',1,2,'6f5f337f120140cda4197f9ad55b0c66','jiangxicaijingdaxue','jxcjdx'),('复读大学',NULL,NULL,'韩庚韩寒',1,3,'acb231f4e8ba4f35bcc3d7568100105d','fududaxue','fddx');
+
+/*Table structure for table `t_user` */
+
+DROP TABLE IF EXISTS `t_user`;
+
+CREATE TABLE `t_user` (
+  `user_id` varchar(32) NOT NULL,
+  `user_name` varchar(10) DEFAULT NULL,
+  `user_email` varchar(30) DEFAULT NULL,
+  `user_phone` varchar(20) DEFAULT NULL,
+  `user_address` text,
+  `user_image` varchar(50) DEFAULT NULL,
+  `gender` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `user_password` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_user` */
+
+insert  into `t_user`(`user_id`,`user_name`,`user_email`,`user_phone`,`user_address`,`user_image`,`gender`,`score`,`user_password`) values ('1d540829154e11e7bed5f8a963ba0e0a',NULL,'2@qq.com',NULL,NULL,NULL,NULL,NULL,'1'),('a1c2e61a148111e7bed5f8a963ba0e0a','CCCC','1',NULL,NULL,NULL,1,NULL,'1');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
