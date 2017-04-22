@@ -58,7 +58,7 @@
     </select>
 
 
-    <select id="selectPhotosByUP" resultMap="PhotoResultMap" >
+    <select id="selectPhotosByUser" resultMap="PhotoResultMap" >
         SELECT photo_id, name, title,
         latitude, longitude, creator_id, introduction,photo_ossname
         FROM t_photo WHERE photo_id IN

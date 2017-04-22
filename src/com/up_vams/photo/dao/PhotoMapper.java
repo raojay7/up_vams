@@ -31,6 +31,6 @@ public interface PhotoMapper extends BaseMapper<Photo>{
      * @param ups
      * @return
      */
-    List<Photo> selectPhotosByUP(List<UserPhoto> ups);
+    List<Photo> selectPhotosByUser(List<UserPhoto> ups);
 
 }
