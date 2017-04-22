@@ -15,7 +15,7 @@
 
     </insert>
 
-   <!-- 取消收藏后，删除记录-->
+   <!-- 取消收藏后，修改记录-->
    <update  id="update" parameterType="UserSchool">
        UPDATE t_r_user_school SET state=#{usState},vote_time=NOW() WHERE schoolId=#{schoolId} AND user_id=#{userId}
 
@@ -26,9 +26,14 @@
         SELECT schoolId FROM t_r_user_school WHERE user_id=#{id} LIMIT #{start},#{pageSize}
     </select>
 
+   <!-- 通过联合主键查询实体-->
     <select id="select" parameterType="UserSchool" resultMap="userSchoolMap">
         SELECT school_id,user_id,coll_time,state FROM t_r_user_school WHERE photo_id=#{schoolId} AND user_id=#{userId}
 
+    </select>
+
+    <select id="selectTotalRecord" parameterType="UserSchool" resultType="long">
+        SELECT count(user_id) FROM t_r_user_school WHERE user_id=#{userId}
     </select>
 
 </mapper>
