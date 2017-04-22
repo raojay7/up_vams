@@ -198,7 +198,11 @@ public class SchoolAction
     public String showPhotoDetail(String photoId,HttpSession httpSession)
     {
         Photo photo = photoService.selectByPK(photoId);
+        //把photo和关系设置到session
         httpSession.setAttribute("detail_photo",photo);
+        //根据用户和图片id查询userphoto并设置到session
+
+        //httpSession.setAttribute("userPhoto",userPhoto);
         return "school_photo_detail";
     }
 

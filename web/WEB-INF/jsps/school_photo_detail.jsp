@@ -111,15 +111,24 @@
 
                 <div class="col-md-12">
                     <p class="text-center">
-                        <c:if test="${userPhoto.state==0}">
-                            <a href="${basePath}user/photo/vote/cancel.do?photoId=${detail_photo.photoId}" class="btn btn-primary btn-outline">取消点赞</a>
+                        <c:if test="${userPhoto.upState==1}">
+                            <a href="${basePath}user/photo/vote/cancel.do?photoId=${detail_photo.photoId}"
+                               class="btn btn-primary btn-outline">取消点赞</a>
                         </c:if>
-                        <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}" class="btn btn-primary btn-outline">赞一个</a>
+                        <c:if test="${userPhoto.upState==0}">
+
+                            <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}"
+                               class="btn btn-primary btn-outline">赞一个</a>
+                        </c:if>
+                        <c:if test="${userPhoto.upState==null}">
+
+                            <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}"
+                               class="btn btn-primary btn-outline">赞一个</a>
+                        </c:if>
                     </p>
                 </div>
 
                 <div class="row">
-
 
 
                     <div class="col-md-2">
@@ -129,9 +138,6 @@
                     <div class="col-md-2">
                         <a class="btn btn-outline">点赞数:${detail_photo.photoLikeNum}</a>
                     </div>
-
-
-
 
 
                 </div>

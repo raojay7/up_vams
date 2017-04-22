@@ -246,7 +246,7 @@
             <div class="row gallery-row">
 
                 <div class="col-md-6 col-sm-6">
-                    <a href="${basePath}school/photo/detail.do" class="img image-popup">
+                    <a href="${picPath}${homeSchool.photo.photoOssname}" class="img image-popup">
                         <div class="overlay"></div>
                         <div class="text">
                             <h2>${homeSchool.schoolName}</h2>
@@ -260,7 +260,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="row first-row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[0].photoId}" class="img image-popup">
+                            <a href="${picPath}${homeSchool.photos[0].photoOssname}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>${homeSchool.photos[0].photoIntroduction}</h2>
@@ -270,7 +270,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[1].photoId}" class="img image-popup">
+                            <a href="${picPath}${homeSchool.photos[1].photoOssname}"class="img image-popup" >
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>${homeSchool.photos[1].photoIntroduction}</h2>
@@ -281,7 +281,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[2].photoId}" class="img image-popup">
+                            <a href="${picPath}${homeSchool.photos[2].photoOssname}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>${homeSchool.photos[2].photoIntroduction}</h2>
@@ -291,7 +291,7 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[3].photoId}" class="img image-popup">
+                            <a href="${picPath}${homeSchool.photos[3].photoOssname}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
                                     <h2>${homeSchool.photos[3].photoIntroduction}</h2>
