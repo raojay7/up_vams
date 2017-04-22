@@ -105,7 +105,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <figure><img src="${basePath}lib_two/images/big_1.jpg"
+                    <figure><img src="${picPath}${detail_photo.photoOssname}"
                                  alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive"></figure>
                 </div>
 

@@ -8,7 +8,6 @@ import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import com.up_vams.utils.OssUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -196,8 +195,10 @@ public class SchoolAction
 
 
     @RequestMapping("showPhotoDetail")
-    public String showPhotoDetail(String photoId,Model model)
+    public String showPhotoDetail(String photoId,HttpSession httpSession)
     {
+        Photo photo = photoService.selectByPK(photoId);
+        httpSession.setAttribute("detail_photo",photo);
         return "school_photo_detail";
     }
 
