@@ -7,6 +7,7 @@ DROP database if EXISTS up_vams;
 
 CREATE database up_vams;
 
+use up_vams;
 
 drop table if exists t_discussion;
 

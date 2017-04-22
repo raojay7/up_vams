@@ -5,13 +5,13 @@
     <id column="discussion_id" property="discussionId" jdbcType="VARCHAR" />
     <result column="floor_num" property="disFloorNum" jdbcType="INTEGER" />
     <result column="create_time" property="disCreateTime" jdbcType="DATE" />
-    <result column="disContent" property="disContent" jdbcType="LONGVARCHAR" />
+    <result column="content" property="disContent" jdbcType="LONGVARCHAR" />
   </resultMap>
 
 
   <insert id="insert" parameterType="com.up_vams.discussion.entity.Discussion" >
     insert into t_discussion (discussion_id, floor_num, create_time, 
-      disContent)
+      content)
     values (#{discussionId,jdbcType=VARCHAR}, #{disFloorNum,jdbcType=INTEGER}, #{disCreateTime,jdbcType=DATE}, 
       #{disContent,jdbcType=LONGVARCHAR})
   </insert>
@@ -25,7 +25,7 @@
         create_time = #{disCreateTime,jdbcType=DATE},
       </if>
       <if test="disContent != null" >
-        disContent = #{disContent,jdbcType=LONGVARCHAR},
+        content = #{disContent,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where discussion_id = #{discussionId,jdbcType=VARCHAR}

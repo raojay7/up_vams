@@ -79,8 +79,8 @@
             <if test="photoViewNum != null">
                 view_num = #{photoViewNum,jdbcType=INTEGER},
             </if>
-            <if test="photoLikeNume != null">
-                like_num = #{photoLikeNume,jdbcType=INTEGER},
+            <if test="photoLikeNum != null">
+                like_num = #{photoLikeNum,jdbcType=INTEGER},
             </if>
 
         </set>
