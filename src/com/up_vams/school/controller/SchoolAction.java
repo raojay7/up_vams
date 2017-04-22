@@ -6,6 +6,9 @@ import com.up_vams.photo.service.PhotoService;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.user.entity.User;
+import com.up_vams.userPhoto.entity.UserPhoto;
+import com.up_vams.userPhoto.service.UserPhotoService;
 import com.up_vams.utils.OssUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,9 @@ public class SchoolAction
     private SchoolService schoolService;
     @Resource
     private PhotoService photoService;
+    @Resource
+    private UserPhotoService userPhotoService;
+
 
     //跳转uri
     @RequestMapping("searchUI")
@@ -119,6 +125,13 @@ public class SchoolAction
     {
         Photo photo = photoService.selectByPK(photoId);
         httpSession.setAttribute("detail_photo",photo);
+        User user = (User)httpSession.getAttribute("user");
+        UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
+        UserPhoto userphoto = userPhotoService.select(userPhoto);
+        if (userPhoto!=null)
+        {
+            httpSession.setAttribute("userphoto",userphoto);
+        }
         return "school_photo_detail";
     }
 
