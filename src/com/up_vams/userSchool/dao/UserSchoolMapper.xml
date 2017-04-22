@@ -33,7 +33,7 @@
     </select>
 
     <!--通过用户ID查询用户所收藏的所有学校-->
-    <select id="selectTotalRecord" parameterType="UserSchool" resultType="long">
+    <select id="selectTotalRecord" parameterType="string" resultType="long">
         SELECT count(user_id) FROM t_r_user_school WHERE user_id=#{userId}
     </select>
 

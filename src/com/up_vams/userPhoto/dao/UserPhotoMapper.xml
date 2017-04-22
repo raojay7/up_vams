@@ -31,7 +31,7 @@
     </select>
 
     <!--通过id查询总记录数-->
-    <select id="selectTotalRecord" parameterType="UserPhoto" resultType="long">
+    <select id="selectTotalRecord" parameterType="string" resultType="long">
         SELECT count(user_id) FROM t_r_vote_log WHERE user_id=#{userId}
     </select>
 </mapper>
