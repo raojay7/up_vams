@@ -4,6 +4,7 @@ import com.up_vams.core.service.impl.BaseServiceImpl;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.photo.service.PhotoService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.userPhoto.entity.UserPhoto;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -45,6 +46,13 @@ public class PhotoServiceImpl extends BaseServiceImpl<Photo> implements PhotoSer
     public List<Photo> selectPhotos(List<SchoolPhoto> list)
     {
         return photoMapper.selectPhotos(list);
+    }
+
+
+    @Override
+    public List<Photo> selectPhotosByUser(List<UserPhoto> list)
+    {
+        return photoMapper.selectPhotosByUser(list);
     }
 
 }

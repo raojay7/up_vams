@@ -89,94 +89,35 @@
 		<div id="fh5co-main">
 			<div class="fh5co-gallery">
 
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
+				<c:forEach items="${pageResult.list}" var="photo">
+					<a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${photo.photoId}">
+						<img src="${picPath}${photo.photoOssname}" alt="school_door">
+						<span class="overlay">
+						<h2>${photo.photoTitle}</h2>
+						<span>${photo.photoIntroduction}</span>
 					</span>
-				</a>
-
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-
-				<a class="gallery-item" href="user_photo_detail.html">
-					<img src="${basePath}lib_two/images/work_1.jpg" alt="school_door">
-					<span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
-					</span>
-				</a>
-
-
-
+					</a>
+				</c:forEach>
 
 			</div>
 
-			<center>
-
-				<p><a href="#" class="btn btn-primary btn-outline">上一页</a></p>
-
-			</center>
-
-			<center>
-
-				<p><a class="btn btn-primary btn-outline">第1页</a></p>
-
-			</center>
+			<script type="text/javascript">
+				//翻页
+				function doGoPage(pageNum) {
+					document.getElementById("pageNum").value = pageNum;
+					document.forms[0].action = "${request.getContextPath}/user/photoUI.do";
+					document.forms[0].submit();
+				}
+			</script>
+			<jsp:include page="/common/pageNavigator.jsp"/>
 
 
-			<center>
 
-				<p><a href="#" class="btn btn-primary btn-outline">下一页</a></p>
-
-			</center>
-
+			<br>
+			<br>
+			<br>
 
 		</div>
-
-
 
 	</div>
 

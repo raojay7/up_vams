@@ -111,20 +111,22 @@
 
                 <div class="col-md-12">
                     <p class="text-center">
+                        <c:if test="${userPhoto.upState==null}">
+
+                            <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}"
+                               class="btn btn-primary btn-outline">赞一个</a>
+                        </c:if>
+
                         <c:if test="${userPhoto.upState==1}">
                             <a href="${basePath}user/photo/vote/cancel.do?photoId=${detail_photo.photoId}"
                                class="btn btn-primary btn-outline">取消点赞</a>
                         </c:if>
                         <c:if test="${userPhoto.upState==0}">
 
-                            <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}"
+                            <a href="${basePath}user/photo/revote.do?photoId=${detail_photo.photoId}"
                                class="btn btn-primary btn-outline">赞一个</a>
                         </c:if>
-                        <c:if test="${userPhoto.upState==null}">
 
-                            <a href="${basePath}user/photo/vote.do?photoId=${detail_photo.photoId}"
-                               class="btn btn-primary btn-outline">赞一个</a>
-                        </c:if>
                     </p>
                 </div>
 

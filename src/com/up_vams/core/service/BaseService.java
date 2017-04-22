@@ -1,5 +1,7 @@
 package com.up_vams.core.service;
 
+import com.up_vams.core.entity.Page;
+
 import java.util.List;
 
 /**
@@ -7,28 +9,32 @@ import java.util.List;
  */
 public interface BaseService<T>
 {
-    //添加单个对象
-    int insert (T entity);
+    //增加对象
+    int insert(T t);
 
-    //修改单个对象
-    int update(T entity);
+    //删除对象
+    int delete(T t);
 
-    //删除单个对象
-    int delete(T entity);
+    //查询对象
+    T select(T t);
 
-    //查询单个对象
-    T select(T entity);
-
-    //模糊查询多个对象
-    List<T> select(String keyword);
-
-    //查询所有对象
-    List<T> select();
-
-    //根据id查找对象
+    //通过主键查询对象
     T selectByPK(String pk);
 
-    //分页查询
+    //修改对象
+    int update(T t);
 
+
+    //模糊查询列表
+    List<T> selectList(String keyword);
+
+    //查询所有对象
+    List<T> selectAll();
+
+    //分页动态查询数据列表可通过关键字
+    List<T> selectPageList(Page<T> page);
+
+    //动态查询总记录数
+    Long selectTotalRecord(String id);
 
 }
