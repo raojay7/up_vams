@@ -92,7 +92,6 @@
                     <li>&nbsp;&nbsp;</li>
                     <c:if test="${sessionScope.user!=null}">
                         <li>
-                            <div class="btn btn-outline">${sessionScope.user.userName}</div>
                             <a class="btn btn-outline" href="${basePath}user/logout.do">注销</a>
                         </li>
                     </c:if>
@@ -261,43 +260,43 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="row first-row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[0].photoId}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>${homeSchool.photos[1].photoIntroduction}</h2>
+                                    <h2>${homeSchool.photos[0].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[1].photoOssname}" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[0].photoOssname}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[1].photoId}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>${homeSchool.photos[2].photoIntroduction}</h2>
+                                    <h2>${homeSchool.photos[1].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[2].photoOssname}" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[1].photoOssname}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[2].photoId}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>${homeSchool.photos[3].photoIntroduction}</h2>
+                                    <h2>${homeSchool.photos[2].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[3].photoOssname}" alt="Image"
+                                <img src="${picPath}${homeSchool.photos[2].photoOssname}" alt="Image"
                                      class="img-responsive">
                             </a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="${basePath}school/photo/detail.do" class="img image-popup">
+                            <a href="${basePath}school/photo/detail.do?photoId=${homeSchool.photos[3].photoId}" class="img image-popup">
                                 <div class="overlay"></div>
                                 <div class="text">
-                                    <h2>${homeSchool.photos[4].photoIntroduction}</h2>
+                                    <h2>${homeSchool.photos[3].photoIntroduction}</h2>
                                 </div>
-                                <img src="${picPath}${homeSchool.photos[4].photoOssname}" alt="Image" class="img-responsive">
+                                <img src="${picPath}${homeSchool.photos[3].photoOssname}" alt="Image" class="img-responsive">
                             </a>
                         </div>
                     </div>
