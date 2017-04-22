@@ -161,7 +161,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib/oss" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="file://$MODULE_DIR$/lib/springfileupload" />
@@ -171,7 +171,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib/springfileupload" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/pinyin4j-2.5.0.jar!/" />
@@ -180,6 +180,15 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.9" level="application_server_libraries" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://D:/apache-tomcat-8.0.43/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://D:/apache-tomcat-8.0.43/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

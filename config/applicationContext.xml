@@ -44,7 +44,7 @@
 
         <property name="user" value="root"/>
 
-        <property name="password" value="root"/>
+        <property name="password" value="2161751qwe"/>
     </bean>
 
     <!-- 第二步：创建sqlSessionFactory。生产sqlSession -->
