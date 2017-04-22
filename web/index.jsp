@@ -12,5 +12,12 @@
   </head>
   <body>
   $END$
+
+  <%
+
+     response.sendRedirect(request.getContextPath()+"/home/index.do");
+
+  %>
+
   </body>
 </html>
