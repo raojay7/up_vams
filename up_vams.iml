@@ -180,15 +180,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="file://D:/apache-tomcat-8.0.43/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://D:/apache-tomcat-8.0.43/lib" recursive="false" />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.9" level="application_server_libraries" />
   </component>
 </module>
