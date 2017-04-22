@@ -71,7 +71,7 @@
     <!--通过照片主键查询-->
     <select id="selectByPK" parameterType="string" resultMap="PhotoResultMapWithBLOBs">
         SELECT photo_id, name, title,
-        latitude, longitude, creator_id, introduction,photo_ossname
+        latitude, longitude, creator_id, introduction,photo_ossname,view_num,like_num
         FROM t_photo WHERE photo_id=#{pk}
     </select>
 
