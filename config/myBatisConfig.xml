@@ -23,6 +23,8 @@
 		<package name="com.up_vams.userPhoto.entity"/>
 		<package name="com.up_vams.userSchool.entity"/>
 		<package name="com.up_vams.discussion.entity"/>
+		<package name="com.up_vams.photoDiscussion.entity"/>
+
 	</typeAliases>
 
 

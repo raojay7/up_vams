@@ -15,16 +15,19 @@
 
     </insert>
 
-   <!-- 取消赞-->
-   <update id="update" parameterType="UserPhoto">
+    <!-- 取消赞-->
+    <update id="update" parameterType="UserPhoto">
        UPDATE  t_r_vote_log SET state=#{upState},vote_time=NOW() WHERE photo_id=#{photoId} AND user_id=#{userId}
 
    </update>
 
-    <!--分页获取用户收藏学校ID-->
+    <!--分页获取用户收藏图片ID-->
     <select id="selectPageList" parameterType="page" resultMap="userPhotoMap">
         SELECT photo_id FROM t_r_vote_log WHERE user_id=#{id} LIMIT #{start},#{pageSize}
     </select>
 
+    <select id="select" parameterType="UserPhoto" resultMap="userPhotoMap">
+      SELECT photo_id,user_id,vote_time,state FROM t_r_user_photo WHERE photo_id=#{photoId} AND user_id=#{userId}
 
+    </select>
 </mapper>
