@@ -8,5 +8,9 @@ import com.up_vams.userPhoto.entity.UserPhoto;
  */
 public interface UserPhotoService extends BaseService<UserPhoto>
 {
-
+    /**
+     * select（）
+     * 他的select方法应该传入封装好的userphoto
+     * 返回userphoto的所有字段
+     */
 }
