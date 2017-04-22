@@ -12,7 +12,7 @@ public interface SchoolPhotoMapper extends BaseMapper<SchoolPhoto>{
      * @param schoolId 学校ID
      * @return 实体列表
      */
-    List<SchoolPhoto> selectPhotos(String schoolId);
+       List<SchoolPhoto> selectPhotos(String schoolId);
 
 
 

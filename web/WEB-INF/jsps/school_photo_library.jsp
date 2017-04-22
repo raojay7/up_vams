@@ -111,6 +111,14 @@
 
         </div>
 
+        <script type="text/javascript">
+            //翻页
+            function doGoPage(pageNum) {
+                document.getElementById("pageNum").value = pageNum;
+                document.forms[0].action = "${request.getContextPath}/school/photo/libraryUI.do";
+                document.forms[0].submit();
+            }
+        </script>
         <jsp:include page="/common/pageNavigator.jsp"/>
 
 

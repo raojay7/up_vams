@@ -3,6 +3,7 @@ package com.up_vams.photo.service;
 import com.up_vams.core.service.BaseService;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.userPhoto.entity.UserPhoto;
 
 import java.util.List;
 
@@ -34,4 +35,11 @@ public interface PhotoService extends BaseService<Photo>
      */
     List<Photo> selectPhotos(List<SchoolPhoto> list);
     //List<Photo> selectPageList(List<SchoolPhoto> list);没用的方法
+
+    /**
+     * 根据8条userphoto数据，来查询对应的photo
+     * @param list 前面分页查询到的list
+     * @return 得到8条照片数据
+     */
+    List<Photo> selectPhotosByUser(List<UserPhoto> list);
 }
