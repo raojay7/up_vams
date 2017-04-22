@@ -5,13 +5,13 @@
     <resultMap id="userSchoolMap" type="UserSchool">
         <id column="school_id" property="schoolId"/>
         <id column="user_id" property="userId"/>
-        <result column="coll_time" property="collTime"/>
+        <result column="collect_time" property="collectTime"/>
         <result column="state" property="usState"/>
     </resultMap>
 
     <!--用户点收藏后插入一条数据-->
     <insert id="insert" parameterType="UserSchool">
-        INSERT INTO t_r_user_school(school_id,user_id,coll_time,state) VALUES (#{schoolId},#{userId},NOW(),#{usState})
+        INSERT INTO t_r_user_school(school_id,user_id,collect_time,state) VALUES (#{schoolId},#{userId},NOW(),#{usState})
 
     </insert>
 
@@ -28,7 +28,7 @@
 
    <!-- 通过联合主键查询实体-->
     <select id="select" parameterType="UserSchool" resultMap="userSchoolMap">
-        SELECT school_id,user_id,coll_time,state FROM t_r_user_school WHERE photo_id=#{schoolId} AND user_id=#{userId}
+        SELECT school_id,user_id,collect_time,state FROM t_r_user_school WHERE photo_id=#{schoolId} AND user_id=#{userId}
 
     </select>
 

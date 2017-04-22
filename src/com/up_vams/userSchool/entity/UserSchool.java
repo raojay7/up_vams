@@ -14,7 +14,7 @@ public class UserSchool implements Serializable {
 
     private String schoolId;
 
-    private Date collTime;
+    private Date collectTime;
 
     private Integer usState;
 
@@ -42,12 +42,12 @@ public class UserSchool implements Serializable {
         this.schoolId = schoolId;
     }
 
-    public Date getCollTime() {
-        return collTime;
+    public Date getCollectTime() {
+        return collectTime;
     }
 
-    public void setCollTime(Date collTime) {
-        this.collTime = collTime;
+    public void setCollectTime(Date collectTime) {
+        this.collectTime = collectTime;
     }
 
     public Integer getUsState() {
