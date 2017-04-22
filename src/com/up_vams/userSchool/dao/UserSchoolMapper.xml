@@ -23,7 +23,7 @@
 
     <!--分页获取用户收藏照片-->
     <select id="selectPageList" parameterType="page" resultMap="userSchoolMap">
-        SELECT schoolId FROM t_r_user_school WHERE user_id=#{id} LIMIT #{start},#{pageSize}
+        SELECT school_id FROM t_r_user_school WHERE user_id=#{id} LIMIT #{start},#{pageSize}
     </select>
 
    <!-- 通过联合主键查询实体-->
