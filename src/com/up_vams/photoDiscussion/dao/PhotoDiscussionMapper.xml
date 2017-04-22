@@ -7,11 +7,13 @@
   </resultMap>
 
 
+ <!-- 用户添加评论，插入一条数据-->
   <insert id="insert" parameterType="PhotoDiscussion">
     insert into t_r_photo_discussion (discussion_id, photo_id)
     values (#{discussionId,jdbcType=VARCHAR}, #{photoId,jdbcType=VARCHAR})
   </insert>
 
+  <!--通过图片id分页查询评论列表-->
   <select id="selectPageList" parameterType="Page" resultMap="photoDiscussionMap">
 
     SELECT pd.discussion_id, pd.photo_id
@@ -19,4 +21,10 @@ FROM t_r_photo_discussion pd  inner JOIN t_discussion d
 WHERE pd.discussion_id=d.discussion_id AND pd.photo_id=#{id} order by d.floor_num  limit #{start},#{pageSize}
 
   </select>
+
+ <!-- 通过照片ID查询该照片评论总数-->
+  <select id="selectTotalRecord" parameterType="PhotoDiscussion" resultType="long">
+    SELECT count(photo_id) FROM t_r_photo_discussion WHERE photo_id=#{photoId}
+  </select>
+
 </mapper>
