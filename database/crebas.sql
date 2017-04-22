@@ -3,6 +3,10 @@
 /* Created on:     2017/4/21 20:43:37                           */
 /*==============================================================*/
 
+DROP database if EXISTS up_vams;
+
+CREATE database up_vams;
+
 
 drop table if exists t_discussion;
 
@@ -116,7 +120,7 @@ create table t_school
    active_index         int,
    introduction         text,
    photo_count          int,
-   racking              int,
+   ranking              int,
    school_id            varchar(32) not null,
    pinyin               varchar(40),
    pinyin_header        varchar(30),
