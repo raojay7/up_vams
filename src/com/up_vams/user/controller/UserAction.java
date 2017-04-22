@@ -27,6 +27,7 @@ public class UserAction
 
     @Resource
     private UserPhotoService userPhotoService;
+
     @Resource
     private PhotoService photoService;
 
@@ -51,7 +52,6 @@ public class UserAction
     {
         return "user_school";
     }
-
 
     @RequestMapping("profileUI")
     public String toProfileUI()
@@ -79,7 +79,7 @@ public class UserAction
 
     //注册
     @RequestMapping("register")
-    public String register(User user,String password1)
+    public String register(User user, String password1)
     {
         if (!StringUtils.isEmpty(user))
         {
@@ -89,14 +89,14 @@ public class UserAction
     }
 
     @RequestMapping("login")
-    public String login(User user,HttpSession httpSession)
+    public String login(User user, HttpSession httpSession)
     {
         if (!StringUtils.isEmpty(user))
         {
             User user1 = userService.select(user);
-            if (user1!=null)
+            if (user1 != null)
             {
-                httpSession.setAttribute("user",user1);
+                httpSession.setAttribute("user", user1);
             }
         }
         return "forward:/user/profileUI.do";
@@ -110,46 +110,45 @@ public class UserAction
     }
 
     @RequestMapping("update")
-    public String update(User user,HttpSession httpSession)
+    public String update(User user, HttpSession httpSession)
     {
         if (!StringUtils.isEmpty(user))
         {
             userService.update(user);
             User user1 = userService.selectByPK(user.getUserId());
-            httpSession.setAttribute("user",user1);
+            httpSession.setAttribute("user", user1);
         }
         return "redirect:/user/profileUI.do";
     }
 
     @RequestMapping("/photo/vote")
-    public String photo_vote(String photoId,HttpSession httpSession)
+    public String photo_vote(String photoId, HttpSession httpSession)
     {
         //点赞的实现
         User user = (User)httpSession.getAttribute("user");
         //1更改userphoto的状态和新增关系
-        UserPhoto userPhoto=new UserPhoto(user.getUserId(),photoId);
+        UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
         userPhoto.setUpState(1);
         int insert = userPhotoService.insert(userPhoto);
         //2判断是否插入成功，成就设置到session中
-        if (insert>=0)
+        if (insert >= 0)
         {
-            httpSession.setAttribute("userPhoto",userPhoto);
+            httpSession.setAttribute("userPhoto", userPhoto);
         }
         //3更新photo的likenum数目
         Photo photo = photoService.selectByPK(photoId);
-        if (photo.getPhotoLikeNum()==null)
+        if (photo.getPhotoLikeNum() == null)
         {
             photo.setPhotoLikeNum(0);
         }
-        photo.setPhotoLikeNum(photo.getPhotoLikeNum()+1);
+        photo.setPhotoLikeNum(photo.getPhotoLikeNum() + 1);
         photoService.update(photo);
-
 
         return "school_photo_detail";
     }
 
     @RequestMapping("/photo/vote/cancel")
-    public String photo_vote_cancel(String photoId,HttpSession httpSession)
+    public String photo_vote_cancel(String photoId, HttpSession httpSession)
     {
         //1更新点赞状态
         User user = (User)httpSession.getAttribute("user");
@@ -158,20 +157,28 @@ public class UserAction
 
         int update = userPhotoService.update(userPhoto);
 
-        if (update>=0)
+        if (update >= 0)
         {
             httpSession.setAttribute("userPhoto", userPhoto);
         }
 
         //2更新photo的likenum数目
         Photo photo = photoService.selectByPK(photoId);
-        photo.setPhotoLikeNum(photo.getPhotoLikeNum()-1);
+        Integer likeNum = photo.getPhotoLikeNum();
+        if (likeNum == null)
+        {
+            photo.setPhotoLikeNum(0);
+        }
+        else
+        {
+            photo.setPhotoLikeNum(likeNum - 1);
+        }
         photoService.update(photo);
         return "school_photo_detail";
     }
 
     @RequestMapping("/school/collection")
-    public String school_collection(String schoolId,HttpSession httpSession)
+    public String school_collection(String schoolId, HttpSession httpSession)
     {
         //收藏的实现
         User user = (User)httpSession.getAttribute("user");
@@ -180,16 +187,16 @@ public class UserAction
         userSchool.setUsState(1);
         int insert = userSchoolService.insert(userSchool);
         //2判断是否插入成功，成就设置到session中
-        if (insert>=0)
+        if (insert >= 0)
         {
-            httpSession.setAttribute("userSchool",userSchool);
+            httpSession.setAttribute("userSchool", userSchool);
         }
 
         return "school_index";
     }
 
     @RequestMapping("/school/collection/cancel")
-    public String school_collection_cancel(String schoolId,HttpSession httpSession)
+    public String school_collection_cancel(String schoolId, HttpSession httpSession)
     {
         //1更新点赞状态
         User user = (User)httpSession.getAttribute("user");
@@ -198,12 +205,11 @@ public class UserAction
 
         int update = userSchoolService.update(userSchool);
 
-        if (update>=0)
+        if (update >= 0)
         {
             httpSession.setAttribute("userSchool", userSchool);
         }
         return "school_index";
     }
-
 
 }

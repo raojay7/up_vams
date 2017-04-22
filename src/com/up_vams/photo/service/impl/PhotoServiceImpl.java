@@ -42,7 +42,7 @@ public class PhotoServiceImpl extends BaseServiceImpl<Photo> implements PhotoSer
     }
 
     @Override
-    public List<Photo> selectPageList(List<SchoolPhoto> list)
+    public List<Photo> selectPhotos(List<SchoolPhoto> list)
     {
         return photoMapper.selectPhotos(list);
     }

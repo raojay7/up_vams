@@ -76,7 +76,7 @@ public class SchoolAction
         //通过已有的参数查了8条schoolphoto数据放在list中
         List<SchoolPhoto> list = schoolService.findSchoolPhotoByPage(page);
         //再将用户学校表的8条数据放在page中，以便能够通过图片id查8张图片
-        List<Photo> photos = photoService.selectPageList(list);
+        List<Photo> photos = photoService.selectPhotos(list);
 
         //设置一些基本的属性
         Page<Photo> pageResult=new Page<>();

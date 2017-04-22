@@ -35,7 +35,7 @@ public class HomeAction
             Page<SchoolPhoto> p=new Page<>(1,5,5,null);
             p.setId(s.getSchoolId());
             List<SchoolPhoto> list = schoolService.findSchoolPhotoByPage(p);
-            List<Photo> photos = photoService.selectPageList(list);
+            List<Photo> photos = photoService.selectPhotos(list);
             //修改图片的key
             for (Photo photo1:
                 photos)
