@@ -223,12 +223,14 @@ public class UserAction
         {
             photo.setPhotoLikeNum(0);
         }
+        //会出现重复提交和并发问题
         photo.setPhotoLikeNum(photo.getPhotoLikeNum() + 1);
         photoService.update(photo);
 
         //4重设置photo
         httpSession.setAttribute("detail_photo", photo);
-        return "school_photo_detail";
+        return "redirect:/user/SchoolPhotoDetailUI.do";
+
     }
 
     @RequestMapping("/photo/revote")
@@ -256,7 +258,8 @@ public class UserAction
         photoService.update(photo);
         //4重设photo
         httpSession.setAttribute("detail_photo", photo);
-        return "school_photo_detail";
+        return "redirect:/user/SchoolPhotoDetailUI.do";
+
     }
 
     @RequestMapping("/photo/vote/cancel")
@@ -288,7 +291,7 @@ public class UserAction
         photoService.update(photo);
         //4重设photo
         httpSession.setAttribute("detail_photo", photo);
-        return "school_photo_detail";
+        return "redirect:/user/SchoolPhotoDetailUI.do";
     }
 
     @RequestMapping("/school/collection")
@@ -343,4 +346,10 @@ public class UserAction
         return "school_index";
     }
 
+
+    @RequestMapping("SchoolPhotoDetailUI")
+    public String toSchoolPhotoDetailUI()
+    {
+        return "school_photo_detail";
+    }
 }
