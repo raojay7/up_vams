@@ -21,5 +21,13 @@ public interface SchoolMapper extends BaseMapper<School> {
      */
     List<School> selectSchoolsByUser(List<UserSchool> list);
 
+    /**
+     * 根据图片id查到学校的所有
+     * @param photoId
+     * @return
+     */
+    School selectSchoolByPhotoId(String photoId);
+
+
 
 }

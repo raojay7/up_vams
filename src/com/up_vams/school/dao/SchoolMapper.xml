@@ -73,5 +73,22 @@
     </foreach>
   </select>
 
+  <select id="selectSchoolByPhotoId" parameterType="string" resultMap="SchoolResultMapWithBLOBs">
+    SELECT
+    s.school_id,
+    s.name,
+    s.page_view,
+    s.active_index,
+    s.introduction,
+    s.photo_count,
+    s.ranking,
+    s.pinyin,
+    s.pinyin_header
+    FROM t_school s INNER JOIN t_r_school_photo sp
+    WHERE s.school_id = sp.school_id AND sp.photo_id=#{photoId};
+
+
+  </select>
+
 
 </mapper>
