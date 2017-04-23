@@ -5,6 +5,7 @@ import com.up_vams.core.service.impl.BaseServiceImpl;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
+import com.up_vams.userSchool.entity.UserSchool;
 import com.up_vams.utils.ChineseToEnglish;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -63,6 +64,19 @@ public class SchoolServiceImpl extends BaseServiceImpl<School> implements School
     public Long getPhotoTotalRecord(String schoolId)
     {
         return schoolPhotoMapper.selectTotalRecord(schoolId);
+    }
+
+    @Override
+    public List<School> selectSchoolsByUser(List<UserSchool> list)
+    {
+        return schoolMapper.selectSchoolsByUser(list);
+    }
+
+    @Override
+    public School selectSchoolByPhotoId(String photoId)
+    {
+
+        return null;
     }
 
 }
