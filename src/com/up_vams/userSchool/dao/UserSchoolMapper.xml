@@ -28,7 +28,7 @@
 
    <!-- 通过联合主键查询实体-->
     <select id="select" parameterType="UserSchool" resultMap="userSchoolMap">
-        SELECT school_id,user_id,collect_time,state FROM t_r_user_school WHERE photo_id=#{schoolId} AND user_id=#{userId}
+        SELECT school_id,user_id,collect_time,state FROM t_r_user_school WHERE school_id=#{schoolId} AND user_id=#{userId}
 
     </select>
 
