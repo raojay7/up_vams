@@ -72,4 +72,10 @@ public class SchoolServiceImpl extends BaseServiceImpl<School> implements School
         return schoolMapper.selectSchoolsByUser(list);
     }
 
+    @Override
+    public School selectSchoolByPhotoId(String photoId)
+    {
+        return null;
+    }
+
 }

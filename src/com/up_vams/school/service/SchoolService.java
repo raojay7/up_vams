@@ -60,4 +60,6 @@ public interface SchoolService extends BaseService<School>
      * @return
      */
     List<School> selectSchoolsByUser(List<UserSchool> list);
+
+    School selectSchoolByPhotoId(String photoId);
 }
