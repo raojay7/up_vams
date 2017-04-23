@@ -26,6 +26,9 @@
       <if test="disContent != null">
         content = #{disContent,jdbcType=LONGVARCHAR},
       </if>
+      <if test="disFloorNum != null">
+        floor_num = #{disFloorNum,jdbcType=INTEGER},
+      </if>
     </set>
     where discussion_id = #{discussionId,jdbcType=VARCHAR}
   </update>
