@@ -10,7 +10,7 @@
   <insert id="insert">
     insert into t_r_school_photo (school_id, photo_id)
     values (#{schoolId,jdbcType=VARCHAR}, #{photoId,jdbcType=VARCHAR})
-  </insert>
+  </insert> 
 
   <!--有问题-->
   <select id="selectPhotos" parameterType="string" resultMap="schoolPhotoResultMap">
