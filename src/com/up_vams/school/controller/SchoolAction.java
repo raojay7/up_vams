@@ -40,6 +40,7 @@ public class SchoolAction
     @Resource
     private UserSchoolService userSchoolService;
 
+
     //跳转uri
     @RequestMapping("searchUI")
     public String searchUI()
@@ -133,9 +134,24 @@ public class SchoolAction
         httpSession.setAttribute("detail_photo", photo);
         User user = (User)httpSession.getAttribute("user");
         UserPhoto userPhoto = new UserPhoto(user.getUserId(), photoId);
-        UserPhoto result = userPhotoService.select(userPhoto);
+        UserPhoto upResult = userPhotoService.select(userPhoto);
+        httpSession.setAttribute("userPhoto", upResult);
+        //为了防止跳转错误，更新下学校的session
+        //根据图片查学校
+        School school = schoolService.selectSchoolByPhotoId(photoId);
+        httpSession.setAttribute("school",school);
+        List<SchoolPhoto> list = schoolService.findSchoolPhotoBySchoolId(school.getSchoolId());
+        if (list != null)
+        {
+            SchoolPhoto s = list.get(0);//得到一个学校图片实体
+            Photo p = photoService.selectSchoolMore(s.getPhotoId());
+            httpSession.setAttribute("homePhoto", p);
+        }
+        //加入用户学校的关系
+        UserSchool us=new UserSchool(user.getUserId(),school.getSchoolId());
+        UserSchool usResult = userSchoolService.select(us);
+        httpSession.setAttribute("userSchool", usResult);
 
-        httpSession.setAttribute("userPhoto", result);
         return "school_photo_detail";
     }
 
