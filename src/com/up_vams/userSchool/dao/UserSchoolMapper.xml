@@ -17,7 +17,7 @@
 
    <!-- 取消收藏后，修改记录-->
    <update  id="update" parameterType="UserSchool">
-       UPDATE t_r_user_school SET state=#{usState},vote_time=NOW() WHERE school_id=#{schoolId} AND user_id=#{userId}
+       UPDATE t_r_user_school SET state=#{usState},collect_time=NOW() WHERE school_id=#{schoolId} AND user_id=#{userId}
 
    </update>
 
