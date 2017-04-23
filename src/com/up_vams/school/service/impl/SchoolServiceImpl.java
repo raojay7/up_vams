@@ -75,6 +75,7 @@ public class SchoolServiceImpl extends BaseServiceImpl<School> implements School
     @Override
     public School selectSchoolByPhotoId(String photoId)
     {
+
         return null;
     }
 
