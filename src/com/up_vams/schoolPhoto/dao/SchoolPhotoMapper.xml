@@ -27,5 +27,5 @@
   <select id="selectTotalRecord" parameterType="string" resultType="long">
      SELECT COUNT(school_id) FROM t_r_school_photo WHERE school_id = #{schoolId};
   </select>
-
+ 
 </mapper>
