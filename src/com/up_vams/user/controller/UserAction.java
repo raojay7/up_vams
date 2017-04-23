@@ -61,6 +61,10 @@ public class UserAction
             pageNum = 1;
         }
         Long totalRecord = userPhotoService.selectTotalRecord(user.getUserId());
+        if (totalRecord==0)
+        {
+            return "user_photo";
+        }
         Page<UserPhoto> page = new Page<UserPhoto>(pageNum, 8, totalRecord, null);
         page.setId(user.getUserId());
         //通过已有的参数id(userid)查了8条userphoto数据放在list中
