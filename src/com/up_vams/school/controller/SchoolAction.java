@@ -207,7 +207,7 @@ public class SchoolAction
         User user = (User)session.getAttribute("user");
         UserSchool us=new UserSchool(user.getUserId(),schoolId);
         UserSchool result = userSchoolService.select(us);
-        session.setAttribute("userPhoto", result);
+        session.setAttribute("userSchool", result);
         return "forward:/school/index.do";
     }
 

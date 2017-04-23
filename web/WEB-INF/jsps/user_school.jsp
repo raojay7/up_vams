@@ -96,7 +96,7 @@
         <div class="fh5co-gallery">
 
             <c:forEach items="${pageResult.list}" var="school">
-                <a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${school.photo.photoId}">
+                <a class="gallery-item" href="${basePath}school/find.do?schoolId=${school.schoolId}">
                     <img src="${picPath}${school.photo.photoOssname}" alt="school_door">
                     <span class="overlay">
 						<h2>${school.schoolName}</h2>

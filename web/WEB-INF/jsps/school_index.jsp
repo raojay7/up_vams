@@ -116,12 +116,12 @@
                     </c:if>
                     <c:if test="${userSchool.usState==0}">
                         <div class="col-md-2">
-                            <a href="${basePath}user/school/recollection.do" class="btn btn-outline">收藏</a>
+                            <a href="${basePath}user/school/recollection.do?schoolId=${school.schoolId}" class="btn btn-outline">收藏</a>
                         </div>
                     </c:if>
                     <c:if test="${userSchool.usState==1}">
                         <div class="col-md-2">
-                            <a href="${basePath}user/school/collection/cancel.do" class="btn btn-outline">取消收藏</a>
+                            <a href="${basePath}user/school/collection/cancel.do?schoolId=${school.schoolId}" class="btn btn-outline">取消收藏</a>
                         </div>
                     </c:if>
 
