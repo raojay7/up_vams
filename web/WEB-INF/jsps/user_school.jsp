@@ -99,7 +99,7 @@
                 <a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${school.photo.photoId}">
                     <img src="${picPath}${school.photo.photoOssname}" alt="school_door">
                     <span class="overlay">
-						<h2>${school.schoolTitle}</h2>
+						<h2>${school.schoolName}</h2>
 						<span>${school.schoolIntroduction}</span>
 					</span>
                 </a>

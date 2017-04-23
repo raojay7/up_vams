@@ -32,7 +32,6 @@ public class BaseServiceImpl<T> implements BaseService<T>
     @Autowired
     protected SchoolPhotoMapper schoolPhotoMapper;
 
-
     @Autowired
     protected UserMapper userMapper;
 
@@ -40,6 +39,7 @@ public class BaseServiceImpl<T> implements BaseService<T>
     @Autowired
     protected UserPhotoMapper userPhotoMapper;
     //用于用户和学校的点赞关系
+    @Autowired
     protected UserSchoolMapper userSchoolMapper;
 
 

@@ -9,6 +9,8 @@ import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import com.up_vams.user.entity.User;
 import com.up_vams.userPhoto.entity.UserPhoto;
 import com.up_vams.userPhoto.service.UserPhotoService;
+import com.up_vams.userSchool.entity.UserSchool;
+import com.up_vams.userSchool.service.UserSchoolService;
 import com.up_vams.utils.OssUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,9 @@ public class SchoolAction
 
     @Resource
     private UserPhotoService userPhotoService;
+
+    @Resource
+    private UserSchoolService userSchoolService;
 
     //跳转uri
     @RequestMapping("searchUI")
@@ -198,7 +203,11 @@ public class SchoolAction
             Photo photo = photoService.selectSchoolMore(s.getPhotoId());
             session.setAttribute("homePhoto", photo);
         }
-
+        //5显示收藏状态
+        User user = (User)session.getAttribute("user");
+        UserSchool us=new UserSchool(user.getUserId(),schoolId);
+        UserSchool result = userSchoolService.select(us);
+        session.setAttribute("userPhoto", result);
         return "forward:/school/index.do";
     }
 

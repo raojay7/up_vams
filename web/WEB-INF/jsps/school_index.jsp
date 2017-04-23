@@ -111,7 +111,7 @@
 
                     <c:if test="${userSchool.usState==null}">
                     <div class="col-md-2">
-                        <a href="${basePath}user/school/collection.do" class="btn btn-outline">收藏</a>
+                        <a href="${basePath}user/school/collection.do?schoolId=${school.schoolId}" class="btn btn-outline">收藏</a>
                     </div>
                     </c:if>
                     <c:if test="${userSchool.usState==0}">

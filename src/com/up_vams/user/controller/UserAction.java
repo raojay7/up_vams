@@ -27,6 +27,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserAction
 {
+    
     @Resource
     private UserService userService;
 
@@ -59,11 +60,11 @@ public class UserAction
         {
             pageNum = 1;
         }
-        Long totalRecord = userService.selectTotalRecord(user.getUserId());
+        Long totalRecord = userPhotoService.selectTotalRecord(user.getUserId());
         Page<UserPhoto> page = new Page<UserPhoto>(pageNum, 8, totalRecord, null);
         page.setId(user.getUserId());
         //通过已有的参数id(userid)查了8条userphoto数据放在list中
-        List<UserPhoto> list = userService.findUserPhotoByUserPhotoPage(page);
+        List<UserPhoto> list = userPhotoService.findUserPhotoByUserPhotoPage(page);
         //再将用户学校表的8条数据放在page中，以便能够通过图片id查8张图片
         List<Photo> photos = photoService.selectPhotosByUser(list);
 
@@ -81,41 +82,52 @@ public class UserAction
     @RequestMapping("schoolUI")
     public String toSchoolUI(HttpSession session, Integer pageNum)
     {
-        //通过pageresult传入了当前页数
-        User user = (User)session.getAttribute("user");
+
         if (pageNum == null)
         {
             pageNum = 1;
         }
-        Long totalRecord = userService.selectTotalRecord(user.getUserId());
+        //通过pageresult传入了当前页数
+        User user = (User)session.getAttribute("user");
+
+        Long totalRecord = userSchoolService.selectTotalRecord(user.getUserId());
+
+        if (totalRecord==0)
+        {
+            return "user_school";
+        }
+
         Page<UserSchool> page = new Page<UserSchool>(pageNum, 8, totalRecord, null);
         page.setId(user.getUserId());
         //通过已有的参数id(userid)查了8条userphoto数据放在list中
-        List<UserSchool> list = userService.findUserPhotoByUserSchoolPage(page);
+        List<UserSchool> list = userSchoolService.findUserPhotoByUserSchoolPage(page);
         //再将用户学校表的8条数据放在page中，以便能够通过图片id查8张图片
-        List<School> schools = schoolService.selectSchoolsByUser(list);
-
-        //设置一些基本的属性
-        Page<School> pageResult = new Page<>();
-        pageResult.setPageNum(pageNum);
-        pageResult.setTotalRecord(totalRecord);
-        pageResult.setTotalPage(page.getTotalPage());
-        for (School school : schools)
+        if (list != null)
         {
-            //设置学校主页图片
-            List<SchoolPhoto> schoolphotos = schoolService.findSchoolPhotoBySchoolId(school.getSchoolId());
-            if (schoolphotos != null)
-            {
-                SchoolPhoto s = schoolphotos.get(0);//得到一个学校图片实体
-                Photo photo = photoService.selectSchoolMore(s.getPhotoId());
-                //将图片设置到学校中
-                school.setPhoto(photo);
-            }
-        }
-        //此时就已经分页了,在jsp中要取school中photo
-        pageResult.setList(schools);
+            List<School> schools = schoolService.selectSchoolsByUser(list);
 
-        session.setAttribute("pageResult", pageResult);
+            //设置一些基本的属性
+            Page<School> pageResult = new Page<>();
+            pageResult.setPageNum(pageNum);
+            pageResult.setTotalRecord(totalRecord);
+            pageResult.setTotalPage(page.getTotalPage());
+            for (School school : schools)
+            {
+                //设置学校主页图片
+                List<SchoolPhoto> schoolphotos = schoolService.findSchoolPhotoBySchoolId(school.getSchoolId());
+                if (schoolphotos != null)
+                {
+                    SchoolPhoto s = schoolphotos.get(0);//得到一个学校图片实体
+                    Photo photo = photoService.selectSchoolMore(s.getPhotoId());
+                    //将图片设置到学校中
+                    school.setPhoto(photo);
+                }
+            }
+            //此时就已经分页了,在jsp中要取school中photo
+            pageResult.setList(schools);
+
+            session.setAttribute("pageResult", pageResult);
+        }
         return "user_school";
     }
 
@@ -278,6 +290,7 @@ public class UserAction
     @RequestMapping("/school/collection")
     public String school_collection(String schoolId, HttpSession httpSession)
     {
+
         //收藏的实现
         User user = (User)httpSession.getAttribute("user");
         //1更改userschool的状态和新增关系
