@@ -157,15 +157,16 @@
                 </div>
             </div>
 
-            <c:if test="pageResult!=null">
+            <c:if test="${pageResult!=null}">
                 <c:forEach var="discussion" items="${pageResult.list}">
                     <div class="row">
                         <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                                ${discussion.disFloorNum}
+                                第${discussion.disFloorNum}楼
                             <p style="text-align: right">发表时间:${discussion.disCreateTime}</p>
+                            <p class="fh5co-lead">${discussion.disContent}</p>
                             <hr>
 
-                            <p><a class="btn btn-primary">发表人：${discussion.creator}</a></p>
+                            <p><a class="btn btn-primary">发表人：${discussion.creator.userName}</a></p>
                         </div>
                     </div>
                 </c:forEach>
@@ -174,7 +175,7 @@
                 //翻页
                 function doGoPage(pageNum) {
                     document.getElementById("pageNum").value = pageNum;
-                    document.forms[0].action = "${request.getContextPath}/school/photo/detail.do";
+                    document.forms[0].action = "${request.getContextPath}/school/photo/detail.do?photoId=${detail_photo.photoId}";
                     document.forms[0].submit();
                 }
             </script>
