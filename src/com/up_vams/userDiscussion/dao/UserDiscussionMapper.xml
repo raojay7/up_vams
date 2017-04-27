@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.up_vams.userDiscussion.dao.UserDiscussionMapper">
+  <resultMap id="userDiscussionMap" type="UserDiscussion">
+    <id column="discussion_id" property="discussionId" jdbcType="VARCHAR"/>
+    <id column="user_id" property="userId" jdbcType="VARCHAR"/>
+  </resultMap>
+
+
+  <!-- 用户添加评论，插入一条数据-->
+  <insert id="insert" parameterType="userDiscussion">
+    insert into t_r_user_discussion (discussion_id, user_id)
+    values (#{discussionId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="select" parameterType="string" resultMap="userDiscussionMap">
+    SELECT discussion_id, user_id FROM t_r_user_discussion WHERE
+  </select>
+
+    <!--通过图片id分页查询评论列表-->
+    <!--<select id="selectPageList" parameterType="Page" resultMap="userDiscussionMap">
+
+    SELECT pd.discussion_id, pd.user_id
+    FROM t_r_user_discussion pd  inner JOIN t_discussion d
+    WHERE pd.discussion_id=d.discussion_id AND pd.user_id=#{id} order by d.floor_num  limit #{start},#{pageSize}
+
+  </select>-->
+
+    <!-- 通过userID查询该照片评论总数-->
+    <!-- <select id="selectTotalRecord" parameterType="string" resultType="long">
+       SELECT count(user_id) FROM t_r_user_discussion WHERE user_id=#{userId}
+     </select>
+   -->
+</mapper>

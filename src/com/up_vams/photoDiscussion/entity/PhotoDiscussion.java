@@ -5,6 +5,21 @@ public class PhotoDiscussion{
 
     private String photoId;
 
+
+    public PhotoDiscussion(String photoId, String discussionId) {
+        this.discussionId = discussionId;
+        this.photoId = photoId;
+    }
+
+    public PhotoDiscussion() {
+    }
+
+
+
+    public PhotoDiscussion(String photoId) {
+        this.photoId = photoId;
+    }
+
     public String getDiscussionId() {
         return discussionId;
     }
