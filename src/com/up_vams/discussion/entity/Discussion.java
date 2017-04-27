@@ -1,5 +1,7 @@
 package com.up_vams.discussion.entity;
 
+import com.up_vams.user.entity.User;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,6 +24,16 @@ public class Discussion implements Serializable{
     //评论内容
     private String disContent;
 
+    //创造者
+    private User creator;
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
 
     public String getDiscussionId() {
         return discussionId;
