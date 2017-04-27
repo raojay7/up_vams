@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * Created by 隽 on 2017/4/27.
  */
 @Controller
-@RequestMapping("discussion")
+@RequestMapping("/discussion")
 public class DiscussionAction
 {
     @Resource
@@ -29,7 +29,7 @@ public class DiscussionAction
     @Resource
     private UserDiscussionService userDiscussionService;
 
-    @RequestMapping("submission")
+    @RequestMapping("/submission")
     public String submit(Discussion discussion,String photoId,String userId)
     {
         //1保存评论
@@ -43,7 +43,7 @@ public class DiscussionAction
         //3
 
         //4保存好后直接跳到第一页
-        return "school_photo_detail";
+        return "redirect:/school/photo/detail.do?pageNum=1&&photoId="+photoId;
     }
 
 

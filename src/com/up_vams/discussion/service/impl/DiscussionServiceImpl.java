@@ -17,8 +17,6 @@ import java.util.List;
 public class DiscussionServiceImpl extends BaseServiceImpl<Discussion> implements DiscussionService
 {
 
-    @Autowired
-    private DiscussionMapper discussionMapper;
 
     @Override
     public List<Discussion> selectDiscussions(List<PhotoDiscussion> list)

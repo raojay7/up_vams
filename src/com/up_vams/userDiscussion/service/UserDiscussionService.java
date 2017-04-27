@@ -9,5 +9,10 @@ import com.up_vams.userDiscussion.entity.UserDiscussion;
  */
 public interface UserDiscussionService extends BaseService<UserDiscussion>
 {
+    /**
+     * 通过评论的id查对应的创建人
+     * @param discussionId
+     * @return 创建人
+     */
     User selectUserByDiscussion(String discussionId);
 }

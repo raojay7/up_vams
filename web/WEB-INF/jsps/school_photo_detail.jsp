@@ -157,19 +157,19 @@
                 </div>
             </div>
 
+            <c:if test="pageResult!=null">
+                <c:forEach var="discussion" items="${pageResult.list}">
+                    <div class="row">
+                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                ${discussion.disFloorNum}
+                            <p style="text-align: right">发表时间:${discussion.disCreateTime}</p>
+                            <hr>
 
-            <c:forEach var="discussion" items="pageResult">
-                <div class="row">
-                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                            ${discussion.disFloorNum}
-                        <p style="text-align: right">发表时间:${discussion.disCreateTime}</p>
-                        <hr>
-
-                        <p><a class="btn btn-primary">发表人：${discussion.creator}</a></p>
+                            <p><a class="btn btn-primary">发表人：${discussion.creator}</a></p>
+                        </div>
                     </div>
-                </div>
-            </c:forEach>
-
+                </c:forEach>
+            </c:if>
             <script type="text/javascript">
                 //翻页
                 function doGoPage(pageNum) {
@@ -181,12 +181,14 @@
             <jsp:include page="/common/pageNavigator.jsp"/>
 
 
-            <form action="" role="form">
+            <form action="/discussion/submission.do" role="form">
 
                 <div class="form-group">
                     <label class="control-label">评论</label>
-                    <textarea class="form-control" placeholder="说点什么吧..."></textarea>
+                    <textarea class="form-control" placeholder="说点什么吧..." name="disContent"></textarea>
                 </div>
+                <input hidden name="photoId" value="${detail_photo.photoId}">
+                <input hidden name="userId" value="${user.userId}">
                 <button type="submit" class="btn btn-default">提交</button>
             </form>
 

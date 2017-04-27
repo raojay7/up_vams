@@ -3,10 +3,13 @@ package com.up_vams.core.service.impl;
 import com.up_vams.core.dao.BaseMapper;
 import com.up_vams.core.entity.Page;
 import com.up_vams.core.service.BaseService;
+import com.up_vams.discussion.dao.DiscussionMapper;
 import com.up_vams.photo.dao.PhotoMapper;
+import com.up_vams.photoDiscussion.dao.PhotoDiscussionMapper;
 import com.up_vams.school.dao.SchoolMapper;
 import com.up_vams.schoolPhoto.dao.SchoolPhotoMapper;
 import com.up_vams.user.dao.UserMapper;
+import com.up_vams.userDiscussion.dao.UserDiscussionMapper;
 import com.up_vams.userPhoto.dao.UserPhotoMapper;
 import com.up_vams.userSchool.dao.UserSchoolMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +45,17 @@ public class BaseServiceImpl<T> implements BaseService<T>
     @Autowired
     protected UserSchoolMapper userSchoolMapper;
 
+    //用于评论
+    @Autowired
+    protected DiscussionMapper discussionMapper;
 
+    //用于用户和评论的关系
+    @Autowired
+    protected UserDiscussionMapper userDiscussionMapper;
+
+    //用于评论和图片的关系
+    @Autowired
+    protected PhotoDiscussionMapper photoDiscussionMapper;
 
     @PostConstruct//在构造方法后，初化前执行
     private void initBaseMapper() throws Exception{
