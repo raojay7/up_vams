@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 </head>
 <body>
-ytfyf
+<!--//img标签里加onload="change(this)"     -->
+<img onload="change(this)" src="http://cxoss.oss-cn-shanghai.aliyuncs.com/ea8091ac2b6d4da7a224cf445d5ca660.png" id="image" >
 
-gyt
+<script>
+    // 设置延时保证图片加载完成
+   function change(objpic) {
+        var
+                real_width,
+                real_height,
+                _im         = document.getElementById('image'),
+                im          = document.createElement('img');
+        im.src      = _im.src,
+                real_width  = im.width,
+                real_height = im.height;
 
+        real_width=real_width/(real_height/200);
+        real_height=200;
+         objpic.height=real_height;
+         objpic.width=real_width;
+        alert(real_width+'\n'+real_height);
+    };
+</script>
 </body>
 </html>
