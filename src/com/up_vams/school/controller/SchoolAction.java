@@ -11,6 +11,8 @@ import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import com.up_vams.user.entity.User;
+import com.up_vams.userDiscussion.entity.UserDiscussion;
+import com.up_vams.userDiscussion.service.UserDiscussionService;
 import com.up_vams.userPhoto.entity.UserPhoto;
 import com.up_vams.userPhoto.service.UserPhotoService;
 import com.up_vams.userSchool.entity.UserSchool;
@@ -49,6 +51,9 @@ public class SchoolAction
 
     @Resource
     private PhotoDiscussionService photoDiscussionService;
+
+    @Resource
+    private UserDiscussionService userDiscussionService;
 
     //跳转uri
     @RequestMapping("searchUI")
@@ -179,9 +184,9 @@ public class SchoolAction
         for (Discussion discussion:discussions)
         {
             //在评论用户表中查询
-
+            User user1=userDiscussionService.selectUserByDiscussion(discussion.getDiscussionId());
             //将查询的结果：评论人信息放在discussion的一个user属性（有他的id，名字）中
-
+            discussion.setCreator(user1);
             //设置楼层数
             discussion.setDisFloorNum(start++);
         }

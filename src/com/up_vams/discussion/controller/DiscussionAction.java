@@ -4,6 +4,8 @@ import com.up_vams.discussion.entity.Discussion;
 import com.up_vams.discussion.service.DiscussionService;
 import com.up_vams.photoDiscussion.entity.PhotoDiscussion;
 import com.up_vams.photoDiscussion.service.PhotoDiscussionService;
+import com.up_vams.userDiscussion.entity.UserDiscussion;
+import com.up_vams.userDiscussion.service.UserDiscussionService;
 import com.up_vams.utils.OssUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,12 @@ public class DiscussionAction
     @Resource
     private PhotoDiscussionService photoDiscussionService;
 
+
+    @Resource
+    private UserDiscussionService userDiscussionService;
+
     @RequestMapping("submission")
-    public String submit(Discussion discussion,String photoId)
+    public String submit(Discussion discussion,String photoId,String userId)
     {
         //1保存评论
         discussion.setDiscussionId(OssUtils.generateKey());
@@ -32,7 +38,7 @@ public class DiscussionAction
 
         //2保存关联关系
         photoDiscussionService.insert(new PhotoDiscussion(photoId,discussion.getDiscussionId()));
-
+        userDiscussionService.insert(new UserDiscussion(userId,discussion.getDiscussionId()));
 
         //3
 
