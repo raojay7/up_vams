@@ -11,7 +11,6 @@ import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
 import com.up_vams.user.entity.User;
-import com.up_vams.userDiscussion.entity.UserDiscussion;
 import com.up_vams.userDiscussion.service.UserDiscussionService;
 import com.up_vams.userPhoto.entity.UserPhoto;
 import com.up_vams.userPhoto.service.UserPhotoService;
@@ -172,7 +171,13 @@ public class SchoolAction
         {
             pageNum = 1;
         }
-        Long totalRecord = discussionService.selectTotalRecord(photoId);
+        Long totalRecord = photoDiscussionService.selectTotalRecord(photoId);
+        if (totalRecord==0)
+        {
+            //清空page
+            httpSession.setAttribute("pageResult", null);
+            return "school_photo_detail";
+        }
         Page<PhotoDiscussion> page = new Page<PhotoDiscussion>(pageNum, 8, totalRecord, null);
         page.setId(photoId);
         List<PhotoDiscussion> pdList = photoDiscussionService.selectPageList(page);
