@@ -1,8 +1,12 @@
 package com.up_vams.school.controller;
 
 import com.up_vams.core.entity.Page;
+import com.up_vams.discussion.entity.Discussion;
+import com.up_vams.discussion.service.DiscussionService;
 import com.up_vams.photo.entity.Photo;
 import com.up_vams.photo.service.PhotoService;
+import com.up_vams.photoDiscussion.entity.PhotoDiscussion;
+import com.up_vams.photoDiscussion.service.PhotoDiscussionService;
 import com.up_vams.school.entity.School;
 import com.up_vams.school.service.SchoolService;
 import com.up_vams.schoolPhoto.entity.SchoolPhoto;
@@ -40,6 +44,11 @@ public class SchoolAction
     @Resource
     private UserSchoolService userSchoolService;
 
+    @Resource
+    private DiscussionService discussionService;
+
+    @Resource
+    private PhotoDiscussionService photoDiscussionService;
 
     //跳转uri
     @RequestMapping("searchUI")
@@ -128,7 +137,7 @@ public class SchoolAction
     }
 
     @RequestMapping("photo/detail")
-    public String photoDetailUI(String photoId, HttpSession httpSession)
+    public String photoDetailUI(String photoId, HttpSession httpSession,Integer pageNum)
     {
         Photo photo = photoService.selectByPK(photoId);
         httpSession.setAttribute("detail_photo", photo);
@@ -151,6 +160,40 @@ public class SchoolAction
         UserSchool us=new UserSchool(user.getUserId(),school.getSchoolId());
         UserSchool usResult = userSchoolService.select(us);
         httpSession.setAttribute("userSchool", usResult);
+
+        //由于在图片细节页面显示了评论信息，所以同时应该在该页面加入分页信息
+        //通过pageresult传入了当前页数
+        if (pageNum == null)
+        {
+            pageNum = 1;
+        }
+        Long totalRecord = discussionService.selectTotalRecord(photoId);
+        Page<PhotoDiscussion> page = new Page<PhotoDiscussion>(pageNum, 8, totalRecord, null);
+        page.setId(photoId);
+        List<PhotoDiscussion> pdList = photoDiscussionService.selectPageList(page);
+        List<Discussion> discussions = discussionService.selectDiscussions(pdList);
+
+        //将discussion中的每个创建人绑定
+        //设置楼层数
+        Integer start=page.getStart()+1;
+        for (Discussion discussion:discussions)
+        {
+            //在评论用户表中查询
+
+            //将查询的结果：评论人信息放在discussion的一个user属性（有他的id，名字）中
+
+            //设置楼层数
+            discussion.setDisFloorNum(start++);
+        }
+
+        //设置一些基本的属性
+        Page<Discussion> pageResult = new Page<>();
+        pageResult.setPageNum(pageNum);
+        pageResult.setTotalRecord(totalRecord);
+        pageResult.setTotalPage(page.getTotalPage());
+        //此时就已经分页了
+        pageResult.setList(discussions);
+        httpSession.setAttribute("pageResult", pageResult);
 
         return "school_photo_detail";
     }

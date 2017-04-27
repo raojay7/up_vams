@@ -103,8 +103,8 @@
                 <a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${photo.photoId}">
                     <img src="${picPath}${photo.photoOssname}" alt="school_door">
                     <span class="overlay">
-						<h2>Photo</h2>
-						<span>school door</span>
+						<h2>${photo.photoTitle}</h2>
+						<span>${photo.photoIntroduction}</span>
 					</span>
                 </a>
             </c:forEach>
@@ -131,6 +131,8 @@
 
 
 </div>
+
+
 
 <!-- jQuery -->
 <script src="${basePath}lib_two/js/jquery.min.js"></script>

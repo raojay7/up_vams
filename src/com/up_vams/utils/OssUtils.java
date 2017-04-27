@@ -125,6 +125,8 @@ public class OssUtils
 
     public static void main(String[] args)
     {
-
+        OSSClient client = OssUtils.getClient();
+        OssUtils.listEveryObject(client);
+        client.shutdown();
     }
 }

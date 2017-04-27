@@ -158,69 +158,30 @@
             </div>
 
 
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    第 1 楼
-                    <p style="text-align: right">发表时间:2016-10-20</p>
-                    <hr>
-                    <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                        large language ocean.</p>
-                    <p><a class="btn btn-primary">发表人：aa</a></p>
+            <c:forEach var="discussion" items="pageResult">
+                <div class="row">
+                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                            ${discussion.disFloorNum}
+                        <p style="text-align: right">发表时间:${discussion.disCreateTime}</p>
+                        <hr>
+
+                        <p><a class="btn btn-primary">发表人：${discussion.creator}</a></p>
+                    </div>
                 </div>
-            </div>
+            </c:forEach>
 
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    第 2 楼
-                    <hr>
-
-                    <p style="text-align: right">发表时间:2016-10-20</p>
-                    <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                        large language ocean.</p>
-                    <p><a class="btn btn-primary">发表人：aa</a></p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    第 3 楼
-
-                    <p style="text-align: right">发表时间:2016-10-20</p>
-                    <hr>
-                    <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                        large language ocean.</p>
-                    <p><a class="btn btn-primary">发表人：aa</a></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    第 4 楼
-
-                    <p style="text-align: right">发表时间:2016-10-20</p>
-                    <hr>
-                    <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                        large language ocean.</p>
-                    <p><a class="btn btn-primary">发表人：aa</a></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    第 5 楼
-
-                    <p style="text-align: right">发表时间:2016-10-20</p>
-                    <hr>
-                    <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                        large language ocean.</p>
-                    <p><a class="btn btn-primary">发表人：aa</a></p>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <p class="text-center"><a href="portfolio.html" class="btn btn-primary btn-outline">更多评论</a></p>
-            </div>
+            <script type="text/javascript">
+                //翻页
+                function doGoPage(pageNum) {
+                    document.getElementById("pageNum").value = pageNum;
+                    document.forms[0].action = "${request.getContextPath}/school/photo/detail.do";
+                    document.forms[0].submit();
+                }
+            </script>
+            <jsp:include page="/common/pageNavigator.jsp"/>
 
 
-            <form role="form">
+            <form action="" role="form">
 
                 <div class="form-group">
                     <label class="control-label">评论</label>
