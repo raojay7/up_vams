@@ -10,9 +10,9 @@
 
 
   <insert id="insert" parameterType="Discussion">
-    insert into t_discussion (discussion_id, floor_num, create_time, 
+    insert into t_discussion (discussion_id, floor_num, create_time,
       content)
-    values (#{discussionId,jdbcType=VARCHAR}, #{disFloorNum,jdbcType=INTEGER}, #{disCreateTime,jdbcType=DATE}, 
+    values (#{discussionId,jdbcType=VARCHAR}, #{disFloorNum,jdbcType=INTEGER}, NOW(),
       #{disContent,jdbcType=LONGVARCHAR})
   </insert>
 
@@ -21,7 +21,7 @@
     update t_discussion
     <set>
       <if test="disCreateTime != null">
-        create_time = #{disCreateTime,jdbcType=DATE},
+        create_time = NOW(),
       </if>
       <if test="disContent != null">
         content = #{disContent,jdbcType=LONGVARCHAR},
