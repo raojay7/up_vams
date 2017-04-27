@@ -17,7 +17,16 @@
     SELECT discussion_id, user_id FROM t_r_user_discussion WHERE
   </select>
 
-    <!--通过图片id分页查询评论列表-->
+
+  <select id="selectUserByDiscussion"  parameterType="string" resultMap="com.up_vams.user.dao.UserMapper.userResultMap">
+    SELECT
+        u.user_id, u.user_name
+    FROM t_user u
+    INNER JOIN t_r_user_discussion ud
+    WHERE u.user_id= ud.user_id AND ud.discussion_id=#{discussionId}
+  </select>
+
+  <!--通过图片id分页查询评论列表-->
     <!--<select id="selectPageList" parameterType="Page" resultMap="userDiscussionMap">
 
     SELECT pd.discussion_id, pd.user_id

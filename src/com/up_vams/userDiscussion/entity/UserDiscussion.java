@@ -12,6 +12,15 @@ public class UserDiscussion implements Serializable {
     private String userId;
     private String discussionId;
 
+    public UserDiscussion(String userId, String discussionId) {
+
+        this.userId = userId;
+        this.discussionId = discussionId;
+    }
+
+    public UserDiscussion() {
+    }
+
     public String getUserId() {
         return userId;
     }
