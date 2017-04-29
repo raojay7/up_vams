@@ -112,7 +112,7 @@
 									dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
 								</p>
 								<p>
-									<a class="btn btn-lg btn-outline">前往游览</a>
+									<a href="${bathPath}home3D.do" class="btn btn-lg btn-outline">前往游览</a>
 								</p>
 							</div>
 						</div>

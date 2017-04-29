@@ -101,7 +101,7 @@
 
             <c:forEach items="${pageResult.list}" var="photo">
                 <a class="gallery-item" href="${basePath}school/photo/detail.do?photoId=${photo.photoId}">
-                    <img src="${picPath}${photo.photoOssname}" alt="school_door">
+                    <img onload="change(this)" src="${picPath}${photo.photoOssname}" alt="school_door">
                     <span class="overlay">
 						<h2>${photo.photoTitle}</h2>
 						<span>${photo.photoIntroduction}</span>
@@ -122,7 +122,6 @@
         <jsp:include page="/common/pageNavigator.jsp"/>
 
 
-
         <br>
         <br>
         <br>
@@ -132,6 +131,26 @@
 
 </div>
 
+<script>
+    // 设置延时保证图片加载完成
+    function change(objpic) {
+        var
+                real_width,
+                real_height,
+                _im = new Image();
+        _im.src = objpic.src;
+        im = document.createElement('img');
+        im.src = _im.src,
+                real_width = im.width,
+                real_height = im.height;
+
+        real_width = real_width / (real_height / 200);
+        real_height = 200;
+        objpic.height = real_height;
+        objpic.width = real_width;
+        //alert(real_width + '\n' + real_height);
+    }
+</script>
 
 
 <!-- jQuery -->

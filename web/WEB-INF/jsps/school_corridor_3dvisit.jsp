@@ -112,7 +112,7 @@
 									dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
 								</p>
 								<p>
-									<a class="btn btn-lg btn-outline" href="${basePath}photo/to3dfloor.do">前往游览</a>
+									<a class="btn btn-lg btn-outline" href="${request.getContextPath}/photo/to3dfloor.do">前往游览</a>
 								</p>
 							</div>
 						</div>
